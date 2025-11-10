@@ -1,60 +1,60 @@
-import { NextRequest } from "next/server";
+import type { NextRequest } from "next/server";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 import { validateBaseUrl } from "@/utils/validateBaseUrl";
 import { sanitizeUtmParams } from "@/utils/sanitizeUtmParams";
 import { buildUtmUrl } from "@/utils/buildUtmUrl";
 import { detectPlatformParams } from "@/utils/detectPlatformParams";
-import type { ApiError, UtmParams } from "@/types/utm";
+import type { UtmParams } from "@/types/utm";
 
 const REQUIRED_UTM_FIELDS: Array<keyof UtmParams> = [
   "utm_source",
   "utm_medium",
-  "utm_campaign"
+  "utm_campaign",
 ];
 
-const json = (body: unknown, init?: ResponseInit) => Response.json(body, init);
+const respond = (body: unknown, init?: ResponseInit) => Response.json(body, init);
 
 const missingEnvResponse = () =>
-  json(
+  respond(
     {
       ok: false,
       code: "MISSING_ENV",
-      message: "Supabase 환경 변수가 설정되지 않았습니다."
+      message: "Supabase 환경 변수가 설정되지 않았습니다.",
     },
-    { status: 500 }
+    { status: 500 },
   );
 
 const jsonParseErrorResponse = () =>
-  json(
+  respond(
     {
       ok: false,
       code: "INVALID_JSON",
-      message: "유효한 JSON 요청 본문이 필요합니다."
+      message: "유효한 JSON 요청 본문이 필요합니다.",
     },
-    { status: 400 }
+    { status: 400 },
   );
 
 const missingFieldsResponse = (fields: string[]) =>
-  json(
+  respond(
     {
       ok: false,
       code: "MISSING_FIELD",
-      message: `${fields.join(", ")} 필수 파라미터가 누락되었습니다.`
+      message: `${fields.join(", ")} 필수 파라미터가 누락되었습니다.`,
     },
-    { status: 400 }
+    { status: 400 },
   );
 
 const invalidUrlResponse = (reason: string) =>
-  json(
+  respond(
     {
       ok: false,
       code: "INVALID_URL",
-      message: `base_url이 유효하지 않습니다: ${reason}`
+      message: `base_url이 유효하지 않습니다: ${reason}`,
     },
-    { status: 400 }
+    { status: 400 },
   );
 
-export async function POST(request: NextRequest) {
+export async function POST(req: NextRequest) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
 
   let payload: Record<string, unknown>;
   try {
-    payload = await request.json();
+    payload = await req.json();
   } catch {
     return jsonParseErrorResponse();
   }
@@ -90,14 +90,11 @@ export async function POST(request: NextRequest) {
       typeof payload.utm_source_platform === "string"
         ? payload.utm_source_platform
         : undefined,
-    utm_id:
-      typeof payload.utm_id === "string" ? payload.utm_id : undefined
+    utm_id: typeof payload.utm_id === "string" ? payload.utm_id : undefined,
   };
 
   const sanitizedUtm = sanitizeUtmParams(utmInput);
-  const missingRequired = REQUIRED_UTM_FIELDS.filter(
-    (key) => !sanitizedUtm[key]
-  );
+  const missingRequired = REQUIRED_UTM_FIELDS.filter((key) => !sanitizedUtm[key]);
 
   if (missingRequired.length > 0) {
     return missingFieldsResponse(missingRequired);
@@ -105,7 +102,7 @@ export async function POST(request: NextRequest) {
 
   const { finalUrl } = buildUtmUrl(validation.url.toString(), sanitizedUtm);
   const platformInfo = detectPlatformParams(finalUrl);
-  const { baseUrl: detectedBaseUrl, ...platformDetails } = platformInfo;
+  const { baseUrl: _baseUrlDiscard, ...platformDetails } = platformInfo;
   const hasPlatformDetails = Object.values(platformDetails).some((value) => {
     if (value === undefined || value === null) {
       return false;
@@ -128,47 +125,47 @@ export async function POST(request: NextRequest) {
         utm_source_platform: sanitizedUtm.utm_source_platform ?? null,
         utm_id: sanitizedUtm.utm_id ?? null,
         meta_params: hasPlatformDetails ? platformInfo : null,
-        final_url: finalUrl
+        final_url: finalUrl,
       })
       .select("id")
       .single();
 
     if (error || !data) {
-      return json(
+      return respond(
         {
           ok: false,
           code: "DB_INSERT_ERROR",
-          message: error?.message ?? "저장 중 오류가 발생했습니다."
+          message: error?.message ?? "저장 중 오류가 발생했습니다.",
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
-    return json(
+    return respond(
       {
         ok: true,
         id: data.id,
         final_url: finalUrl,
-        message: "UTM 생성 및 저장 완료"
+        message: "UTM 생성 및 저장 완료",
       },
-      { status: 201 }
+      { status: 201 },
     );
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "알 수 없는 오류가 발생했습니다.";
 
-    return json(
+    return respond(
       {
         ok: false,
         code: "DB_INSERT_ERROR",
-        message
+        message,
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
 
-export async function GET(request: NextRequest) {
+export async function GET(req: NextRequest) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
@@ -176,19 +173,19 @@ export async function GET(request: NextRequest) {
     return missingEnvResponse();
   }
 
-  const limitParam = request.nextUrl.searchParams.get("limit");
+  const limitParam = req.nextUrl.searchParams.get("limit");
   let limit = 10;
 
   if (limitParam) {
     const parsed = Number.parseInt(limitParam, 10);
     if (!Number.isFinite(parsed) || parsed <= 0) {
-      return json(
+      return respond(
         {
           ok: false,
           code: "INVALID_QUERY",
-          message: "limit은 양의 정수여야 합니다."
+          message: "limit은 양의 정수여야 합니다.",
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -201,37 +198,37 @@ export async function GET(request: NextRequest) {
     const { data, error } = await supabase
       .from("fact_utm_log")
       .select(
-        "id, created_at, base_url, utm_source, utm_medium, utm_campaign, utm_content, utm_term, utm_source_platform, utm_id, final_url, meta_params"
+        "id, created_at, base_url, utm_source, utm_medium, utm_campaign, utm_content, utm_term, utm_source_platform, utm_id, final_url, meta_params",
       )
       .order("created_at", { ascending: false })
       .limit(limit);
 
     if (error) {
-      return json(
+      return respond(
         {
           ok: false,
           code: "DB_QUERY_ERROR",
-          message: error.message
+          message: error.message,
         },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
-    return json({
+    return respond({
       ok: true,
-      items: data ?? []
+      items: data ?? [],
     });
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "알 수 없는 오류가 발생했습니다.";
 
-    return json(
+    return respond(
       {
         ok: false,
         code: "DB_QUERY_ERROR",
-        message
+        message,
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
