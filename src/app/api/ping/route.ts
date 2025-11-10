@@ -1,12 +1,12 @@
-import { NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 
-export async function GET() {
+export async function GET(_request: NextRequest) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!url || !anonKey) {
-    return NextResponse.json(
+    return Response.json(
       {
         ok: false,
         code: "MISSING_ENV",
@@ -24,7 +24,7 @@ export async function GET() {
       .limit(1);
 
     if (error) {
-      return NextResponse.json(
+      return Response.json(
         {
           ok: false,
           code: "DB_CONN_ERROR",
@@ -34,7 +34,7 @@ export async function GET() {
       );
     }
 
-    return NextResponse.json({
+    return Response.json({
       ok: true,
       message: "Supabase 연결이 정상입니다."
     });
@@ -42,7 +42,7 @@ export async function GET() {
     const message =
       error instanceof Error ? error.message : "알 수 없는 오류가 발생했습니다.";
 
-    return NextResponse.json(
+    return Response.json(
       {
         ok: false,
         code: "DB_CONN_ERROR",

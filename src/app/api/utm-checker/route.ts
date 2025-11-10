@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 import { validateBaseUrl } from "@/utils/validateBaseUrl";
 import { sanitizeUtmParams } from "@/utils/sanitizeUtmParams";
@@ -12,8 +12,10 @@ const REQUIRED_UTM_FIELDS: Array<keyof UtmParams> = [
   "utm_campaign"
 ];
 
+const json = (body: unknown, init?: ResponseInit) => Response.json(body, init);
+
 const missingEnvResponse = () =>
-  NextResponse.json<ApiError>(
+  json(
     {
       ok: false,
       code: "MISSING_ENV",
@@ -23,7 +25,7 @@ const missingEnvResponse = () =>
   );
 
 const jsonParseErrorResponse = () =>
-  NextResponse.json<ApiError>(
+  json(
     {
       ok: false,
       code: "INVALID_JSON",
@@ -33,7 +35,7 @@ const jsonParseErrorResponse = () =>
   );
 
 const missingFieldsResponse = (fields: string[]) =>
-  NextResponse.json<ApiError>(
+  json(
     {
       ok: false,
       code: "MISSING_FIELD",
@@ -43,7 +45,7 @@ const missingFieldsResponse = (fields: string[]) =>
   );
 
 const invalidUrlResponse = (reason: string) =>
-  NextResponse.json<ApiError>(
+  json(
     {
       ok: false,
       code: "INVALID_URL",
@@ -103,6 +105,13 @@ export async function POST(request: NextRequest) {
 
   const { finalUrl } = buildUtmUrl(validation.url.toString(), sanitizedUtm);
   const platformInfo = detectPlatformParams(finalUrl);
+  const { baseUrl: detectedBaseUrl, ...platformDetails } = platformInfo;
+  const hasPlatformDetails = Object.values(platformDetails).some((value) => {
+    if (value === undefined || value === null) {
+      return false;
+    }
+    return String(value).trim().length > 0;
+  });
 
   try {
     const supabase = createSupabaseServerClient({ url, anonKey });
@@ -118,17 +127,14 @@ export async function POST(request: NextRequest) {
         utm_term: sanitizedUtm.utm_term ?? null,
         utm_source_platform: sanitizedUtm.utm_source_platform ?? null,
         utm_id: sanitizedUtm.utm_id ?? null,
-        meta_params:
-          Object.keys(platformInfo.detected).length > 0
-            ? platformInfo
-            : null,
+        meta_params: hasPlatformDetails ? platformInfo : null,
         final_url: finalUrl
       })
       .select("id")
       .single();
 
     if (error || !data) {
-      return NextResponse.json<ApiError>(
+      return json(
         {
           ok: false,
           code: "DB_INSERT_ERROR",
@@ -138,7 +144,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    return NextResponse.json(
+    return json(
       {
         ok: true,
         id: data.id,
@@ -151,7 +157,7 @@ export async function POST(request: NextRequest) {
     const message =
       error instanceof Error ? error.message : "알 수 없는 오류가 발생했습니다.";
 
-    return NextResponse.json<ApiError>(
+    return json(
       {
         ok: false,
         code: "DB_INSERT_ERROR",
@@ -176,7 +182,7 @@ export async function GET(request: NextRequest) {
   if (limitParam) {
     const parsed = Number.parseInt(limitParam, 10);
     if (!Number.isFinite(parsed) || parsed <= 0) {
-      return NextResponse.json<ApiError>(
+      return json(
         {
           ok: false,
           code: "INVALID_QUERY",
@@ -201,7 +207,7 @@ export async function GET(request: NextRequest) {
       .limit(limit);
 
     if (error) {
-      return NextResponse.json<ApiError>(
+      return json(
         {
           ok: false,
           code: "DB_QUERY_ERROR",
@@ -211,7 +217,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    return NextResponse.json({
+    return json({
       ok: true,
       items: data ?? []
     });
@@ -219,7 +225,7 @@ export async function GET(request: NextRequest) {
     const message =
       error instanceof Error ? error.message : "알 수 없는 오류가 발생했습니다.";
 
-    return NextResponse.json<ApiError>(
+    return json(
       {
         ok: false,
         code: "DB_QUERY_ERROR",

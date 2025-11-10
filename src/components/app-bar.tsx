@@ -26,7 +26,7 @@ export function AppBar() {
             Home
           </Link>
           <Link
-            href="/utm"
+            href="/utmchecker"
             className="rounded-full border border-border bg-primary px-3 py-1.5 text-primary-foreground transition hover:bg-primary/90"
           >
             UTM Lab
