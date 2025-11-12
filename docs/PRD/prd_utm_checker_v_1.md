@@ -2,6 +2,9 @@
 
 ## 1. 개요 (Overview)
 **서비스명:** Start Marketing – UTM Checker  
+**URL:**
+- KOR 버전 : /ko/utmchecker
+- ENG 버전 : /en/utmchecker
 **목표:**  
 마케터가 랜딩페이지 URL을 입력하면,  
 자동으로 **Google Analytics 4(이하 GA4)** 표준 UTM 파라미터를 생성하고,  
@@ -67,8 +70,29 @@ Start Marketing의 UTM Checker는 이 항목들을 기본값으로 사용한다.
 
 ---
 
-### 4.3 데이터베이스 스키마 (Supabase / PostgreSQL)
+### 4.3 파라미터 표시 규칙 (UI 메타 정보)
 
+URL 검사 결과 영역에는 감지된 파라미터별로 “수집 가능 여부”와 “플랫폼 문구”를 함께 보여준다. 표준은 아래 매핑을 따른다.
+
+| 구분 | 파라미터 키 | 표시 문구 | 배지 색상/스타일 |
+|------|-------------|-----------|------------------|
+| GA4 기본 수집 | utm_source, utm_medium, utm_campaign | `GA4 기본 수집 항목` | 녹색 배지(예: bg-emerald-100 / text-emerald-700) |
+| GA4 선택 수집 | utm_content, utm_term, utm_source_platform, utm_id | `GA4 선택 수집 항목` | 회색 배지(예: bg-slate-100 / text-slate-700) |
+| 메타 광고 | fbclid | `Meta/Facebook Ads 자동 매핑` | 파랑 배지 |
+| 구글 광고 | gclid | `Google Ads 자동 매핑` | 노랑 배지 |
+| 네이버 광고 | n_media, n_query, n_ad_group, n_campaign, n_rank | `네이버 검색광고 추적 파라미터` | 연두 배지 |
+| 카카오 광고 | k_campaign, k_creative, k_medium, k_keyword | `카카오 광고 추적 파라미터` | 주황 배지 |
+| 크리테오 | criteo_p, criteo_c, criteo_r | `Criteo 리타게팅 파라미터` | 보라 배지 |
+| 기타 | 그 외 키 | `커스텀 파라미터` | 테두리만 있는 기본 스타일 |
+
+표시는 다음 규칙을 따른다.
+- 배열 순서는 GA4 기본 ▶ GA4 선택 ▶ 플랫폼별 ▶ 기타 순으로 맞춘다.
+- 메시지 하단에는 “필수 UTM 미존재” 등의 경고 문구를 그대로 유지한다.
+- 새로운 파라미터가 추가되면 이 표에 행을 추가하고, UI도 동일한 로직을 따르도록 한다.
+
+---
+
+### 4.4 데이터베이스 스키마 (Supabase / PostgreSQL)
 **테이블명:** `fact_utm_log`
 
 ```sql

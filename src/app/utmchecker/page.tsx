@@ -12,15 +12,109 @@ type ResultState =
       utmParams: Record<string, string>;
     };
 
+type ParamMeta = {
+  label: string;
+  badgeClass: string;
+  order: number;
+};
+
 const REQUIRED_KEYS = ["utm_source", "utm_medium", "utm_campaign"] as const;
+
+const PARAM_GROUPS: Array<{ keys: string[]; meta: ParamMeta }> = [
+  {
+    keys: ["utm_source", "utm_medium", "utm_campaign"],
+    meta: {
+      label: "GA4 기본 수집 항목",
+      badgeClass: "",
+      order: 0,
+    },
+  },
+  {
+    keys: ["utm_content", "utm_term", "utm_source_platform", "utm_id"],
+    meta: {
+      label: "GA4 선택 수집 항목",
+      badgeClass: "",
+      order: 1,
+    },
+  },
+  {
+    keys: ["fbclid"],
+    meta: {
+      label: "Meta/Facebook Ads 자동 매핑",
+      badgeClass: "",
+      order: 2,
+    },
+  },
+  {
+    keys: ["gclid"],
+    meta: {
+      label: "Google Ads 자동 매핑",
+      badgeClass: "",
+      order: 3,
+    },
+  },
+  {
+    keys: ["n_media", "n_query", "n_ad_group", "n_campaign", "n_rank"],
+    meta: {
+      label: "네이버 검색광고 추적 파라미터",
+      badgeClass: "",
+      order: 4,
+    },
+  },
+  {
+    keys: ["k_campaign", "k_creative", "k_medium", "k_keyword"],
+    meta: {
+      label: "카카오 광고 추적 파라미터",
+      badgeClass: "",
+      order: 5,
+    },
+  },
+  {
+    keys: ["criteo_p", "criteo_c", "criteo_r"],
+    meta: {
+      label: "Criteo 리타게팅 파라미터",
+      badgeClass: "",
+      order: 6,
+    },
+  },
+];
+
+const PARAM_META_MAP = PARAM_GROUPS.reduce<Record<string, ParamMeta>>((acc, group) => {
+  group.keys.forEach((key) => {
+    acc[key] = group.meta;
+  });
+  return acc;
+}, {});
+
+const DEFAULT_META: ParamMeta = {
+  label: "커스텀 파라미터",
+  badgeClass: "",
+  order: 999,
+};
 
 export default function UtmCheckerPage() {
   const [url, setUrl] = useState("");
   const [result, setResult] = useState<ResultState>({ status: "idle" });
 
   const entries = useMemo(() => {
-    if (result.status !== "success") return [];
-    return Object.entries(result.params);
+    if (result.status !== "success") return [] as Array<{
+      key: string;
+      value: string;
+      meta: ParamMeta;
+    }>;
+
+    return Object.entries(result.params)
+      .map(([key, value]) => ({
+        key,
+        value,
+        meta: PARAM_META_MAP[key] ?? DEFAULT_META,
+      }))
+      .sort((a, b) => {
+        if (a.meta.order !== b.meta.order) {
+          return a.meta.order - b.meta.order;
+        }
+        return a.key.localeCompare(b.key);
+      });
   }, [result]);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -53,7 +147,7 @@ export default function UtmCheckerPage() {
         status: "success",
         requiredOk,
         params: allParams,
-        utmParams
+        utmParams,
       });
     } catch (error) {
       const message =
@@ -64,17 +158,19 @@ export default function UtmCheckerPage() {
 
   return (
     <div className="min-h-screen bg-white text-neutral-900">
-      <main className="mx-auto flex min-h-screen w-full max-w-3xl flex-col items-center gap-10 px-4 py-16 sm:px-6">
-        <header className="w-full text-center">
-          <h1 className="text-3xl font-semibold tracking-tight">UTM Checker</h1>
-          <p className="mt-2 text-sm text-neutral-500">
-            URL 한 줄을 입력하고 UTM 파라미터를 바로 확인해보세요.
-          </p>
+      <main className="mx-auto flex min-h-screen w-full max-w-4xl flex-col px-4 py-20 sm:px-6">
+        {/* 헤더 */}
+        <header className="mb-16 text-center">
+          <h1 className="text-4xl sm:text-5xl font-light tracking-[-0.02em] uppercase mb-3">
+            UTM Checker
+          </h1>
+          <div className="h-px w-16 bg-neutral-300 mx-auto" />
         </header>
 
+        {/* 입력 폼 */}
         <form
           onSubmit={handleSubmit}
-          className="flex w-full max-w-2xl flex-col gap-3 sm:flex-row sm:items-center"
+          className="mb-20 flex w-full flex-col gap-4 sm:flex-row sm:items-stretch"
         >
           <label htmlFor="utm-url" className="sr-only">
             UTM URL 입력
@@ -85,53 +181,61 @@ export default function UtmCheckerPage() {
             value={url}
             onChange={(event) => setUrl(event.target.value)}
             placeholder="https://example.com/?utm_source=startmktg&utm_medium=cpc&utm_campaign=launch"
-            className="w-full rounded-full border border-neutral-200 bg-white px-5 py-3 text-sm shadow-sm outline-none transition focus:border-neutral-400 focus:ring-1 focus:ring-neutral-400"
+            className="flex-1 border border-neutral-200 bg-white px-6 py-4 text-sm outline-none transition-all duration-300 focus:border-neutral-900 focus:bg-neutral-50"
           />
           <button
             type="submit"
-            className="w-full rounded-full border border-neutral-900 bg-neutral-900 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900 sm:w-auto"
+            className="group relative min-w-[140px] border border-neutral-900 bg-neutral-900 px-8 py-4 text-sm font-medium text-white transition-all duration-300 hover:bg-white hover:text-neutral-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
           >
-            Check
+            <span className="relative z-10">Check</span>
           </button>
         </form>
 
-        <section
-          className="w-full max-w-2xl text-sm text-neutral-800"
-          aria-live="polite"
-        >
+        {/* 결과 섹션 */}
+        <section className="w-full" aria-live="polite">
           {result.status === "idle" && (
-            <p className="text-neutral-500">
-              결과가 여기에 표시됩니다. URL을 입력한 뒤 Check 버튼을 눌러주세요.
-            </p>
+            <div className="text-center text-sm text-neutral-400">
+              <div className="h-px w-24 bg-neutral-200 mx-auto mb-4" />
+            </div>
           )}
 
-          {result.status === "error" && <p className="font-medium">{result.message}</p>}
+          {result.status === "error" && (
+            <div className="border border-neutral-200 bg-neutral-50 px-6 py-4 text-sm text-neutral-700">
+              {result.message}
+            </div>
+          )}
 
           {result.status === "success" && (
-            <div className="space-y-4">
-              <p className="font-medium">
-                {Object.keys(result.params).length === 0
-                  ? "URL에 쿼리 파라미터가 없습니다."
-                  : Object.keys(result.utmParams).length === 0
-                    ? "UTM 파라미터가 포함되지 않았습니다. 필요한 경우 utm_source, utm_medium, utm_campaign 등을 추가하세요."
-                    : result.requiredOk
-                      ? "OK, 기본 UTM 파라미터가 확인되었습니다."
-                      : "기본 UTM 파라미터가 없습니다. utm_source, utm_medium, utm_campaign 을 확인하세요."}
-              </p>
-
+            <div className="space-y-6">
               {entries.length > 0 ? (
-                <ul className="space-y-2 text-neutral-700">
-                  {entries.map(([key, value]) => (
+                <ul className="space-y-2">
+                  {entries.map(({ key, value, meta }) => (
                     <li
                       key={key}
-                      className="flex items-center justify-between rounded border border-neutral-200 px-3 py-2"
+                      className="group flex items-start gap-6 border-b border-neutral-100 px-2 py-4 transition-colors hover:bg-neutral-50"
                     >
-                      <span className="font-semibold uppercase tracking-wide">{key}</span>
-                      <span className="ml-4 max-w-[60%] truncate text-right">{value}</span>
+                      <div className="flex-1 min-w-0">
+                        <div className="mb-2 flex items-center gap-3">
+                          <span className="text-xs font-mono uppercase tracking-wider text-neutral-500">
+                            {key}
+                          </span>
+                          <span className="text-xs text-neutral-400">/</span>
+                          <span className="text-xs text-neutral-500">
+                            {meta.label}
+                          </span>
+                        </div>
+                        <div className="break-all text-sm text-neutral-900" title={value}>
+                          {value}
+                        </div>
+                      </div>
                     </li>
                   ))}
                 </ul>
-              ) : null}
+              ) : (
+                <div className="border border-neutral-200 bg-neutral-50 px-6 py-4 text-sm text-neutral-500 text-center">
+                  쿼리 파라미터가 없습니다.
+                </div>
+              )}
             </div>
           )}
         </section>
