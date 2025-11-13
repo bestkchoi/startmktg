@@ -30,10 +30,21 @@ declare namespace __next_route_internal_types__ {
 
   type StaticRoutes = 
     | `/`
+    | `/dashboard`
     | `/api/ping`
+    | `/api/auth/google`
+    | `/api/auth/callback`
+    | `/api/auth/logout`
+    | `/api/auth/me`
     | `/api/utm-checker`
+    | `/api/campaigns`
+    | `/login`
     | `/utmchecker`
-  type DynamicRoutes<T extends string = string> = never
+    | `/campaigns/new`
+  type DynamicRoutes<T extends string = string> = 
+    | `/api/campaigns/${SafeSlug<T>}`
+    | `/api/campaigns/${SafeSlug<T>}/channels`
+    | `/campaigns/${SafeSlug<T>}`
 
   type RouteImpl<T> = 
     | StaticRoutes
