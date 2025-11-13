@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { trackEvent, trackUtmParams } from "@/lib/analytics";
 
 type ResultState =
   | { status: "idle" }
@@ -143,6 +144,21 @@ export default function UtmCheckerPage() {
         (key) => typeof utmParams[key] === "string" && utmParams[key]?.trim()
       );
 
+      // GA4 이벤트 추적
+      trackEvent("utm_check", {
+        event_category: "utm_checker",
+        event_label: requiredOk ? "valid_utm" : "invalid_utm",
+        has_utm_source: !!utmParams.utm_source,
+        has_utm_medium: !!utmParams.utm_medium,
+        has_utm_campaign: !!utmParams.utm_campaign,
+        param_count: Object.keys(allParams).length,
+      });
+
+      // UTM 파라미터 추적
+      if (Object.keys(utmParams).length > 0) {
+        trackUtmParams(utmParams);
+      }
+
       setResult({
         status: "success",
         requiredOk,
@@ -152,6 +168,14 @@ export default function UtmCheckerPage() {
     } catch (error) {
       const message =
         error instanceof Error ? error.message : "검사 중 오류가 발생했습니다.";
+      
+      // 에러 이벤트 추적
+      trackEvent("utm_check_error", {
+        event_category: "utm_checker",
+        event_label: "url_parse_error",
+        error_message: message,
+      });
+      
       setResult({ status: "error", message });
     }
   };

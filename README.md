@@ -8,9 +8,15 @@ Supabase 연동과 Tailwind CSS가 적용되어 있으며 `docs/` 폴더의 기�
 `.env.local` 파일을 프로젝트 루트에 만들고 아래 값을 채워주세요.
 
 ```env
+# Supabase
 NEXT_PUBLIC_SUPABASE_URL=...
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+
+# Google Analytics 4 (선택)
+NEXT_PUBLIC_GA4_ID=G-XXXXXXXXXX
 ```
+
+> **참고**: GA4 설정 방법은 [`docs/ANALYTICS_SETUP.md`](./docs/ANALYTICS_SETUP.md)를 참고하세요.
 
 ## 실행 방법
 

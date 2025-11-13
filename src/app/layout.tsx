@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { Analytics } from "@/components/analytics/google-analytics";
+import { PageViewTracker } from "@/components/analytics/page-view";
 
 export const metadata: Metadata = {
   title: "Start Marketing",
@@ -17,6 +19,8 @@ export default function RootLayout({
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         {children}
         <Toaster />
+        <Analytics />
+        <PageViewTracker />
       </body>
     </html>
   );
