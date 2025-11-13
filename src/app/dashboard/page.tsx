@@ -103,7 +103,7 @@ export default function DashboardPage() {
         </section>
 
         {/* 메뉴 */}
-        <section className="space-y-4">
+        <section className="space-y-4 mb-12">
           <h3 className="text-sm font-medium text-neutral-700 mb-4">서비스</h3>
           <Link
             href="/utmchecker"
@@ -115,6 +115,18 @@ export default function DashboardPage() {
               </span>
               <span className="h-3 w-px bg-neutral-300 group-hover:bg-white" />
               <span>UTM Checker</span>
+            </span>
+          </Link>
+          <Link
+            href="/campaigns/new"
+            className="group block border border-neutral-200 bg-white px-6 py-4 text-sm font-medium text-neutral-900 transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white"
+          >
+            <span className="flex items-center gap-2">
+              <span className="text-[10px] font-mono tracking-wider opacity-60 group-hover:opacity-100">
+                02
+              </span>
+              <span className="h-3 w-px bg-neutral-300 group-hover:bg-white" />
+              <span>Start Campaign</span>
             </span>
           </Link>
         </section>
