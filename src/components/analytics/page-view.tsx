@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { trackPageView } from "@/lib/analytics";
 
 /**
- * 페이지뷰 자동 추적 컴포넌트
+ * 페이지뷰 자동 추적 컴포넌트 (내부)
  * Next.js App Router의 경로 변경을 감지하여 자동으로 GA4에 페이지뷰를 전송합니다.
  */
-export function PageViewTracker() {
+function PageViewTrackerInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -21,5 +21,17 @@ export function PageViewTracker() {
   }, [pathname, searchParams]);
 
   return null;
+}
+
+/**
+ * 페이지뷰 자동 추적 컴포넌트
+ * Suspense boundary로 감싸서 useSearchParams() 사용 시 발생하는 빌드 에러를 방지합니다.
+ */
+export function PageViewTracker() {
+  return (
+    <Suspense fallback={null}>
+      <PageViewTrackerInner />
+    </Suspense>
+  );
 }
 
