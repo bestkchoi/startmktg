@@ -1,4 +1,6 @@
-import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import { createServerClient, type CookieOptions } from "@supabase/ssr";
+import { cookies } from "next/headers";
+import type { Database } from "@/types/supabase";
 
 type SupabaseConfig = {
   url: string;
@@ -22,9 +24,31 @@ const resolveConfig = (config?: SupabaseConfig): SupabaseConfig => {
 
 export const createSupabaseServerClient = (
   config?: SupabaseConfig
-): SupabaseClient => {
+) => {
   const { url, anonKey } = resolveConfig(config);
-  return createClient(url, anonKey);
+  const cookieStore = cookies();
+
+  return createServerClient<Database>(url, anonKey, {
+    cookies: {
+      get(name: string) {
+        return cookieStore.get(name)?.value;
+      },
+      set(name: string, value: string, options: CookieOptions) {
+        try {
+          cookieStore.set({ name, value, ...options });
+        } catch (error) {
+          // 서버 컴포넌트에서만 사용 가능
+        }
+      },
+      remove(name: string, options: CookieOptions) {
+        try {
+          cookieStore.set({ name, value: "", ...options });
+        } catch (error) {
+          // 서버 컴포넌트에서만 사용 가능
+        }
+      },
+    },
+  });
 };
 
 
