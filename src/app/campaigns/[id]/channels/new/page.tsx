@@ -4,6 +4,7 @@ import { useState, Suspense } from "react";
 import { useRouter, useParams, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import type { ChannelType, CreateChannelRequest } from "@/types/campaign";
+import { generateUtmParams, buildFinalUrl } from "@/lib/campaign/utm-template";
 
 const CHANNEL_TYPES: Array<{ value: ChannelType; label: string; description?: string }> = [
   { value: "meta", label: "Meta", description: "Facebook, Instagram" },
