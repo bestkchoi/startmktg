@@ -4,3 +4,4 @@
 ###ad landing page url 2 : https://www.samsung.com/sec/smartphones/galaxy-z-fold7/buy/?cid=sec_pd_search_naver_f2h25_ecommerce_searchad_text_buy-q7_%EC%82%BC%EC%84%B1_pfm&utm_source=naver&utm_medium=searchad&utm_campaign=f2h25&utm_term=%EC%82%BC%EC%84%B1&_AT=0003010A01AD0395BE2A&NaPm=ct%3Dmhsm1xdq%7Cci%3DER45a906a5-bde9-11f0-83c7-0ed7da83347b%7Ctr%3Dsa%7Chk%3D95ae09f906f42dfe2fbd5c331d6ae7e159f572d4%7Cnacn%3DcbRLB0Aq8DNC
 
 
+https://www.avis.com/en/home?cid=pp_site-GOOGLE_camp-20657116748_adgroup-160282735091_target-kwd-49825352_creative-677078834797_device-c_feed-&gclsrc=aw.ds&gad_source=1&gad_campaignid=20657116748&gbraid=0AAAAADEVRUIm8O7nMk_C29uikNQZoUBbl&gclid=CjwKCAiAuIDJBhBoEiwAxhgyFplz8D03r4-MQuCn4bi8TBnsYSselyqaZoui9DWKsidCDbLdPkZFuBoCAdMQAvD_BwE

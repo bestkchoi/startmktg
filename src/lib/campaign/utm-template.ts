@@ -28,6 +28,8 @@ export type UtmParams = {
   utm_campaign: string;
   utm_content?: string;
   utm_term?: string;
+  utm_id?: string;
+  utm_source_platform?: string;
 };
 
 export type TemplateVariables = {
@@ -35,6 +37,7 @@ export type TemplateVariables = {
   channel_type: ChannelType;
   adgroup_name?: string;
   creative_id?: string;
+  campaign_goal?: string; // Meta 매체 전용: awareness, traffic, engagement, leads, app_promotion, sales
 };
 
 /**
@@ -61,14 +64,45 @@ function replaceTemplateVariables(
 }
 
 /**
+ * Meta 캠페인 목표에 따른 접미사 매핑
+ */
+function getMetaGoalSuffix(goal?: string): string {
+  const goalMap: Record<string, string> = {
+    awareness: "_awa",
+    traffic: "_trf",
+    engagement: "_eng",
+    leads: "_rea",
+    app_promotion: "_app",
+    sales: "_sal",
+  };
+  return goalMap[goal || ""] || "";
+}
+
+/**
  * 기본 UTM 규칙 적용 (템플릿이 없을 때)
  */
 function getDefaultUtmParams(
   channelType: ChannelType,
   campaignName: string,
   customContent?: string,
-  customTerm?: string
+  customTerm?: string,
+  campaignGoal?: string
 ): UtmParams {
+  // Meta 매체 특별 규칙
+  if (channelType === "meta") {
+    // utm_campaign은 캠페인 ID에 "_meta" + 목표 접미사 추가
+    const campaignId = campaignName.trim();
+    const goalSuffix = getMetaGoalSuffix(campaignGoal);
+    return {
+      utm_source: "meta",
+      utm_medium: "display",
+      utm_campaign: `${campaignId}_meta${goalSuffix}`,
+      utm_content: customContent || "",
+      utm_term: customTerm || "",
+    };
+  }
+
+  // 다른 매체는 기존 규칙 사용
   const normalizedCampaignName = campaignName
     .toLowerCase()
     .replace(/\s+/g, "_")
@@ -98,11 +132,26 @@ export function generateUtmParams(
       variables.channel_type,
       variables.campaign_name,
       customContent,
-      customTerm
+      customTerm,
+      variables.campaign_goal
     );
   }
 
-  // 템플릿 패턴 적용
+  // Meta 매체 특별 규칙 적용
+  if (variables.channel_type === "meta") {
+    // Meta 매체는 항상 특별 규칙 적용
+    const campaignId = variables.campaign_name.trim();
+    const goalSuffix = getMetaGoalSuffix(variables.campaign_goal);
+    return {
+      utm_source: "meta",
+      utm_medium: "display",
+      utm_campaign: `${campaignId}_meta${goalSuffix}`,
+      utm_content: customContent || "",
+      utm_term: customTerm || "",
+    };
+  }
+
+  // 다른 매체는 템플릿 패턴 적용
   const utm_source = replaceTemplateVariables(
     template.utm_source_pattern,
     variables
@@ -148,7 +197,13 @@ export function generateUtmParams(
  */
 export function buildFinalUrl(landingUrl: string, params: UtmParams): string {
   try {
-    const url = new URL(landingUrl);
+    // 빈 문자열 체크
+    if (!landingUrl || typeof landingUrl !== "string" || landingUrl.trim().length === 0) {
+      return landingUrl;
+    }
+    
+    const trimmedUrl = landingUrl.trim();
+    const url = new URL(trimmedUrl);
     const searchParams = new URLSearchParams();
 
     // UTM 파라미터 추가 (빈 값 제외)
@@ -167,6 +222,12 @@ export function buildFinalUrl(landingUrl: string, params: UtmParams): string {
     if (params.utm_term) {
       searchParams.set("utm_term", params.utm_term);
     }
+    if (params.utm_id) {
+      searchParams.set("utm_id", params.utm_id);
+    }
+    if (params.utm_source_platform) {
+      searchParams.set("utm_source_platform", params.utm_source_platform);
+    }
 
     // 파라미터를 알파벳 순서로 정렬
     const sortedParams = new URLSearchParams();
@@ -179,9 +240,28 @@ export function buildFinalUrl(landingUrl: string, params: UtmParams): string {
     url.search = sortedParams.toString();
     return url.toString();
   } catch (error) {
-    // URL 파싱 실패 시 원본 반환
-    console.error("Failed to build final URL:", error);
+    // URL 파싱 실패 시 원본 반환 (에러 로그는 개발 환경에서만)
+    if (process.env.NODE_ENV === "development") {
+      console.error("Failed to build final URL:", error);
+    }
     return landingUrl;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

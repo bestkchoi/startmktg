@@ -22,29 +22,32 @@ const resolveConfig = (config?: SupabaseConfig): SupabaseConfig => {
   return { url, anonKey };
 };
 
-export const createSupabaseServerClient = (
+export const createSupabaseServerClient = async (
   config?: SupabaseConfig
 ) => {
   const { url, anonKey } = resolveConfig(config);
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
 
   return createServerClient<Database>(url, anonKey, {
     cookies: {
-      get(name: string) {
-        return cookieStore.get(name)?.value;
+      async get(name: string) {
+        const store = await cookies();
+        return store.get(name)?.value;
       },
-      set(name: string, value: string, options: CookieOptions) {
+      async set(name: string, value: string, options: CookieOptions) {
         try {
-          cookieStore.set({ name, value, ...options });
-        } catch (error) {
-          // 서버 컴포넌트에서만 사용 가능
+          const store = await cookies();
+          store.set({ name, value, ...options });
+        } catch {
+          // noop
         }
       },
-      remove(name: string, options: CookieOptions) {
+      async remove(name: string, options: CookieOptions) {
         try {
-          cookieStore.set({ name, value: "", ...options });
-        } catch (error) {
-          // 서버 컴포넌트에서만 사용 가능
+          const store = await cookies();
+          store.set({ name, value: "", ...options });
+        } catch {
+          // noop
         }
       },
     },

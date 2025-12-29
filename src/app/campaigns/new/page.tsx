@@ -12,7 +12,7 @@ export default function NewCampaignPage() {
   const [formData, setFormData] = useState<CreateCampaignRequest>({
     campaign_name: "",
     start_date: new Date().toISOString().split("T")[0],
-    end_date: new Date().toISOString().split("T")[0],
+    end_date: "",
   });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -132,15 +132,14 @@ export default function NewCampaignPage() {
               htmlFor="end_date"
               className="block text-sm font-medium text-neutral-900 mb-2"
             >
-              종료일 <span className="text-neutral-500">*</span>
+              종료일 <span className="text-neutral-400">(선택)</span>
             </label>
             <input
               id="end_date"
               type="date"
-              value={formData.end_date}
+              value={formData.end_date || ""}
               onChange={(e) => handleChange("end_date", e.target.value)}
               min={formData.start_date}
-              required
               className="w-full border border-neutral-200 bg-white px-4 py-3 text-sm outline-none transition-all duration-300 focus:border-neutral-900 focus:bg-neutral-50"
             />
             {errors.end_date && (

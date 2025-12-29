@@ -15,6 +15,8 @@ export interface Database {
           email: string;
           name: string | null;
           avatar_url: string | null;
+          google_sub_id: string | null;
+          photo_url: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -23,6 +25,8 @@ export interface Database {
           email: string;
           name?: string | null;
           avatar_url?: string | null;
+          google_sub_id?: string | null;
+          photo_url?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -31,60 +35,10 @@ export interface Database {
           email?: string;
           name?: string | null;
           avatar_url?: string | null;
+          google_sub_id?: string | null;
+          photo_url?: string | null;
           created_at?: string;
           updated_at?: string;
-        };
-      };
-      user_company_emails: {
-        Row: {
-          id: string;
-          user_id: string;
-          workspace_id: string;
-          company_email: string;
-          verified: boolean;
-          verification_token: string | null;
-          verified_at: string | null;
-          created_at: string;
-        };
-        Insert: {
-          id?: string;
-          user_id: string;
-          workspace_id: string;
-          company_email: string;
-          verified?: boolean;
-          verification_token?: string | null;
-          verified_at?: string | null;
-          created_at?: string;
-        };
-        Update: {
-          id?: string;
-          user_id?: string;
-          workspace_id?: string;
-          company_email?: string;
-          verified?: boolean;
-          verification_token?: string | null;
-          verified_at?: string | null;
-          created_at?: string;
-        };
-      };
-      workspaces: {
-        Row: {
-          id: string;
-          name: string;
-          plan: string;
-          created_at: string;
-        };
-        Insert: {
-          id?: string;
-          name: string;
-          plan?: string;
-          created_at?: string;
-        };
-        Update: {
-          id?: string;
-          name?: string;
-          plan?: string;
-          created_at?: string;
         };
       };
       campaigns: {
@@ -128,6 +82,12 @@ export interface Database {
           utm_content: string | null;
           utm_term: string | null;
           final_url: string;
+          meta_campaign_name: string | null;
+          meta_adset_name: string | null;
+          meta_ad_name: string | null;
+          google_campaign_name: string | null;
+          google_adgroup_name: string | null;
+          google_ad_name: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -142,6 +102,12 @@ export interface Database {
           utm_content?: string | null;
           utm_term?: string | null;
           final_url: string;
+          meta_campaign_name?: string | null;
+          meta_adset_name?: string | null;
+          meta_ad_name?: string | null;
+          google_campaign_name?: string | null;
+          google_adgroup_name?: string | null;
+          google_ad_name?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -156,6 +122,12 @@ export interface Database {
           utm_content?: string | null;
           utm_term?: string | null;
           final_url?: string;
+          meta_campaign_name?: string | null;
+          meta_adset_name?: string | null;
+          meta_ad_name?: string | null;
+          google_campaign_name?: string | null;
+          google_adgroup_name?: string | null;
+          google_ad_name?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -190,6 +162,35 @@ export interface Database {
           utm_content_pattern?: string | null;
           utm_term_pattern?: string | null;
           updated_at?: string;
+        };
+      };
+      utm_checker_logs: {
+        Row: {
+          id: string;
+          user_id: string | null;
+          input_url: string;
+          domain_name: string | null;
+          parsed_params: Json;
+          diagnosis: Json;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          user_id?: string | null;
+          input_url: string;
+          domain_name?: string | null;
+          parsed_params?: Json;
+          diagnosis?: Json;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          user_id?: string | null;
+          input_url?: string;
+          domain_name?: string | null;
+          parsed_params?: Json;
+          diagnosis?: Json;
+          created_at?: string;
         };
       };
     };

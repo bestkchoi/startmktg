@@ -26,7 +26,13 @@ NEXT_PUBLIC_GA4_ID=G-XXXXXXXXXX
 > - GA4 설정 방법은 [`docs/ANALYTICS_SETUP.md`](./docs/ANALYTICS_SETUP.md)를 참고하세요.
 > - Google OAuth 설정 방법은 [`docs/SETUP/google_oauth_setup.md`](./docs/SETUP/google_oauth_setup.md)를 참고하세요.
 
-## 실행 방법
+## 시작하기
+
+### 새 컴퓨터에서 프로젝트 설정하기
+
+다른 컴퓨터에서 이 프로젝트를 이어서 작업하려면 [`docs/SETUP/setup_new_computer.md`](./docs/SETUP/setup_new_computer.md) 가이드를 참고하세요.
+
+### 실행 방법
 
 ```bash
 npm install

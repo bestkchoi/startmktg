@@ -17,7 +17,7 @@ export async function GET(_request: NextRequest) {
   }
 
   try {
-    const supabase = createSupabaseServerClient({ url, anonKey });
+    const supabase = await createSupabaseServerClient({ url, anonKey });
     const { error } = await supabase
       .from("fact_utm_log")
       .select("id", { head: true, count: "exact" })

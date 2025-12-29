@@ -24,6 +24,7 @@ export default function CampaignDetailPage() {
   const [campaign, setCampaign] = useState<CampaignWithChannels | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [copiedChannelId, setCopiedChannelId] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchCampaign() {
@@ -59,9 +60,12 @@ export default function CampaignDetailPage() {
     console.log("Delete channel:", channelId);
   };
 
-  const copyToClipboard = (text: string) => {
+  const copyToClipboard = (text: string, channelId: string) => {
     navigator.clipboard.writeText(text);
-    // TODO: 토스트 메시지 표시
+    setCopiedChannelId(channelId);
+    setTimeout(() => {
+      setCopiedChannelId(null);
+    }, 2000);
   };
 
   if (loading) {
@@ -78,10 +82,10 @@ export default function CampaignDetailPage() {
         <div className="text-center">
           <p className="text-sm text-neutral-700 mb-4">{error || "캠페인을 찾을 수 없습니다."}</p>
           <Link
-            href="/dashboard"
+            href="/campaigns"
             className="text-sm text-neutral-500 hover:text-neutral-900 underline"
           >
-            대시보드로 돌아가기
+            목록으로 돌아가기
           </Link>
         </div>
       </div>
@@ -99,104 +103,160 @@ export default function CampaignDetailPage() {
   return (
     <div className="min-h-screen bg-white text-neutral-900">
       <main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-4 py-20 sm:px-6">
+        {/* START MKTG 로고 링크 */}
+        <div className="mb-8">
+          <Link
+            // @ts-ignore - Next.js typedRoutes 경고 무시
+            href="/"
+            className="inline-block transition-opacity hover:opacity-70"
+          >
+            <h1 className="text-3xl sm:text-4xl font-light tracking-[-0.02em] uppercase">
+              START MKTG
+            </h1>
+          </Link>
+        </div>
+
         {/* 헤더 */}
         <header className="mb-12 flex items-start justify-between">
           <div>
-            <h1 className="text-4xl sm:text-5xl font-light tracking-[-0.02em] uppercase mb-2">
-              {campaign.campaign_name}
-            </h1>
+            <div className="mb-4">
+              <p className="font-mono text-lg sm:text-xl text-neutral-700 bg-neutral-100 px-3 py-1.5 rounded inline-block">
+                {campaign.final_campaign_name}
+              </p>
+              <p className="text-base sm:text-lg text-neutral-600 mt-2">
+                {(campaign as any).raw_name || campaign.campaign_name}
+              </p>
+            </div>
             <div className="h-px w-16 bg-neutral-300 mb-4" />
-            <div className="text-sm text-neutral-500">
+            <div className="text-sm text-neutral-500 space-y-1">
               <p>
                 {formatDate(campaign.start_date)} ~ {formatDate(campaign.end_date)}
               </p>
-              <p className="mt-1">생성일: {formatDate(campaign.created_at)}</p>
+              <p>생성일: {formatDate(campaign.created_at)}</p>
             </div>
           </div>
           <Link
-            href="/dashboard"
+            href="/campaigns"
             className="text-sm text-neutral-500 hover:text-neutral-900 transition-colors"
           >
-            대시보드
+            목록
           </Link>
         </header>
 
-        {/* 매체 리스트 섹션 */}
+        {/* 광고 리스트 섹션 */}
         <section className="mb-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg font-medium text-neutral-900">매체 목록</h2>
+            <h2 className="text-lg font-medium text-neutral-900">광고 목록</h2>
             <Link
               href={`/campaigns/${campaignId}/channels/new`}
               className="px-4 py-2 text-sm font-medium text-white bg-neutral-900 border border-neutral-900 transition-all duration-300 hover:bg-white hover:text-neutral-900"
             >
-              매체 추가
+              광고 추가
             </Link>
           </div>
 
           {campaign.channels.length === 0 ? (
             <div className="border border-neutral-200 bg-neutral-50 px-6 py-12 text-center">
-              <p className="text-sm text-neutral-500 mb-4">매체를 추가해주세요.</p>
+              <p className="text-sm text-neutral-500 mb-4">광고를 추가해주세요.</p>
               <Link
                 href={`/campaigns/${campaignId}/channels/new`}
                 className="text-sm text-neutral-900 underline hover:text-neutral-600"
               >
-                첫 매체 추가하기
+                첫 광고 추가하기
               </Link>
             </div>
           ) : (
-            <div className="space-y-4">
-              {campaign.channels.map((channel) => (
-                <div
-                  key={channel.id}
-                  className="border border-neutral-200 bg-white p-6 transition-colors hover:bg-neutral-50"
-                >
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="px-3 py-1 text-xs font-medium bg-neutral-100 text-neutral-700">
+            <div className="border border-neutral-200 bg-white overflow-hidden rounded-lg">
+              <table className="w-full">
+                <thead className="bg-neutral-50 border-b border-neutral-200">
+                  <tr>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-neutral-700 uppercase tracking-wider">
+                      매체
+                    </th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-neutral-700 uppercase tracking-wider">
+                      광고이름
+                    </th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-neutral-700 uppercase tracking-wider">
+                      랜딩 URL
+                    </th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-neutral-700 uppercase tracking-wider">
+                      최종 URL
+                    </th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-neutral-700 uppercase tracking-wider">
+                      생성일
+                    </th>
+                    <th className="px-4 py-3 text-right text-xs font-medium text-neutral-700 uppercase tracking-wider">
+                      액션
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-neutral-200">
+                  {campaign.channels.map((channel) => (
+                    <tr
+                      key={channel.id}
+                      className="transition-colors hover:bg-neutral-50"
+                    >
+                      <td className="px-4 py-3 whitespace-nowrap">
+                        <span className="px-2.5 py-1 text-xs font-medium bg-neutral-100 text-neutral-700 rounded">
                           {CHANNEL_TYPE_LABELS[channel.channel_type] || channel.channel_type}
                         </span>
-                        <span className="text-xs text-neutral-400">
-                          {formatDate(channel.created_at)}
-                        </span>
-                      </div>
-                      <div className="space-y-2">
-                        <div>
-                          <p className="text-xs text-neutral-500 mb-1">랜딩 URL</p>
-                          <a
-                            href={channel.landing_url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-sm text-neutral-700 hover:text-neutral-900 underline break-all"
+                      </td>
+                      <td className="px-4 py-3">
+                        {channel.meta_ad_name ? (
+                          <code className="text-xs text-neutral-900 font-mono break-all max-w-md block">
+                            {channel.meta_ad_name}
+                          </code>
+                        ) : (
+                          <span className="text-xs text-neutral-400">-</span>
+                        )}
+                      </td>
+                      <td className="px-4 py-3">
+                        <a
+                          href={channel.landing_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-neutral-700 hover:text-neutral-900 underline break-all max-w-md block"
+                        >
+                          {channel.landing_url}
+                        </a>
+                      </td>
+                      <td className="px-4 py-3">
+                        <div className="flex items-center gap-2">
+                          <code className="flex-1 text-xs bg-neutral-50 px-3 py-1.5 border border-neutral-200 rounded break-all max-w-md">
+                            {channel.final_url}
+                          </code>
+                          <button
+                            onClick={() => copyToClipboard(channel.final_url, channel.id)}
+                            className="px-3 py-1.5 text-xs font-medium text-neutral-700 bg-white border border-neutral-200 rounded hover:bg-neutral-100 transition-colors whitespace-nowrap"
+                            title="복사"
                           >
-                            {channel.landing_url}
-                          </a>
+                            {copiedChannelId === channel.id ? "복사되었습니다" : "복사"}
+                          </button>
                         </div>
-                        <div>
-                          <p className="text-xs text-neutral-500 mb-1">최종 URL</p>
-                          <div className="flex items-center gap-2">
-                            <code className="flex-1 text-xs bg-neutral-50 px-3 py-2 border border-neutral-200 break-all">
-                              {channel.final_url}
-                            </code>
-                            <button
-                              onClick={() => copyToClipboard(channel.final_url)}
-                              className="px-3 py-2 text-xs font-medium text-neutral-700 border border-neutral-200 hover:bg-neutral-100 transition-colors"
-                            >
-                              복사
-                            </button>
-                          </div>
+                      </td>
+                      <td className="px-4 py-3 whitespace-nowrap text-sm text-neutral-600">
+                        {formatDate(channel.created_at)}
+                      </td>
+                      <td className="px-4 py-3 whitespace-nowrap text-right">
+                        <div className="flex items-center justify-end gap-3">
+                          <Link
+                            href={`/campaigns/${campaignId}/channels/${channel.id}/edit`}
+                            className="text-xs text-neutral-600 hover:text-neutral-900 transition-colors"
+                          >
+                            수정
+                          </Link>
+                          <button
+                            onClick={() => handleDeleteChannel(channel.id)}
+                            className="text-xs text-neutral-400 hover:text-red-600 transition-colors"
+                          >
+                            삭제
+                          </button>
                         </div>
-                      </div>
-                    </div>
-                    <button
-                      onClick={() => handleDeleteChannel(channel.id)}
-                      className="ml-4 text-xs text-neutral-400 hover:text-neutral-700 transition-colors"
-                    >
-                      삭제
-                    </button>
-                  </div>
-                </div>
-              ))}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           )}
         </section>
