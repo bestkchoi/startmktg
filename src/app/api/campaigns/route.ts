@@ -229,10 +229,15 @@ export async function GET(req: NextRequest) {
   const supabase = await createSupabaseServerClient();
 
   try {
-    // 모든 캠페인 조회 (매체 정보 포함)
+    // 모든 캠페인 조회 (매체 정보 포함) - JOIN으로 한 번에 조회하여 성능 개선
     const { data: campaigns, error: campaignsError } = await supabase
       .from("campaigns")
-      .select("*")
+      .select(`
+        *,
+        campaign_channels (
+          channel_type
+        )
+      `)
       .order("created_at", { ascending: false });
 
     if (campaignsError) {
@@ -242,20 +247,16 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    // 각 캠페인별로 매체 정보 조회
-    const campaignsWithChannels = await Promise.all(
-      (campaigns || []).map(async (campaign: any) => {
-        const { data: channels } = await supabase
-          .from("campaign_channels")
-          .select("channel_type")
-          .eq("campaign_id", campaign.campaign_id);
-
-        return {
-          ...campaign,
-          channels: (channels || []).map((ch) => ch.channel_type),
-        };
-      })
-    );
+    // 매체 정보를 배열로 변환
+    const campaignsWithChannels = (campaigns || []).map((campaign: any) => {
+      const channels = campaign.campaign_channels || [];
+      const { campaign_channels, ...campaignData } = campaign;
+      
+      return {
+        ...campaignData,
+        channels: channels.map((ch: any) => ch.channel_type),
+      };
+    });
 
     return successResponse(campaignsWithChannels as any);
   } catch (error) {

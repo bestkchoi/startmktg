@@ -51,7 +51,7 @@ export function addLocaleToPath(path: string, locale: Locale): string {
  * 브라우저에서 locale 감지 (클라이언트 사이드)
  */
 export function detectBrowserLocale(): Locale {
-  if (typeof window === "undefined") return "ko";
+  if (typeof window === "undefined") return "en";
   
   const languages = navigator.languages || [navigator.language];
   
@@ -62,7 +62,7 @@ export function detectBrowserLocale(): Locale {
     }
   }
   
-  return "ko"; // 기본값
+  return "en"; // 기본값은 영어
 }
 
 /**

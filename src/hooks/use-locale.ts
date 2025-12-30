@@ -19,7 +19,7 @@ export function useLocale(): Locale {
   // fallback: pathname에서 추출
   const pathname = usePathname();
   const locale = getLocaleFromPath(pathname);
-  return locale || "ko"; // 기본값은 한국어
+  return locale || "en"; // 기본값은 영어
 }
 
 /**

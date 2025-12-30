@@ -3,25 +3,118 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useLocalizedPath } from "@/hooks/use-locale";
-import { normalizeCampaignName, buildFinalCampaignName, translateToEnglish, generateNormalizedNameCandidates } from "@/lib/campaign/campaign-name";
+import { useLocalizedPath, useLocale } from "@/hooks/use-locale";
+import { normalizeCampaignName, buildFinalCampaignName, translateToEnglish, generateNormalizedNameCandidates, lookupDictionary } from "@/lib/campaign/campaign-name";
 import type { CreateStartCampaignRequest, StartCampaign, ChannelType } from "@/types/campaign";
 
 const CHANNEL_TYPES: Array<{ value: ChannelType; label: string; description?: string; adType?: "search" | "display" | "crm" | "other" }> = [
   { value: "meta", label: "Meta", description: "Facebook, Instagram", adType: "display" },
   { value: "google", label: "Google", description: "Google Ads", adType: "search" },
-  { value: "naver", label: "Naver Search", description: "네이버 검색광고", adType: "search" },
-  { value: "kakao", label: "Kakao", description: "카카오 비즈보드", adType: "display" },
-  { value: "crm_sms", label: "CRM SMS", description: "CRM SMS 발송", adType: "crm" },
-  { value: "crm_lms", label: "CRM LMS", description: "CRM LMS 발송", adType: "crm" },
-  { value: "crm_kakao", label: "CRM Kakao", description: "CRM 카카오톡 발송", adType: "crm" },
-  { value: "tiktok", label: "TikTok", description: "TikTok 광고", adType: "display" },
-  { value: "other", label: "기타", description: "기타 매체", adType: "other" },
+  { value: "naver", label: "Naver Search", description: "Naver Search Ads", adType: "search" },
+  { value: "kakao", label: "Kakao", description: "Kakao Bizboard", adType: "display" },
+  { value: "crm_sms", label: "CRM SMS", description: "CRM SMS", adType: "crm" },
+  { value: "crm_lms", label: "CRM LMS", description: "CRM LMS", adType: "crm" },
+  { value: "crm_kakao", label: "CRM Kakao", description: "CRM KakaoTalk", adType: "crm" },
+  { value: "tiktok", label: "TikTok", description: "TikTok Ads", adType: "display" },
+  { value: "other", label: "Other", description: "Other Channels", adType: "other" },
 ];
 
 export default function NewCampaignPage() {
   const router = useRouter();
   const localizedPath = useLocalizedPath();
+  const locale = useLocale();
+  
+  // 텍스트 번역 객체
+  const t = {
+    en: {
+      createCampaign: "Create Campaign",
+      campaignList: "Campaign List",
+      finalCampaignNamePreview: "Final Campaign Name ID Preview",
+      characters: "characters",
+      searchAd: "Search Ad",
+      selectChannels: "Select advertising channels",
+      selectChannelsOptional: "(Optional, can be added later)",
+      searchAdType: "Search Ad Type",
+      brandSearchAd: "Brand Search Ad",
+      nonBrandSearchAd: "Non-Brand Search Ad",
+      all: "All",
+      searchAd: "Search Ad",
+      displayAd: "Display Ad",
+      crm: "CRM",
+      examplePlaceholder: "e.g., Black Friday, Black Friday Sale",
+      campaignName: "Campaign Name",
+      maxCharacters: "(Max 18 characters)",
+      campaignDescription: "Campaign Description",
+      enterDescription: "Enter campaign description",
+      startDate: "Start Date",
+      endDate: "End Date",
+      optional: "(Optional)",
+      cancel: "Cancel",
+      create: "Create",
+      creating: "Creating...",
+      campaignCreated: "Campaign Created",
+      finalCampaignName: "Final Campaign Name:",
+      copy: "Copy",
+      copied: "Copied!",
+      createAdForChannel: "Create {channel} AD",
+      viewCampaignDetail: "View Campaign Detail",
+      viewList: "View List",
+      createAd: "Create AD",
+      close: "Close",
+      chatgptRecommending: "ChatGPT is recommending campaign name...",
+      predefinedCampaignName: "Predefined Campaign Name:",
+      chatgptRecommendedCampaignName: "ChatGPT Recommended Campaign Name:",
+      useDifferentName: "Use Different Name",
+      errorCreatingCampaign: "Failed to create campaign.",
+      errorOccurred: "An error occurred while creating campaign.",
+      selectChannelsCount: "{count} channel(s) selected",
+    },
+    ko: {
+      createCampaign: "Campaign 만들기",
+      campaignList: "Campaign 목록",
+      finalCampaignNamePreview: "최종 캠페인명 ID 미리보기",
+      characters: "자",
+      searchAd: "검색광고",
+      selectChannels: "광고할 매체 선택",
+      selectChannelsOptional: "(선택사항, 나중에 추가 가능)",
+      searchAdType: "검색광고 유형 선택",
+      brandSearchAd: "브랜드명 검색광고",
+      nonBrandSearchAd: "논브랜드 검색광고",
+      all: "전체",
+      searchAd: "검색광고",
+      displayAd: "디스플레이 광고",
+      crm: "CRM",
+      examplePlaceholder: "예: 블랙프라이데이, Black Friday Sale",
+      campaignName: "캠페인명",
+      maxCharacters: "(최대 18자)",
+      campaignDescription: "캠페인 설명",
+      enterDescription: "캠페인 설명을 입력하세요",
+      startDate: "시작일",
+      endDate: "종료일",
+      optional: "(선택)",
+      cancel: "취소",
+      create: "생성",
+      creating: "생성 중...",
+      campaignCreated: "캠페인이 생성되었습니다",
+      finalCampaignName: "최종 캠페인명:",
+      copy: "복사",
+      copied: "복사됨!",
+      createAdForChannel: "{channel} AD 만들기",
+      viewCampaignDetail: "캠페인 상세 보기",
+      viewList: "목록 보기",
+      createAd: "AD 만들기",
+      close: "닫기",
+      chatgptRecommending: "ChatGPT가 캠페인명을 추천하고 있습니다...",
+      predefinedCampaignName: "사전 정의된 캠페인명:",
+      chatgptRecommendedCampaignName: "ChatGPT 추천 캠페인명:",
+      useDifferentName: "다른 이름 사용",
+      errorCreatingCampaign: "캠페인 생성에 실패했습니다.",
+      errorOccurred: "캠페인 생성 중 오류가 발생했습니다.",
+      selectChannelsCount: "{count}개 매체 선택됨",
+    },
+  };
+  
+  const texts = t[locale] || t.en;
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState<CreateStartCampaignRequest>({
@@ -75,37 +168,62 @@ export default function NewCampaignPage() {
     if (isKorean) {
       // 한글인 경우 원본 한글 저장
       setOriginalKoreanName(formData.raw_name);
-      setIsTranslating(true);
       
-      // ChatGPT API를 통한 번역
-      const translateWithChatGPT = async () => {
-        try {
-          // 검색광고인 경우 18자 제한
-          const isNaverSearch = searchAdEnabled && selectedChannels.includes("naver");
-          const isGoogleAds = searchAdEnabled && selectedChannels.includes("google");
-          const maxLength = (isNaverSearch || isGoogleAds) ? 18 : undefined;
+      // 검색광고인 경우 18자 제한
+      const isNaverSearch = searchAdEnabled && selectedChannels.includes("naver");
+      const isGoogleAds = searchAdEnabled && selectedChannels.includes("google");
+      const maxLength = (isNaverSearch || isGoogleAds) ? 18 : undefined;
 
-          const response = await fetch("/api/translate", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              koreanText: formData.raw_name,
-              maxLength,
-            }),
-          });
+      // 1단계: 사전 정의된 번역 확인
+      const dictTranslation = lookupDictionary(formData.raw_name);
+      
+      if (dictTranslation) {
+        // 사전에 정의된 번역이 있는 경우
+        const candidates = generateNormalizedNameCandidates(dictTranslation, maxLength);
+        setTranslationCandidates(candidates);
+        setShowTranslationModal(candidates.length > 0);
+        setIsTranslating(false);
+        if (candidates.length > 0) {
+          setNormalizedName(candidates[0]);
+        }
+      } else {
+        // 사전에 없는 경우 ChatGPT API 호출
+        setIsTranslating(true);
+        
+        const translateWithChatGPT = async () => {
+          try {
+            const response = await fetch("/api/translate", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                koreanText: formData.raw_name,
+                maxLength,
+              }),
+            });
 
-          const data = await response.json();
+            const data = await response.json();
 
-          if (data.ok && data.data) {
-            // ChatGPT가 반환한 normalized 이름 사용
-            const candidate = data.data.normalized;
-            setTranslationCandidates([candidate]);
-            setNormalizedName(candidate);
-            setShowTranslationModal(true);
-          } else {
-            // API 실패 시 기존 로직 사용 (fallback)
+            if (data.ok && data.data) {
+              // ChatGPT가 반환한 normalized 이름 사용
+              const candidate = data.data.normalized;
+              setTranslationCandidates([candidate]);
+              setNormalizedName(candidate);
+              setShowTranslationModal(true);
+            } else {
+              // API 실패 시 기존 로직 사용 (fallback)
+              const translated = translateToEnglish(formData.raw_name);
+              const candidates = generateNormalizedNameCandidates(translated, maxLength);
+              setTranslationCandidates(candidates);
+              setShowTranslationModal(candidates.length > 0);
+              if (candidates.length > 0) {
+                setNormalizedName(candidates[0]);
+              }
+            }
+          } catch (error) {
+            console.error("Translation error:", error);
+            // 에러 발생 시 기존 로직 사용 (fallback)
             const translated = translateToEnglish(formData.raw_name);
             const candidates = generateNormalizedNameCandidates(translated, maxLength);
             setTranslationCandidates(candidates);
@@ -113,31 +231,18 @@ export default function NewCampaignPage() {
             if (candidates.length > 0) {
               setNormalizedName(candidates[0]);
             }
+          } finally {
+            setIsTranslating(false);
           }
-        } catch (error) {
-          console.error("Translation error:", error);
-          // 에러 발생 시 기존 로직 사용 (fallback)
-          const isNaverSearch = searchAdEnabled && selectedChannels.includes("naver");
-          const isGoogleAds = searchAdEnabled && selectedChannels.includes("google");
-          const maxLength = (isNaverSearch || isGoogleAds) ? 18 : undefined;
-          const translated = translateToEnglish(formData.raw_name);
-          const candidates = generateNormalizedNameCandidates(translated, maxLength);
-          setTranslationCandidates(candidates);
-          setShowTranslationModal(candidates.length > 0);
-          if (candidates.length > 0) {
-            setNormalizedName(candidates[0]);
-          }
-        } finally {
-          setIsTranslating(false);
-        }
-      };
+        };
 
-      // 디바운싱: 사용자가 입력을 멈춘 후 500ms 후에 번역 요청
-      const timeoutId = setTimeout(() => {
-        translateWithChatGPT();
-      }, 500);
+        // 디바운싱: 사용자가 입력을 멈춘 후 500ms 후에 번역 요청
+        const timeoutId = setTimeout(() => {
+          translateWithChatGPT();
+        }, 500);
 
-      return () => clearTimeout(timeoutId);
+        return () => clearTimeout(timeoutId);
+      }
     } else {
       // 영어로 변경되면 원본 한글 초기화
       setOriginalKoreanName("");
@@ -244,7 +349,7 @@ export default function NewCampaignPage() {
           }
           setErrors(errorObj);
         } else {
-          setErrors({ general: data.message || "캠페인 생성에 실패했습니다." });
+          setErrors({ general: data.message || texts.errorCreatingCampaign });
         }
         setLoading(false);
         return;
@@ -257,7 +362,7 @@ export default function NewCampaignPage() {
       setShowSuccessModal(campaign);
     } catch (error) {
       console.error("Failed to create campaign:", error);
-      setErrors({ general: "캠페인 생성 중 오류가 발생했습니다." });
+      setErrors({ general: texts.errorOccurred });
       setLoading(false);
     }
   };
@@ -305,7 +410,7 @@ export default function NewCampaignPage() {
         <header className="mb-12 flex items-start justify-between">
           <div>
             <h2 className="text-4xl sm:text-5xl font-light tracking-[-0.02em] mb-3">
-              Campaign 만들기
+              {texts.createCampaign}
             </h2>
             <div className="h-px w-16 bg-neutral-300" />
           </div>
@@ -313,7 +418,7 @@ export default function NewCampaignPage() {
             href={localizedPath("/campaigns")}
             className="px-4 py-2 text-sm font-medium text-neutral-700 border border-neutral-200 transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-50"
           >
-            Campaign 목록
+            {texts.campaignList}
           </Link>
         </header>
 
@@ -328,9 +433,9 @@ export default function NewCampaignPage() {
             }`}
           >
             <div className="flex items-center justify-between mb-2">
-              <p className="text-xs text-neutral-600 font-medium">최종 캠페인명 ID 미리보기</p>
+              <p className="text-xs text-neutral-600 font-medium">{texts.finalCampaignNamePreview}</p>
               <p className="text-xs text-neutral-500">
-                {finalCampaignName.length}자
+                {finalCampaignName.length} {texts.characters}
               </p>
             </div>
             <p className="text-lg font-mono font-semibold text-neutral-900">
@@ -390,7 +495,7 @@ export default function NewCampaignPage() {
             <div className="flex items-center justify-between p-4 border border-neutral-200 rounded-lg bg-neutral-50">
               <div className="flex items-center gap-3">
                 <label className="text-sm font-medium text-neutral-900 cursor-pointer">
-                  검색광고
+                  {texts.searchAd}
                 </label>
                 <button
                   type="button"
@@ -429,7 +534,7 @@ export default function NewCampaignPage() {
           {searchAdEnabled && (
             <div className="mb-6">
               <label className="block text-sm font-medium text-neutral-900 mb-3">
-                광고할 매체 선택 <span className="text-neutral-400 text-xs font-normal">(선택사항, 나중에 추가 가능)</span>
+                {texts.selectChannels} <span className="text-neutral-400 text-xs font-normal">{texts.selectChannelsOptional}</span>
               </label>
               
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -523,7 +628,10 @@ export default function NewCampaignPage() {
                 return ch?.adType === "search";
               }).length > 0 && (
                 <p className="mt-3 text-xs text-neutral-500">
-                  <span className="font-medium text-neutral-900">1개</span> 매체 선택됨
+                  {texts.selectChannelsCount.replace("{count}", selectedChannels.filter((c) => {
+                    const ch = CHANNEL_TYPES.find((ct) => ct.value === c);
+                    return ch?.adType === "search";
+                  }).length.toString())}
                 </p>
               )}
             </div>
@@ -532,7 +640,7 @@ export default function NewCampaignPage() {
           {/* 검색광고 ON 시 세부설정 패널 */}
           {searchAdEnabled && (
             <div className="mb-6 p-4 border border-neutral-200 rounded-lg bg-white">
-              <p className="text-xs font-medium text-neutral-700 mb-3">검색광고 유형 선택</p>
+              <p className="text-xs font-medium text-neutral-700 mb-3">{texts.searchAdType}</p>
               <div className="flex gap-2">
                 <button
                   type="button"
@@ -545,7 +653,7 @@ export default function NewCampaignPage() {
                       : "bg-white text-neutral-700 border border-neutral-300 hover:border-neutral-900"
                   }`}
                 >
-                  브랜드명 검색광고
+                  {texts.brandSearchAd}
                 </button>
                 <button
                   type="button"
@@ -558,7 +666,7 @@ export default function NewCampaignPage() {
                       : "bg-white text-neutral-700 border border-neutral-300 hover:border-neutral-900"
                   }`}
                 >
-                  논브랜드 검색광고
+                  {texts.nonBrandSearchAd}
                 </button>
               </div>
             </div>
@@ -570,7 +678,7 @@ export default function NewCampaignPage() {
               htmlFor="raw_name"
               className="block text-sm font-medium text-neutral-900 mb-2"
             >
-              캠페인명 <span className="text-neutral-500">*</span>
+              {texts.campaignName} <span className="text-neutral-500">*</span>
               {searchAdEnabled && (selectedChannels.includes("naver") || selectedChannels.includes("google")) && (
                 <span className="text-xs text-neutral-500 font-normal ml-2">
                   (최대 18자)
@@ -582,7 +690,7 @@ export default function NewCampaignPage() {
               type="text"
               value={formData.raw_name}
               onChange={(e) => handleChange("raw_name", e.target.value)}
-              placeholder="예: 블랙프라이데이, Black Friday Sale"
+                    placeholder={texts.examplePlaceholder}
               maxLength={searchAdEnabled && (selectedChannels.includes("naver") || selectedChannels.includes("google")) ? 18 : 100}
               required
               className={`w-full border px-4 py-3 text-sm outline-none transition-all duration-300 ${
@@ -674,13 +782,17 @@ export default function NewCampaignPage() {
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                   ></path>
                 </svg>
-                <p className="text-xs text-neutral-600">ChatGPT가 캠페인명을 추천하고 있습니다...</p>
+                <p className="text-xs text-neutral-600">{texts.chatgptRecommending}</p>
               </div>
             </div>
           )}
           {showTranslationModal && translationCandidates.length > 0 && !isTranslating && (
             <div className="border border-neutral-200 bg-neutral-50 px-4 py-3">
-              <p className="text-xs text-neutral-600 mb-2">ChatGPT 추천 캠페인명:</p>
+              <p className="text-xs text-neutral-600 mb-2">
+                {lookupDictionary(formData.raw_name) 
+                  ? texts.predefinedCampaignName
+                  : texts.chatgptRecommendedCampaignName}
+              </p>
               <div className="flex items-center gap-2">
                 <button
                   type="button"
@@ -715,9 +827,9 @@ export default function NewCampaignPage() {
               }`}
             >
               <div className="flex items-center justify-between mb-2">
-                <p className="text-xs text-neutral-600 font-medium">최종 캠페인명 ID 미리보기</p>
+                <p className="text-xs text-neutral-600 font-medium">{texts.finalCampaignNamePreview}</p>
                 <p className="text-xs text-neutral-500">
-                  {finalCampaignName.length}자
+                  {finalCampaignName.length} {texts.characters}
                 </p>
               </div>
               <p className="text-lg font-mono font-semibold text-neutral-900">
@@ -747,17 +859,18 @@ export default function NewCampaignPage() {
           )}
 
           {/* 시작일 */}
-          <div>
+          <div lang={locale === "en" ? "en" : locale === "ko" ? "ko" : "en"}>
             <label
               htmlFor="start_date"
               className="block text-sm font-medium text-neutral-900 mb-2"
             >
-              시작일 <span className="text-neutral-500">*</span>
+              {texts.startDate} <span className="text-neutral-500">*</span>
             </label>
             <div className="relative inline-flex items-center group">
               <input
                 id="start_date"
                 type="date"
+                lang={locale === "en" ? "en-US" : locale === "ko" ? "ko-KR" : "en-US"}
                 value={formData.start_date}
                 onChange={(e) => handleChange("start_date", e.target.value)}
                 required
@@ -785,7 +898,7 @@ export default function NewCampaignPage() {
                   }
                 }}
                 className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer p-1 hover:bg-neutral-100 rounded transition-colors"
-                aria-label="날짜 선택"
+                aria-label={locale === "ko" ? "날짜 선택" : "Select date"}
               >
                 <svg
                   className="w-5 h-5 text-neutral-400 group-hover:text-neutral-600 transition-colors"
@@ -808,17 +921,18 @@ export default function NewCampaignPage() {
           </div>
 
           {/* 종료일 (선택) */}
-          <div>
+          <div lang={locale === "en" ? "en" : locale === "ko" ? "ko" : "en"}>
             <label
               htmlFor="end_date"
               className="block text-sm font-medium text-neutral-900 mb-2"
             >
-              종료일 <span className="text-neutral-400 text-xs">(선택)</span>
+              {texts.endDate} <span className="text-neutral-400 text-xs">{texts.optional}</span>
             </label>
             <div className="relative inline-flex items-center group">
               <input
                 id="end_date"
                 type="date"
+                lang={locale === "en" ? "en-US" : locale === "ko" ? "ko-KR" : "en-US"}
                 value={formData.end_date || ""}
                 onChange={(e) => handleChange("end_date", e.target.value || null)}
                 min={formData.start_date}
@@ -846,7 +960,7 @@ export default function NewCampaignPage() {
                   }
                 }}
                 className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer p-1 hover:bg-neutral-100 rounded transition-colors"
-                aria-label="날짜 선택"
+                aria-label={locale === "ko" ? "날짜 선택" : "Select date"}
               >
                 <svg
                   className="w-5 h-5 text-neutral-400 group-hover:text-neutral-600 transition-colors"
@@ -872,7 +986,7 @@ export default function NewCampaignPage() {
           {!searchAdEnabled && (
           <div>
             <label className="block text-sm font-medium text-neutral-900 mb-3">
-              광고할 매체 선택 <span className="text-neutral-400 text-xs font-normal">(선택사항, 나중에 추가 가능)</span>
+              {texts.selectChannels} <span className="text-neutral-400 text-xs font-normal">{texts.selectChannelsOptional}</span>
             </label>
             
             {/* 광고 유형 필터 탭 */}
@@ -886,7 +1000,7 @@ export default function NewCampaignPage() {
                       : "text-neutral-500 hover:text-neutral-700"
                   }`}
                 >
-                  전체
+                  {texts.all}
                 </button>
                 <button
                   type="button"
@@ -897,7 +1011,7 @@ export default function NewCampaignPage() {
                       : "text-neutral-500 hover:text-neutral-700"
                   }`}
                 >
-                  검색광고
+                  {texts.searchAd}
                 </button>
                 <button
                   type="button"
@@ -908,7 +1022,7 @@ export default function NewCampaignPage() {
                       : "text-neutral-500 hover:text-neutral-700"
                   }`}
                 >
-                  디스플레이 광고
+                  {texts.displayAd}
                 </button>
                 <button
                   type="button"
@@ -919,7 +1033,7 @@ export default function NewCampaignPage() {
                       : "text-neutral-500 hover:text-neutral-700"
                   }`}
                 >
-                  CRM
+                  {texts.crm}
                 </button>
               </div>
             
@@ -1004,7 +1118,7 @@ export default function NewCampaignPage() {
             </div>
             {selectedChannels.length > 0 && (
               <p className="mt-3 text-xs text-neutral-500">
-                <span className="font-medium text-neutral-900">{selectedChannels.length}개</span> 매체 선택됨
+                {texts.selectChannelsCount.replace("{count}", selectedChannels.length.toString())}
               </p>
             )}
           </div>
@@ -1016,14 +1130,14 @@ export default function NewCampaignPage() {
               href={localizedPath("/")}
               className="px-6 py-3 text-sm font-medium text-neutral-700 border border-neutral-200 transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-50"
             >
-              취소
+              {texts.cancel}
             </Link>
             <button
               type="submit"
               disabled={loading || !finalCampaignName}
               className="px-6 py-3 text-sm font-medium text-white bg-neutral-900 border border-neutral-900 transition-all duration-300 hover:bg-white hover:text-neutral-900 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? "생성 중..." : "생성"}
+              {loading ? texts.creating : texts.create}
             </button>
           </div>
         </form>
@@ -1033,9 +1147,9 @@ export default function NewCampaignPage() {
       {showSuccessModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white p-8 max-w-md w-full mx-4 border border-neutral-200">
-            <h2 className="text-2xl font-light mb-4">캠페인이 생성되었습니다</h2>
+            <h2 className="text-2xl font-light mb-4">{texts.campaignCreated}</h2>
             <div className="mb-6">
-              <p className="text-sm text-neutral-600 mb-2">최종 캠페인명:</p>
+              <p className="text-sm text-neutral-600 mb-2">{texts.finalCampaignName}</p>
               <div className="flex items-center gap-2">
                 <p className="text-base font-mono font-medium text-neutral-900 flex-1">
                   {showSuccessModal.final_campaign_name}

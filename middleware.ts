@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 const SUPPORTED_LOCALES = ["en", "ko", "jp"];
-const DEFAULT_LOCALE = "ko"; // 한국어를 기본값으로 설정
+const DEFAULT_LOCALE = "en"; // 영어를 기본값으로 설정
 
 /**
  * Accept-Language 헤더에서 언어 감지
@@ -112,8 +112,8 @@ export const config = {
 		 * - _next/image (image optimization files)
 		 * - favicon.ico (favicon file)
 		 * - robots.txt, sitemap.xml (SEO files)
+		 * - files with extensions (images, etc.)
 		 */
-		"/",
-		"/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap).*)",
+		"/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap|.*\\..*).*)",
 	],
 };

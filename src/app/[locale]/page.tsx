@@ -11,6 +11,27 @@ export default function Page() {
   const campaignNewPath = `/${locale}/campaign/new`;
   const campaignsPath = `/${locale}/campaigns`;
   
+  // 텍스트 내용 (locale에 따라 변경)
+  const texts = {
+    en: {
+      utmCheckerDescription: "Analyze and validate UTM parameters in your URL",
+      createCampaign: "Create Campaign",
+      viewCampaigns: "View Campaigns",
+    },
+    ko: {
+      utmCheckerDescription: "URL의 UTM 파라미터를 분석하고 검증하세요",
+      createCampaign: "Campaign 만들기",
+      viewCampaigns: "Campaign 보기",
+    },
+    jp: {
+      utmCheckerDescription: "URLのUTMパラメータを分析して検証します",
+      createCampaign: "キャンペーン作成",
+      viewCampaigns: "キャンペーン一覧",
+    },
+  };
+  
+  const t = texts[locale] || texts.en;
+  
   return (
     <main className="min-h-screen bg-white text-neutral-900 flex flex-col">
       {/* 중앙 컨텐츠 영역 */}
@@ -36,7 +57,7 @@ export default function Page() {
                 UTM Checker
               </h2>
               <p className="text-sm text-neutral-500">
-                URL의 UTM 파라미터를 분석하고 검증하세요
+                {t.utmCheckerDescription}
               </p>
             </div>
             <UtmCheckerForm compact={true} />
@@ -53,7 +74,7 @@ export default function Page() {
                   01
                 </span>
                 <span className="h-3 w-px bg-neutral-300 group-hover:bg-white" />
-                <span>Campaign 만들기</span>
+                <span>{t.createCampaign}</span>
               </span>
             </Link>
             <Link
@@ -65,7 +86,7 @@ export default function Page() {
                   02
                 </span>
                 <span className="h-3 w-px bg-neutral-300 group-hover:bg-white" />
-                <span>Campaign 보기</span>
+                <span>{t.viewCampaigns}</span>
               </span>
             </Link>
           </div>

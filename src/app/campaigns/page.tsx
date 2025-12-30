@@ -29,29 +29,77 @@ export default function CampaignsPage() {
   const [campaigns, setCampaigns] = useState<CampaignWithChannels[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
+  // 텍스트 번역 객체
+  const t = {
+    en: {
+      loading: "Loading...",
+      errorLoading: "Failed to load campaign list.",
+      errorOccurred: "An error occurred while loading campaign list.",
+      backToMain: "Back to Main",
+      campaignList: "Campaign List",
+      createCampaign: "Create Campaign",
+      noCampaigns: "No campaigns created yet.",
+      createFirstCampaign: "Create Campaign",
+      createAd: "Create AD",
+      dateRange: "Date Range",
+      channels: "Channels",
+    },
+    ko: {
+      loading: "로딩 중...",
+      errorLoading: "캠페인 목록을 불러올 수 없습니다.",
+      errorOccurred: "캠페인 목록을 불러오는 중 오류가 발생했습니다.",
+      backToMain: "메인으로 돌아가기",
+      campaignList: "Campaign 목록",
+      createCampaign: "Campaign 만들기",
+      noCampaigns: "생성된 캠페인이 없습니다.",
+      createFirstCampaign: "Campaign 만들기",
+      createAd: "AD 만들기",
+      dateRange: "기간",
+      channels: "매체",
+    },
+  };
+  
+  const texts = t[locale] || t.en;
 
   useEffect(() => {
+    let cancelled = false;
+    
     async function fetchCampaigns() {
       try {
-        const response = await fetch("/api/campaigns");
+        // 캐시를 활용하여 빠른 응답
+        const response = await fetch("/api/campaigns", {
+          cache: "no-store", // 항상 최신 데이터 가져오기
+        });
         const data = await response.json();
 
+        if (cancelled) return;
+
         if (!response.ok || !data.ok) {
-          setError(data.message || "캠페인 목록을 불러올 수 없습니다.");
+          setError(data.message || texts.errorLoading);
+          setLoading(false);
           return;
         }
 
         setCampaigns(data.data || []);
       } catch (err) {
+        if (cancelled) return;
         console.error("Failed to fetch campaigns:", err);
-        setError("캠페인 목록을 불러오는 중 오류가 발생했습니다.");
+        setError(texts.errorOccurred);
       } finally {
-        setLoading(false);
+        if (!cancelled) {
+          setLoading(false);
+        }
       }
     }
 
     fetchCampaigns();
-  }, []);
+    
+    // cleanup 함수로 컴포넌트 언마운트 시 요청 취소
+    return () => {
+      cancelled = true;
+    };
+  }, [texts.errorLoading, texts.errorOccurred]);
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("ko-KR", {
@@ -72,8 +120,54 @@ export default function CampaignsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-white text-neutral-900 flex items-center justify-center">
-        <div className="text-sm text-neutral-500">로딩 중...</div>
+      <div className="min-h-screen bg-white text-neutral-900">
+        <main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-4 py-20 sm:px-6">
+          {/* START MKTG 로고 링크 */}
+          <div className="mb-8">
+            <Link
+              href={localizedPath("/")}
+              className="inline-block transition-opacity hover:opacity-70"
+            >
+              <h1 className="text-3xl sm:text-4xl font-light tracking-[-0.02em] uppercase">
+                START MKTG
+              </h1>
+            </Link>
+          </div>
+
+          {/* 헤더 */}
+          <header className="mb-12 flex items-start justify-between">
+            <div>
+              <h1 className="text-4xl sm:text-5xl font-light tracking-[-0.02em] mb-2">
+                {texts.campaignList}
+              </h1>
+              <div className="h-px w-16 bg-neutral-300 mb-4" />
+            </div>
+          </header>
+
+          {/* 로딩 스켈레톤 */}
+          <div className="space-y-3">
+            {[1, 2, 3].map((i) => (
+              <div
+                key={i}
+                className="border-2 border-neutral-200 bg-white rounded-lg p-6 animate-pulse"
+              >
+                <div className="flex items-center justify-between gap-6">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="h-6 bg-neutral-200 rounded w-48" />
+                      <div className="h-5 bg-neutral-200 rounded w-32" />
+                    </div>
+                    <div className="h-4 bg-neutral-200 rounded w-40" />
+                  </div>
+                  <div className="flex items-center gap-2 flex-shrink-0">
+                    <div className="h-10 bg-neutral-200 rounded w-24" />
+                    <div className="h-10 bg-neutral-200 rounded w-24" />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </main>
       </div>
     );
   }
@@ -87,7 +181,7 @@ export default function CampaignsPage() {
             href={localizedPath("/")}
             className="text-sm text-neutral-500 hover:text-neutral-900 underline"
           >
-            메인으로 돌아가기
+            {texts.backToMain}
           </Link>
         </div>
       </div>
@@ -113,7 +207,7 @@ export default function CampaignsPage() {
         <header className="mb-12 flex items-start justify-between">
           <div>
             <h1 className="text-4xl sm:text-5xl font-light tracking-[-0.02em] mb-2">
-              Campaign 목록
+              {texts.campaignList}
             </h1>
             <div className="h-px w-16 bg-neutral-300 mb-4" />
           </div>
@@ -122,7 +216,7 @@ export default function CampaignsPage() {
               href={localizedPath("/")}
               className="px-4 py-2 text-sm font-medium text-neutral-700 border border-neutral-200 transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-50"
             >
-              메인
+              Main
             </Link>
             <Link
               href={localizedPath("/campaign/new")}
@@ -223,7 +317,7 @@ export default function CampaignsPage() {
                           d="M12 4v16m8-8H4"
                         />
                       </svg>
-                      <span>AD 만들기</span>
+                      <span>{texts.createAd}</span>
                     </Link>
                   </div>
                 </div>

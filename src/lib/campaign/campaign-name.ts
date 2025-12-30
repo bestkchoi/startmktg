@@ -2,8 +2,25 @@
  * Start Campaign PRD v1.1 기반 캠페인명 처리 헬퍼 함수
  */
 
+import translationDictionary from './translation-dictionary.json';
+
 /**
- * 한글을 영어로 번역하는 mock 함수
+ * 사전 정의된 번역 사전에서 번역 확인
+ * 
+ * @param koreanText 한글 텍스트
+ * @returns 영어 번역 문장 또는 null (사전에 없으면)
+ * 
+ * @example
+ * lookupDictionary('블랙프라이데이') => 'black friday'
+ * lookupDictionary('존재하지않는단어') => null
+ */
+export function lookupDictionary(koreanText: string): string | null {
+  const dict = translationDictionary as Record<string, string>;
+  return dict[koreanText] || null;
+}
+
+/**
+ * 한글을 영어로 번역하는 mock 함수 (fallback용)
  * 실제로는 Google Translate API 또는 다른 번역 서비스 사용
  * 
  * @param koreanText 한글 텍스트
@@ -14,22 +31,10 @@
  * translateToEnglish('블랙프라이데이') => 'black friday'
  */
 export function translateToEnglish(koreanText: string): string {
-  // Mock 번역 데이터 (실제로는 API 호출)
-  const mockTranslations: Record<string, string> = {
-    '블랙프라이데이': 'black friday',
-    '가을 정기세일': 'autumn sale',
-    '여름 세일': 'summer sale',
-    '여름세일': 'summer sale',
-    '신년 프로모션': 'new year promotion',
-    '신년세일': 'new year sale',
-    '크리스마스 프로모션': 'christmas promotion',
-    '봄 세일': 'spring sale',
-    '가을세일': 'autumn sale',
-  };
-
-  // 정확히 일치하는 경우
-  if (mockTranslations[koreanText]) {
-    return mockTranslations[koreanText];
+  // 먼저 사전 확인
+  const dictTranslation = lookupDictionary(koreanText);
+  if (dictTranslation) {
+    return dictTranslation;
   }
 
   // 기본 번역 (간단한 치환 - 실제로는 번역 API 사용)
@@ -135,10 +140,10 @@ export function normalizeCampaignName(rawName: string): string {
 
   let text = rawName.trim();
 
-  // 한글 포함 시 번역 (첫 번째 후보 사용)
+  // 한글 포함 시 번역
   if (containsKorean(text)) {
-    const translations = translateToEnglish(text);
-    text = translations[0]; // 첫 번째 번역 후보 사용
+    const translation = translateToEnglish(text);
+    text = translation; // 번역 결과 사용
   }
 
   // 소문자 변환
