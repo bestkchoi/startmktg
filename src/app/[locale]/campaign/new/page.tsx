@@ -1,28 +1,6 @@
-export { default } from "../../campaign/new/page";
+"use client";
 
+import NewCampaignPage from "../../../campaign/new/page";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default NewCampaignPage;
 

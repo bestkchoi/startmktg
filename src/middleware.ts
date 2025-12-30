@@ -50,7 +50,8 @@ export function middleware(request: NextRequest) {
 		pathname.startsWith("/assets") ||
 		pathname === "/favicon.ico" ||
 		pathname === "/robots.txt" ||
-		pathname.startsWith("/sitemap")
+		pathname.startsWith("/sitemap") ||
+		pathname.startsWith("/.well-known")
 	) {
 		console.log("[Middleware] Skipping:", pathname);
 		return NextResponse.next();

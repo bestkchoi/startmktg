@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useLocalizedPath } from "@/hooks/use-locale";
 import { normalizeCampaignName, buildFinalCampaignName, translateToEnglish, generateNormalizedNameCandidates } from "@/lib/campaign/campaign-name";
 import type { CreateStartCampaignRequest, StartCampaign, ChannelType } from "@/types/campaign";
 
@@ -20,6 +21,7 @@ const CHANNEL_TYPES: Array<{ value: ChannelType; label: string; description?: st
 
 export default function NewCampaignPage() {
   const router = useRouter();
+  const localizedPath = useLocalizedPath();
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState<CreateStartCampaignRequest>({
@@ -35,6 +37,7 @@ export default function NewCampaignPage() {
   const [translationCandidates, setTranslationCandidates] = useState<string[]>([]);
   const [showTranslationModal, setShowTranslationModal] = useState(false);
   const [originalKoreanName, setOriginalKoreanName] = useState<string>(""); // 원본 한글 저장
+  const [isTranslating, setIsTranslating] = useState(false); // 번역 중 상태
   
   // 매체 선택 상태
   const [selectedChannels, setSelectedChannels] = useState<ChannelType[]>([]);
@@ -63,6 +66,7 @@ export default function NewCampaignPage() {
       setFinalCampaignName("");
       setTranslationCandidates([]);
       setShowTranslationModal(false);
+      setIsTranslating(false);
       return;
     }
 
@@ -71,22 +75,73 @@ export default function NewCampaignPage() {
     if (isKorean) {
       // 한글인 경우 원본 한글 저장
       setOriginalKoreanName(formData.raw_name);
-      // 한글인 경우 번역 후 normalizedName 후보 생성
-      const translated = translateToEnglish(formData.raw_name);
-      // 검색광고인 경우 18자 제한 (Naver Search 또는 Google Ads: sm_sa_nav_br_/sm_sa_nav_nb_/sm_sa_goo_br_/sm_sa_goo_nb_ prefix 12자 + 캠페인명 18자 = 30자)
-      const isNaverSearch = searchAdEnabled && selectedChannels.includes("naver");
-      const isGoogleAds = searchAdEnabled && selectedChannels.includes("google");
-      const maxLength = (isNaverSearch || isGoogleAds) ? 18 : undefined;
-      const candidates = generateNormalizedNameCandidates(translated, maxLength);
-      setTranslationCandidates(candidates);
-      setShowTranslationModal(candidates.length > 0);
-      // 첫 번째 후보로 미리보기
-      if (candidates.length > 0) {
-        setNormalizedName(candidates[0]);
-      }
+      setIsTranslating(true);
+      
+      // ChatGPT API를 통한 번역
+      const translateWithChatGPT = async () => {
+        try {
+          // 검색광고인 경우 18자 제한
+          const isNaverSearch = searchAdEnabled && selectedChannels.includes("naver");
+          const isGoogleAds = searchAdEnabled && selectedChannels.includes("google");
+          const maxLength = (isNaverSearch || isGoogleAds) ? 18 : undefined;
+
+          const response = await fetch("/api/translate", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              koreanText: formData.raw_name,
+              maxLength,
+            }),
+          });
+
+          const data = await response.json();
+
+          if (data.ok && data.data) {
+            // ChatGPT가 반환한 normalized 이름 사용
+            const candidate = data.data.normalized;
+            setTranslationCandidates([candidate]);
+            setNormalizedName(candidate);
+            setShowTranslationModal(true);
+          } else {
+            // API 실패 시 기존 로직 사용 (fallback)
+            const translated = translateToEnglish(formData.raw_name);
+            const candidates = generateNormalizedNameCandidates(translated, maxLength);
+            setTranslationCandidates(candidates);
+            setShowTranslationModal(candidates.length > 0);
+            if (candidates.length > 0) {
+              setNormalizedName(candidates[0]);
+            }
+          }
+        } catch (error) {
+          console.error("Translation error:", error);
+          // 에러 발생 시 기존 로직 사용 (fallback)
+          const isNaverSearch = searchAdEnabled && selectedChannels.includes("naver");
+          const isGoogleAds = searchAdEnabled && selectedChannels.includes("google");
+          const maxLength = (isNaverSearch || isGoogleAds) ? 18 : undefined;
+          const translated = translateToEnglish(formData.raw_name);
+          const candidates = generateNormalizedNameCandidates(translated, maxLength);
+          setTranslationCandidates(candidates);
+          setShowTranslationModal(candidates.length > 0);
+          if (candidates.length > 0) {
+            setNormalizedName(candidates[0]);
+          }
+        } finally {
+          setIsTranslating(false);
+        }
+      };
+
+      // 디바운싱: 사용자가 입력을 멈춘 후 500ms 후에 번역 요청
+      const timeoutId = setTimeout(() => {
+        translateWithChatGPT();
+      }, 500);
+
+      return () => clearTimeout(timeoutId);
     } else {
       // 영어로 변경되면 원본 한글 초기화
       setOriginalKoreanName("");
+      setIsTranslating(false);
       // 영어인 경우 바로 normalize
       let normalized = normalizeCampaignName(formData.raw_name);
       // 검색광고인 경우 18자 제한 (Naver Search 또는 Google Ads: sm_sa_nav_br_/sm_sa_nav_nb_/sm_sa_goo_br_/sm_sa_goo_nb_ prefix 12자 + 캠페인명 18자 = 30자)
@@ -237,8 +292,7 @@ export default function NewCampaignPage() {
         {/* START MKTG 로고 링크 */}
         <div className="mb-8">
           <Link
-            // @ts-ignore - Next.js typedRoutes 경고 무시
-            href="/"
+            href={localizedPath("/")}
             className="inline-block transition-opacity hover:opacity-70"
           >
             <h1 className="text-3xl sm:text-4xl font-light tracking-[-0.02em] uppercase">
@@ -256,7 +310,7 @@ export default function NewCampaignPage() {
             <div className="h-px w-16 bg-neutral-300" />
           </div>
           <Link
-            href="/campaigns"
+            href={localizedPath("/campaigns")}
             className="px-4 py-2 text-sm font-medium text-neutral-700 border border-neutral-200 transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-50"
           >
             Campaign 목록
@@ -597,20 +651,55 @@ export default function NewCampaignPage() {
           )}
 
           {/* normalizedName 후보 선택 (한글 입력 시) */}
-          {showTranslationModal && translationCandidates.length > 0 && (
+          {isTranslating && (
             <div className="border border-neutral-200 bg-neutral-50 px-4 py-3">
-              <p className="text-xs text-neutral-600 mb-2">캠페인명 후보를 선택해주세요:</p>
-              <div className="flex flex-wrap gap-2">
-                {translationCandidates.map((candidate, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    onClick={() => handleSelectCandidate(candidate)}
-                    className="px-3 py-1.5 text-xs border border-neutral-300 bg-white hover:border-neutral-900 hover:bg-neutral-50 transition-all font-mono"
-                  >
-                    {candidate}
-                  </button>
-                ))}
+              <div className="flex items-center gap-2">
+                <svg
+                  className="animate-spin h-4 w-4 text-neutral-600"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+                <p className="text-xs text-neutral-600">ChatGPT가 캠페인명을 추천하고 있습니다...</p>
+              </div>
+            </div>
+          )}
+          {showTranslationModal && translationCandidates.length > 0 && !isTranslating && (
+            <div className="border border-neutral-200 bg-neutral-50 px-4 py-3">
+              <p className="text-xs text-neutral-600 mb-2">ChatGPT 추천 캠페인명:</p>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => handleSelectCandidate(translationCandidates[0])}
+                  className="px-4 py-2 text-sm font-mono border-2 border-neutral-900 bg-white hover:bg-neutral-50 transition-all font-medium text-neutral-900"
+                >
+                  {translationCandidates[0]}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowTranslationModal(false);
+                    setNormalizedName("");
+                    setTranslationCandidates([]);
+                  }}
+                  className="px-3 py-2 text-xs text-neutral-500 hover:text-neutral-700 transition-colors"
+                >
+                  다른 이름 사용
+                </button>
               </div>
             </div>
           )}
@@ -924,8 +1013,7 @@ export default function NewCampaignPage() {
           {/* 액션 버튼 */}
           <div className="flex items-center justify-end gap-4 pt-6">
             <Link
-              // @ts-ignore - Next.js typedRoutes 경고 무시
-              href="/"
+              href={localizedPath("/")}
               className="px-6 py-3 text-sm font-medium text-neutral-700 border border-neutral-200 transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-50"
             >
               취소
@@ -976,7 +1064,7 @@ export default function NewCampaignPage() {
                           onClick={() => {
                             setShowSuccessModal(null);
                             router.push(
-                              `/campaigns/${showSuccessModal.campaign_id}/channels/new?type=${channelType}`
+                              localizedPath(`/campaigns/${showSuccessModal.campaign_id}/channels/new?type=${channelType}`)
                             );
                           }}
                           className="px-4 py-3 text-sm font-medium text-white bg-neutral-900 border border-neutral-900 transition-all duration-300 hover:bg-white hover:text-neutral-900"
@@ -990,7 +1078,7 @@ export default function NewCampaignPage() {
                     <button
                       onClick={() => {
                         setShowSuccessModal(null);
-                        router.push(`/campaigns/${showSuccessModal.campaign_id}`);
+                        router.push(localizedPath(`/campaigns/${showSuccessModal.campaign_id}`));
                       }}
                       className="flex-1 px-6 py-3 text-sm font-medium text-neutral-700 border border-neutral-200 transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-50"
                     >
@@ -999,7 +1087,7 @@ export default function NewCampaignPage() {
                     <button
                       onClick={() => {
                         setShowSuccessModal(null);
-                        router.push("/campaigns");
+                        router.push(localizedPath("/campaigns"));
                       }}
                       className="px-6 py-3 text-sm font-medium text-neutral-700 border border-neutral-200 transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-50"
                     >
@@ -1013,7 +1101,7 @@ export default function NewCampaignPage() {
                     <button
                       onClick={() => {
                         setShowSuccessModal(null);
-                        router.push(`/campaigns/${showSuccessModal.campaign_id}/channels/new`);
+                        router.push(localizedPath(`/campaigns/${showSuccessModal.campaign_id}/channels/new`));
                       }}
                       className="flex-1 px-6 py-3 text-sm font-medium text-white bg-neutral-900 border border-neutral-900 transition-all duration-300 hover:bg-white hover:text-neutral-900"
                     >
@@ -1022,7 +1110,7 @@ export default function NewCampaignPage() {
                     <button
                       onClick={() => {
                         setShowSuccessModal(null);
-                        router.push("/campaigns");
+                        router.push(localizedPath("/campaigns"));
                       }}
                       className="px-6 py-3 text-sm font-medium text-neutral-700 border border-neutral-200 transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-50"
                     >
@@ -1034,8 +1122,7 @@ export default function NewCampaignPage() {
               <button
                 onClick={() => {
                   setShowSuccessModal(null);
-                  // @ts-ignore - Next.js typedRoutes 경고 무시
-                  router.push("/");
+                  router.push(localizedPath("/"));
                 }}
                 className="w-full px-6 py-3 text-sm font-medium text-neutral-500 border border-neutral-200 transition-all duration-300 hover:border-neutral-400 hover:bg-neutral-50"
               >

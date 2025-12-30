@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
+import { useLocalizedPath } from "@/hooks/use-locale";
 import type { CampaignWithChannels } from "@/types/campaign";
 
 const CHANNEL_TYPE_LABELS: Record<string, string> = {
@@ -19,6 +20,7 @@ const CHANNEL_TYPE_LABELS: Record<string, string> = {
 export default function CampaignDetailPage() {
   const router = useRouter();
   const params = useParams();
+  const localizedPath = useLocalizedPath();
   const campaignId = params.id as string;
 
   const [campaign, setCampaign] = useState<CampaignWithChannels | null>(null);
@@ -82,7 +84,7 @@ export default function CampaignDetailPage() {
         <div className="text-center">
           <p className="text-sm text-neutral-700 mb-4">{error || "캠페인을 찾을 수 없습니다."}</p>
           <Link
-            href="/campaigns"
+            href={localizedPath("/campaigns")}
             className="text-sm text-neutral-500 hover:text-neutral-900 underline"
           >
             목록으로 돌아가기
@@ -106,8 +108,7 @@ export default function CampaignDetailPage() {
         {/* START MKTG 로고 링크 */}
         <div className="mb-8">
           <Link
-            // @ts-ignore - Next.js typedRoutes 경고 무시
-            href="/"
+            href={localizedPath("/") as any}
             className="inline-block transition-opacity hover:opacity-70"
           >
             <h1 className="text-3xl sm:text-4xl font-light tracking-[-0.02em] uppercase">
@@ -136,7 +137,7 @@ export default function CampaignDetailPage() {
             </div>
           </div>
           <Link
-            href="/campaigns"
+            href={localizedPath("/campaigns") as any}
             className="text-sm text-neutral-500 hover:text-neutral-900 transition-colors"
           >
             목록
@@ -148,7 +149,7 @@ export default function CampaignDetailPage() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-lg font-medium text-neutral-900">광고 목록</h2>
             <Link
-              href={`/campaigns/${campaignId}/channels/new`}
+              href={localizedPath(`/campaigns/${campaignId}/channels/new`) as any}
               className="px-4 py-2 text-sm font-medium text-white bg-neutral-900 border border-neutral-900 transition-all duration-300 hover:bg-white hover:text-neutral-900"
             >
               광고 추가
@@ -159,7 +160,7 @@ export default function CampaignDetailPage() {
             <div className="border border-neutral-200 bg-neutral-50 px-6 py-12 text-center">
               <p className="text-sm text-neutral-500 mb-4">광고를 추가해주세요.</p>
               <Link
-                href={`/campaigns/${campaignId}/channels/new`}
+                href={localizedPath(`/campaigns/${campaignId}/channels/new`) as any}
                 className="text-sm text-neutral-900 underline hover:text-neutral-600"
               >
                 첫 광고 추가하기
@@ -240,7 +241,7 @@ export default function CampaignDetailPage() {
                       <td className="px-4 py-3 whitespace-nowrap text-right">
                         <div className="flex items-center justify-end gap-3">
                           <Link
-                            href={`/campaigns/${campaignId}/channels/${channel.id}/edit`}
+                            href={localizedPath(`/campaigns/${campaignId}/channels/${channel.id}/edit`) as any}
                             className="text-xs text-neutral-600 hover:text-neutral-900 transition-colors"
                           >
                             수정
