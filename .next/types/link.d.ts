@@ -30,21 +30,28 @@ declare namespace __next_route_internal_types__ {
 
   type StaticRoutes = 
     | `/`
-    | `/dashboard`
-    | `/api/ping`
-    | `/api/auth/google`
-    | `/api/auth/callback`
-    | `/api/auth/logout`
-    | `/api/auth/me`
-    | `/api/utm-checker`
-    | `/api/campaigns`
-    | `/login`
-    | `/utmchecker`
+    | `/campaigns`
     | `/campaigns/new`
+    | `/api/ping`
+    | `/api/campaigns`
+    | `/api/utm-checker`
+    | `/campaign/new`
+    | `/robots.txt`
+    | `/sitemap-en.xml`
+    | `/sitemap-jp.xml`
+    | `/sitemap-ko.xml`
+    | `/sitemap.xml`
   type DynamicRoutes<T extends string = string> = 
+    | `/${SafeSlug<T>}`
+    | `/${SafeSlug<T>}/campaign/new`
+    | `/${SafeSlug<T>}/campaigns/${SafeSlug<T>}`
+    | `/${SafeSlug<T>}/campaigns/new`
+    | `/campaigns/${SafeSlug<T>}`
+    | `/campaigns/${SafeSlug<T>}/channels/new`
+    | `/campaigns/${SafeSlug<T>}/channels/${SafeSlug<T>}/edit`
     | `/api/campaigns/${SafeSlug<T>}`
     | `/api/campaigns/${SafeSlug<T>}/channels`
-    | `/campaigns/${SafeSlug<T>}`
+    | `/api/campaigns/${SafeSlug<T>}/channels/${SafeSlug<T>}`
 
   type RouteImpl<T> = 
     | StaticRoutes
