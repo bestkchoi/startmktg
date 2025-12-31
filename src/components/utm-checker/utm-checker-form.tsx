@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale } from "@/hooks/use-locale";
 import { getParamMetadata } from "@/lib/utm-checker/param-metadata";
 import { getAdProductFromParams, getAdGroupTypeFromParams } from "@/lib/utm-checker/naver-campaign-type";
 import { getMediaInfoFromParams } from "@/lib/utm-checker/naver-media";
@@ -25,10 +26,122 @@ type ParamInfo = {
 };
 
 export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
+  const locale = useLocale();
   const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ApiResponse | null>(null);
   const [ga4PreviewOpen, setGa4PreviewOpen] = useState(false);
+
+  // 다국어 텍스트
+  const texts = {
+    en: {
+      urlPlaceholder: "Please enter a URL",
+      analyze: "Analyze",
+      analyzing: "Analyzing...",
+      errorUrlRequired: "Please enter a URL",
+      errorRetry: "Please try again later",
+      landingPageOptimization: "Landing Page URL Optimization",
+      key: "Key",
+      dimension: "Dimension",
+      value: "Value",
+      description: "Description",
+      collectionTool: "Collection Tool",
+      noParameters: "No parameters found.",
+      ga4Optimization: "Google Analytics 4 Optimization",
+      parameter: "Parameter",
+      status: "Status",
+      ok: "OK",
+      missing: "Missing",
+      warning: "Warning",
+      notApplicable: "-",
+      ga4Preview: "Google Analytics 4 Preview",
+      sessionSourceMedium: "Session Source/Medium",
+      sessionCampaign: "Session Campaign",
+      sessionContent: "Session Content",
+      sessionTerm: "Session Term",
+      sessions: "Sessions",
+      total: "Total",
+      totalPercentage: "100% of total",
+      utmSourceDesc: "utm_source is a required parameter. It identifies the source of traffic.",
+      utmMediumDesc: "utm_medium is a required parameter. It identifies the marketing medium.",
+      utmCampaignDesc: "utm_campaign is a required parameter. It identifies the campaign name.",
+      utmIdDesc: "utm_id is a required parameter. It identifies the campaign ID.",
+      utmContentDesc: "utm_content is a required parameter. It distinguishes variations of the same link.",
+      utmTermDesc: "utm_term is a required parameter for search ads. It identifies the search keyword.",
+    },
+    ko: {
+      urlPlaceholder: "URL을 입력해주세요",
+      analyze: "분석하기",
+      analyzing: "분석 중...",
+      errorUrlRequired: "URL을 입력해주세요",
+      errorRetry: "잠시 후 다시 시도해주세요",
+      landingPageOptimization: "랜딩페이지 URL 최적화",
+      key: "키",
+      dimension: "Dimension",
+      value: "값",
+      description: "설명",
+      collectionTool: "수집도구",
+      noParameters: "파라미터가 없습니다.",
+      ga4Optimization: "구글애널리틱스4 최적화",
+      parameter: "파라미터",
+      status: "상태",
+      ok: "정상",
+      missing: "누락됨",
+      warning: "경고",
+      notApplicable: "-",
+      ga4Preview: "구글애널리틱스4 미리보기",
+      sessionSourceMedium: "세션 소스/매체",
+      sessionCampaign: "세션 캠페인",
+      sessionContent: "세션 컨텐츠",
+      sessionTerm: "세션 Term",
+      sessions: "세션수",
+      total: "합계",
+      totalPercentage: "총계 대비 100%",
+      utmSourceDesc: "utm_source는 필수 파라미터입니다. 트래픽의 출처를 식별합니다.",
+      utmMediumDesc: "utm_medium은 필수 파라미터입니다. 마케팅 매체를 식별합니다.",
+      utmCampaignDesc: "utm_campaign은 필수 파라미터입니다. 캠페인명을 식별합니다.",
+      utmIdDesc: "utm_id는 필수 파라미터입니다. 캠페인 ID를 식별합니다.",
+      utmContentDesc: "utm_content는 필수 파라미터입니다. 동일한 링크의 변형을 구분합니다.",
+      utmTermDesc: "utm_term은 검색광고의 경우 필수 파라미터입니다. 검색 키워드를 식별합니다.",
+    },
+    jp: {
+      urlPlaceholder: "URLを入力してください",
+      analyze: "分析",
+      analyzing: "分析中...",
+      errorUrlRequired: "URLを入力してください",
+      errorRetry: "しばらくしてからもう一度お試しください",
+      landingPageOptimization: "ランディングページURL最適化",
+      key: "キー",
+      dimension: "Dimension",
+      value: "値",
+      description: "説明",
+      collectionTool: "収集ツール",
+      noParameters: "パラメータがありません。",
+      ga4Optimization: "Google Analytics 4最適化",
+      parameter: "パラメータ",
+      status: "ステータス",
+      ok: "正常",
+      missing: "欠落",
+      warning: "警告",
+      notApplicable: "-",
+      ga4Preview: "Google Analytics 4プレビュー",
+      sessionSourceMedium: "セッションソース/メディア",
+      sessionCampaign: "セッションキャンペーン",
+      sessionContent: "セッションコンテンツ",
+      sessionTerm: "セッションTerm",
+      sessions: "セッション数",
+      total: "合計",
+      totalPercentage: "総計の100%",
+      utmSourceDesc: "utm_sourceは必須パラメータです。トラフィックの発生元を識別します。",
+      utmMediumDesc: "utm_mediumは必須パラメータです。マーケティングメディアを識別します。",
+      utmCampaignDesc: "utm_campaignは必須パラメータです。キャンペーン名を識別します。",
+      utmIdDesc: "utm_idは必須パラメータです。キャンペーンIDを識別します。",
+      utmContentDesc: "utm_contentは必須パラメータです。同じリンクのバリエーションを区別します。",
+      utmTermDesc: "utm_termは検索広告の場合、必須パラメータです。検索キーワードを識別します。",
+    },
+  };
+
+  const t = texts[locale] || texts.en;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,7 +149,7 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
     if (!url.trim()) {
       setResult({
         ok: false,
-        message: "URL을 입력해주세요",
+        message: t.errorUrlRequired,
       });
       return;
     }
@@ -58,7 +171,7 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
     } catch (error) {
       setResult({
         ok: false,
-        message: "잠시 후 다시 시도해주세요",
+        message: t.errorRetry,
       });
     } finally {
       setLoading(false);
@@ -68,7 +181,7 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
   // 파라미터를 테이블 형식으로 정리
   const paramList: ParamInfo[] = result?.ok
     ? Object.entries(result.parsed).map(([key, value]) => {
-        const metadata = getParamMetadata(key);
+        const metadata = getParamMetadata(key, locale);
         return {
           key,
           value,
@@ -95,12 +208,12 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
     if (status !== "missing") return null;
     
     const descriptions: Record<string, string> = {
-      utm_source: "utm_source는 필수 파라미터입니다. 트래픽의 출처를 식별합니다.",
-      utm_medium: "utm_medium은 필수 파라미터입니다. 마케팅 매체를 식별합니다.",
-      utm_campaign: "utm_campaign은 필수 파라미터입니다. 캠페인명을 식별합니다.",
-      utm_id: "utm_id는 필수 파라미터입니다. 캠페인 ID를 식별합니다.",
-      utm_content: "utm_content는 필수 파라미터입니다. 동일한 링크의 변형을 구분합니다.",
-      utm_term: "utm_term은 검색광고의 경우 필수 파라미터입니다. 검색 키워드를 식별합니다.",
+      utm_source: t.utmSourceDesc,
+      utm_medium: t.utmMediumDesc,
+      utm_campaign: t.utmCampaignDesc,
+      utm_id: t.utmIdDesc,
+      utm_content: t.utmContentDesc,
+      utm_term: t.utmTermDesc,
     };
     
     return descriptions[key] || null;
@@ -168,13 +281,13 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
   const getStatusLabel = (status: string): string => {
     switch (status) {
       case "ok":
-        return "정상";
+        return t.ok;
       case "missing":
-        return "누락됨";
+        return t.missing;
       case "warning":
-        return "경고";
+        return t.warning;
       case "not_applicable":
-        return "-";
+        return t.notApplicable;
       default:
         return status;
     }
@@ -198,7 +311,7 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
       <div className="w-full space-y-4">
         <form onSubmit={handleSubmit} className="flex w-full flex-col gap-4 sm:flex-row sm:items-stretch">
           <label htmlFor="utm-url" className="sr-only">
-            UTM URL 입력
+            {t.urlPlaceholder}
           </label>
           <input
             id="utm-url"
@@ -215,7 +328,7 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
             className="group relative min-w-[140px] border border-neutral-900 bg-neutral-900 px-8 py-4 text-sm font-medium text-white transition-all duration-300 hover:bg-white hover:text-neutral-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <span className="relative z-10">
-              {loading ? "분석 중..." : "분석하기"}
+              {loading ? t.analyzing : t.analyze}
             </span>
           </button>
         </form>
@@ -232,8 +345,8 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
           <div className="w-full space-y-8" aria-live="polite">
             {/* 랜딩페이지 URL 최적화 */}
             <div>
-              <h3 className="text-lg font-light tracking-[-0.02em] uppercase mb-4">
-                랜딩페이지 URL 최적화
+              <h3 className={`text-lg font-light tracking-[-0.02em] mb-4 ${locale === "ko" ? "uppercase" : ""}`}>
+                {t.landingPageOptimization}
               </h3>
               {paramList.length > 0 ? (
                 <div className="border border-neutral-200">
@@ -241,19 +354,19 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
                     <thead>
                       <tr className="border-b border-neutral-200 bg-neutral-50">
                         <th className="text-left p-3 text-sm font-medium text-neutral-900">
-                          키
+                          {t.key}
                         </th>
                         <th className="text-left p-3 text-sm font-medium text-neutral-900">
-                          Dimension
+                          {t.dimension}
                         </th>
                         <th className="text-left p-3 text-sm font-medium text-neutral-900">
-                          값
+                          {t.value}
                         </th>
                         <th className="text-left p-3 text-sm font-medium text-neutral-900">
-                          설명
+                          {t.description}
                         </th>
                         <th className="text-left p-3 text-sm font-medium text-neutral-900">
-                          수집도구
+                          {t.collectionTool}
                         </th>
                       </tr>
                     </thead>
@@ -325,28 +438,28 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
                 </div>
               ) : (
                 <div className="border border-neutral-200 bg-neutral-50 px-6 py-4 text-sm text-neutral-500 text-center">
-                  파라미터가 없습니다.
+                  {t.noParameters}
                 </div>
               )}
             </div>
 
             {/* 진단 결과 */}
             <div>
-              <h3 className="text-lg font-light tracking-[-0.02em] uppercase mb-4">
-                구글애널리틱스4 최적화
+              <h3 className={`text-lg font-light tracking-[-0.02em] mb-4 ${locale === "ko" ? "uppercase" : ""}`}>
+                {t.ga4Optimization}
               </h3>
               <div className="border border-neutral-200 bg-white">
                 <table className="w-full border-collapse">
                   <thead>
                     <tr className="border-b border-neutral-200 bg-neutral-50">
                       <th className="text-left p-3 text-sm font-medium text-neutral-900 w-[140px]">
-                        파라미터
+                        {t.parameter}
                       </th>
                       <th className="text-left p-3 text-sm font-medium text-neutral-900">
-                        값
+                        {t.value}
                       </th>
                       <th className="text-left p-3 text-sm font-medium text-neutral-900 w-[120px]">
-                        상태
+                        {t.status}
                       </th>
                     </tr>
                   </thead>
@@ -400,8 +513,8 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
                   onMouseEnter={() => setGa4PreviewOpen(true)}
                   onClick={() => setGa4PreviewOpen(!ga4PreviewOpen)}
                 >
-                  <h3 className="text-lg font-light tracking-[-0.02em] uppercase text-neutral-900">
-                    구글애널리틱스4 미리보기
+                  <h3 className={`text-lg font-light tracking-[-0.02em] text-neutral-900 ${locale === "ko" ? "uppercase" : ""}`}>
+                    {t.ga4Preview}
                   </h3>
                   <svg
                     className={`w-5 h-5 text-neutral-500 transition-transform duration-200 ${
@@ -425,13 +538,13 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
                   {/* 필터 섹션 */}
                   <div className="px-6 py-3 border-b border-neutral-200 bg-white flex items-center gap-3">
                     <div className="relative inline-flex items-center border border-neutral-300 rounded bg-white px-3 py-1.5 text-sm text-neutral-700">
-                      <span>세션 소스/매체</span>
+                      <span>{t.sessionSourceMedium}</span>
                       <svg className="w-4 h-4 ml-2 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </div>
                     <div className="relative inline-flex items-center border border-neutral-300 rounded bg-white px-3 py-1.5 text-sm text-neutral-700">
-                      <span>세션 캠페인</span>
+                      <span>{t.sessionCampaign}</span>
                       <svg className="w-4 h-4 ml-2 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
@@ -447,23 +560,23 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
                             
                           </th>
                           <th className="text-left px-6 py-3 text-xs font-medium text-neutral-600 uppercase tracking-wider">
-                            세션 소스/매체
+                            {t.sessionSourceMedium}
                           </th>
                           <th className="text-left px-6 py-3 text-xs font-medium text-neutral-600 uppercase tracking-wider">
-                            세션 캠페인
+                            {t.sessionCampaign}
                           </th>
                           <th className="text-left px-6 py-3 text-xs font-medium text-neutral-600 uppercase tracking-wider">
-                            세션 컨텐츠
+                            {t.sessionContent}
                           </th>
                           <th className="text-left px-6 py-3 text-xs font-medium text-neutral-600 uppercase tracking-wider">
-                            세션 Term
+                            {t.sessionTerm}
                           </th>
                           <th className="text-right px-6 py-3 text-xs font-medium text-neutral-600 uppercase tracking-wider">
                             <div className="flex items-center justify-end gap-1">
                               <svg className="w-3 h-3 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                               </svg>
-                              <span className="border-b border-dashed border-neutral-300 pb-0.5">세션수</span>
+                              <span className="border-b border-dashed border-neutral-300 pb-0.5">{t.sessions}</span>
                             </div>
                           </th>
                         </tr>
@@ -475,11 +588,11 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
                             
                           </td>
                           <td colSpan={4} className="px-6 py-3 text-sm font-medium text-neutral-900">
-                            합계
+                            {t.total}
                           </td>
                           <td className="px-6 py-3 text-sm text-neutral-900 text-right">
                             <div className="font-medium">1</div>
-                            <div className="text-xs text-neutral-500">총계 대비 100%</div>
+                            <div className="text-xs text-neutral-500">{t.totalPercentage}</div>
                           </td>
                         </tr>
                         {/* 데이터 행 */}

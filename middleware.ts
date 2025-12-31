@@ -57,10 +57,10 @@ export function middleware(request: NextRequest) {
 		return NextResponse.next();
 	}
 
-	// 이미 locale이 있는지 확인
+	// 이미 locale이 있는지 확인 (kr도 ko로 처리)
 	const hasLocale = SUPPORTED_LOCALES.some(
 		(locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
-	);
+	) || pathname === "/kr" || pathname.startsWith("/kr/");
 
 	if (hasLocale) {
 		console.log("[Middleware] Already has locale:", pathname);
@@ -70,20 +70,23 @@ export function middleware(request: NextRequest) {
 
 	console.log("[Middleware] No locale found, detecting...");
 
-	// 쿠키에서 locale 확인 (사용자가 이전에 선택한 언어)
+	// Accept-Language 헤더에서 언어 감지 (우선순위 1)
+	const acceptLanguage = request.headers.get("accept-language");
+	let detectedLocale = detectLocaleFromHeader(acceptLanguage);
+	console.log("[Middleware] Detected locale from Accept-Language:", detectedLocale, "from:", acceptLanguage);
+
+	// 쿠키에서 locale 확인 (사용자가 명시적으로 선택한 경우에만 사용)
+	// 단, Accept-Language 헤더가 없거나 감지 실패한 경우에만 쿠키 사용
 	const cookieLocale = request.cookies.get("NEXT_LOCALE")?.value;
 	if (cookieLocale && SUPPORTED_LOCALES.includes(cookieLocale)) {
-		console.log("[Middleware] Using cookie locale:", cookieLocale);
-		const newUrl = request.nextUrl.clone();
-		newUrl.pathname = `/${cookieLocale}${pathname === "/" ? "" : pathname}`;
-		console.log("[Middleware] Redirecting to:", newUrl.pathname);
-		return NextResponse.redirect(newUrl, 302);
+		// Accept-Language 헤더가 없거나 기본값(en)으로 감지된 경우에만 쿠키 사용
+		if (!acceptLanguage || detectedLocale === DEFAULT_LOCALE) {
+			console.log("[Middleware] Using cookie locale (fallback):", cookieLocale);
+			detectedLocale = cookieLocale;
+		} else {
+			console.log("[Middleware] Ignoring cookie locale (", cookieLocale, ") in favor of Accept-Language (", detectedLocale, ")");
+		}
 	}
-
-	// Accept-Language 헤더에서 언어 감지
-	const acceptLanguage = request.headers.get("accept-language");
-	const detectedLocale = detectLocaleFromHeader(acceptLanguage);
-	console.log("[Middleware] Detected locale:", detectedLocale, "from:", acceptLanguage);
 
 	// 리다이렉트 URL 생성
 	const redirectPath = pathname === "/" ? `/${detectedLocale}` : `/${detectedLocale}${pathname}`;

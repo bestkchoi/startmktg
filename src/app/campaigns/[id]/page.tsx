@@ -84,7 +84,7 @@ export default function CampaignDetailPage() {
         <div className="text-center">
           <p className="text-sm text-neutral-700 mb-4">{error || "캠페인을 찾을 수 없습니다."}</p>
           <Link
-            href={localizedPath("/campaigns")}
+            href={localizedPath("/campaigns") as any}
             className="text-sm text-neutral-500 hover:text-neutral-900 underline"
           >
             목록으로 돌아가기
@@ -122,7 +122,7 @@ export default function CampaignDetailPage() {
           <div>
             <div className="mb-4">
               <p className="font-mono text-lg sm:text-xl text-neutral-700 bg-neutral-100 px-3 py-1.5 rounded inline-block">
-                {campaign.final_campaign_name}
+                {(campaign as any).final_campaign_name || campaign.campaign_name}
               </p>
               <p className="text-base sm:text-lg text-neutral-600 mt-2">
                 {(campaign as any).raw_name || campaign.campaign_name}

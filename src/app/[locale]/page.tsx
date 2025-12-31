@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLocale } from "@/hooks/use-locale";
 import { UtmCheckerForm } from "@/components/utm-checker/utm-checker-form";
+import { LocaleSwitcher } from "@/components/locale-switcher";
 
 export default function Page() {
   const locale = useLocale();
@@ -17,16 +18,22 @@ export default function Page() {
       utmCheckerDescription: "Analyze and validate UTM parameters in your URL",
       createCampaign: "Create Campaign",
       viewCampaigns: "View Campaigns",
+      privacy: "Privacy Policy",
+      terms: "Terms of Service",
     },
     ko: {
       utmCheckerDescription: "URL의 UTM 파라미터를 분석하고 검증하세요",
       createCampaign: "Campaign 만들기",
       viewCampaigns: "Campaign 보기",
+      privacy: "개인정보 취급방침",
+      terms: "서비스 약관",
     },
     jp: {
       utmCheckerDescription: "URLのUTMパラメータを分析して検証します",
       createCampaign: "キャンペーン作成",
       viewCampaigns: "キャンペーン一覧",
+      privacy: "プライバシーポリシー",
+      terms: "利用規約",
     },
   };
   
@@ -66,7 +73,7 @@ export default function Page() {
           {/* 액션 버튼 */}
           <div className="flex flex-col items-center gap-4 w-full">
             <Link
-              href={campaignNewPath}
+              href={campaignNewPath as any}
               className="group relative w-full sm:w-auto min-w-[280px] px-10 py-4 text-sm font-medium text-neutral-900 border border-neutral-200 rounded-none transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
@@ -78,7 +85,7 @@ export default function Page() {
               </span>
             </Link>
             <Link
-              href={campaignsPath}
+              href={campaignsPath as any}
               className="group relative w-full sm:w-auto min-w-[280px] px-10 py-4 text-sm font-medium text-neutral-900 border border-neutral-200 rounded-none transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-900"
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
@@ -94,8 +101,36 @@ export default function Page() {
       </div>
 
       {/* Footer */}
-      <footer className="py-8 px-4 text-xs text-neutral-400 text-center tracking-wide">
-        © {new Date().getFullYear()} START MKTG
+      <footer className="border-t border-neutral-200 bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-4">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            {/* 왼쪽: Copyright 및 링크 */}
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs text-neutral-600">
+              <span>© {new Date().getFullYear()} START MKTG</span>
+              <div className="flex items-center gap-2">
+                <span className="hidden sm:inline">-</span>
+                <Link
+                  href={`/${locale}/privacy`}
+                  className="text-blue-600 hover:underline"
+                >
+                  {t.privacy}
+                </Link>
+                <span>-</span>
+                <Link
+                  href={`/${locale}/terms`}
+                  className="text-blue-600 hover:underline"
+                >
+                  {t.terms}
+                </Link>
+              </div>
+            </div>
+
+            {/* 오른쪽: 언어 선택기 */}
+            <div className="flex items-center gap-4">
+              <LocaleSwitcher />
+            </div>
+          </div>
+        </div>
       </footer>
     </main>
   );

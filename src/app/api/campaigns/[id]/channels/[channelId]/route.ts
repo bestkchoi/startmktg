@@ -171,7 +171,7 @@ export async function PATCH(
       final_url: finalUrl,
     };
 
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from("campaign_channels")
       .update(updateData)
       .eq("id", channelId)

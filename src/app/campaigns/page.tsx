@@ -60,7 +60,7 @@ export default function CampaignsPage() {
     },
   };
   
-  const texts = t[locale] || t.en;
+  const texts = (t[locale as keyof typeof t] || t.en) as typeof t.en;
 
   useEffect(() => {
     let cancelled = false;
@@ -125,7 +125,7 @@ export default function CampaignsPage() {
           {/* START MKTG 로고 링크 */}
           <div className="mb-8">
             <Link
-              href={localizedPath("/")}
+              href={localizedPath("/") as any}
               className="inline-block transition-opacity hover:opacity-70"
             >
               <h1 className="text-3xl sm:text-4xl font-light tracking-[-0.02em] uppercase">
@@ -213,13 +213,13 @@ export default function CampaignsPage() {
           </div>
           <div className="flex gap-3">
             <Link
-              href={localizedPath("/")}
+              href={localizedPath("/") as any}
               className="px-4 py-2 text-sm font-medium text-neutral-700 border border-neutral-200 transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-50"
             >
               Main
             </Link>
             <Link
-              href={localizedPath("/campaign/new")}
+              href={localizedPath("/campaign/new") as any}
               className="px-4 py-2 text-sm font-medium text-white bg-neutral-900 border border-neutral-900 transition-all duration-300 hover:bg-white hover:text-neutral-900"
             >
               Campaign 만들기
@@ -232,7 +232,7 @@ export default function CampaignsPage() {
           <div className="border border-neutral-200 bg-neutral-50 px-6 py-12 text-center">
             <p className="text-sm text-neutral-500 mb-4">생성된 캠페인이 없습니다.</p>
             <Link
-              href={localizedPath("/campaign/new")}
+              href={localizedPath("/campaign/new") as any}
               className="text-sm text-neutral-900 underline hover:text-neutral-600"
             >
               Campaign 만들기
@@ -289,7 +289,7 @@ export default function CampaignsPage() {
                           .map((channelType, index) => (
                             <Link
                               key={`${campaign.campaign_id}-${channelType}-${index}`}
-                              href={localizedPath(`/campaigns/${campaign.campaign_id}/channels/new?type=${channelType}`)}
+                              href={localizedPath(`/campaigns/${campaign.campaign_id}/channels/new?type=${channelType}`) as any}
                               onClick={(e) => e.stopPropagation()}
                               className="flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-neutral-700 bg-neutral-100 border-2 border-neutral-200 rounded-lg hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg"
                             >
@@ -300,7 +300,7 @@ export default function CampaignsPage() {
                     )}
                     {/* AD 만들기 버튼 - 매체 태그와 동일한 스타일 */}
                     <Link
-                      href={localizedPath(`/campaigns/${campaign.campaign_id}/channels/new`)}
+                      href={localizedPath(`/campaigns/${campaign.campaign_id}/channels/new`) as any}
                       onClick={(e) => e.stopPropagation()}
                       className="flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-neutral-700 bg-neutral-100 border-2 border-neutral-200 rounded-lg hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg"
                     >

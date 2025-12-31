@@ -12,7 +12,12 @@ export function getLocaleFromPath(pathname: string): Locale | null {
   const segments = pathname.split("/").filter(Boolean);
   if (segments.length === 0) return null;
   
-  const firstSegment = segments[0];
+  let firstSegment = segments[0];
+  // kr을 ko로 매핑 (한국어 코드)
+  if (firstSegment === "kr") {
+    firstSegment = "ko";
+  }
+  
   if (SUPPORTED_LOCALES.includes(firstSegment as Locale)) {
     return firstSegment as Locale;
   }
