@@ -53,7 +53,7 @@ export function LocaleSwitcher() {
     // 쿠키에 저장
     document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
     
-    router.push(newPath);
+    router.push(newPath as any);
   };
 
   const labelTexts: Record<Locale, string> = {
