@@ -1,0 +1,32 @@
+{
+  "pending": [
+    {
+      "korean": "추석",
+      "english": "chuseok",
+      "normalized": "chuseok",
+      "timestamp": "2026-01-01T02:11:36.006Z"
+    },
+    {
+      "korean": "새",
+      "english": "bird",
+      "normalized": "bird",
+      "timestamp": "2026-01-01T02:13:10.687Z"
+    },
+    {
+      "korean": "새새",
+      "english": "new beginnings",
+      "normalized": "newbeginnings",
+      "timestamp": "2026-01-01T02:13:11.522Z"
+    },
+    {
+      "korean": "새해",
+      "normalized": "newyear",
+      "timestamp": "2026-01-01T02:16:18.516Z"
+    },
+    {
+      "korean": "테스트",
+      "normalized": "test",
+      "timestamp": "2026-01-01 11:24:01 KST"
+    }
+  ]
+}

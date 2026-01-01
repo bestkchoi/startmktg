@@ -187,8 +187,8 @@ export function normalizeCampaignName(rawName: string): string {
  * 
  * @param startDate YYYY-MM-DD 형식의 날짜 문자열
  * @param normalizedName 정규화된 캠페인명 (소문자, 숫자, 언더스코어만 포함)
- * @param options 선택적 옵션 (검색광고용)
- * @returns sm_YYMMDD_normalizedName 또는 sm_sa_nav_br_/sm_sa_nav_nb_/sm_sa_goo_br_/sm_sa_goo_nb_ 형식의 최종 캠페인명
+ * @param options 선택적 옵션 (검색광고용 또는 디스플레이 광고용)
+ * @returns sm_YYMMDD_normalizedName 또는 sm_sa_nav_br_/sm_sa_nav_nb_/sm_sa_goo_br_/sm_sa_goo_nb_ 또는 sm_da_YYMMDD 형식의 최종 캠페인명
  * 
  * @example
  * buildFinalCampaignName('2025-12-01', 'blackfriday') => 'sm_251201_blackfriday'
@@ -197,19 +197,37 @@ export function normalizeCampaignName(rawName: string): string {
  * buildFinalCampaignName('2025-12-01', 'blackfriday', { channel: 'naver', isBrand: false }) => 'sm_sa_nav_nb_blackfriday'
  * buildFinalCampaignName('2025-12-01', 'blackfriday', { channel: 'google', isBrand: true }) => 'sm_sa_goo_br_blackfriday'
  * buildFinalCampaignName('2025-12-01', 'blackfriday', { channel: 'google', isBrand: false }) => 'sm_sa_goo_nb_blackfriday'
+ * buildFinalCampaignName('2025-12-01', 'blackfriday', { adType: 'display' }) => 'sm_da_251201_blackfriday'
  */
 export function buildFinalCampaignName(
   startDate: string,
   normalizedName: string,
-  options?: { channel?: 'naver' | 'google'; isBrand?: boolean }
+  options?: { channel?: 'naver' | 'google'; isBrand?: boolean; adType?: 'search' | 'display' | 'crm' }
 ): string {
   if (!startDate || !normalizedName) {
     throw new Error('startDate와 normalizedName은 필수입니다.');
   }
 
+  // YYYY-MM-DD 형식 파싱
+  const date = new Date(startDate);
+  if (isNaN(date.getTime())) {
+    throw new Error('유효한 날짜 형식이 아닙니다. YYYY-MM-DD 형식을 사용해주세요.');
+  }
+
+  // YYMMDD 형식으로 변환
+  const year = date.getFullYear().toString().slice(-2); // 마지막 2자리
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
+  const datePrefix = `${year}${month}${day}`;
+
   // normalizedName이 소문자, 숫자, 언더스코어만 포함하는지 확인 및 정리
   // (이미 normalizeCampaignName에서 처리되지만, 안전을 위해 한 번 더 검증)
   const cleanName = normalizedName.toLowerCase().replace(/[^a-z0-9_]/g, '').replace(/_+/g, '_').replace(/^_+|_+$/g, '');
+
+  // 디스플레이 광고인 경우: sm_da_YYMMDD_normalizedName 형식
+  if (options?.adType === 'display') {
+    return `sm_da_${datePrefix}_${cleanName}`;
+  }
 
   // 검색광고인 경우 특별한 형식 사용 (Naver Search 또는 Google Ads)
   if (options?.channel === 'naver' || options?.channel === 'google') {
@@ -222,19 +240,6 @@ export function buildFinalCampaignName(
   }
 
   // 일반적인 경우: sm_YYMMDD_normalizedName 형식
-  // YYYY-MM-DD 형식 파싱
-  const date = new Date(startDate);
-  if (isNaN(date.getTime())) {
-    throw new Error('유효한 날짜 형식이 아닙니다. YYYY-MM-DD 형식을 사용해주세요.');
-  }
-
-  // YYMMDD 형식으로 변환
-  const year = date.getFullYear().toString().slice(-2); // 마지막 2자리
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const day = date.getDate().toString().padStart(2, '0');
-
-  const datePrefix = `${year}${month}${day}`;
-
   return `sm_${datePrefix}_${cleanName}`;
 }
 
