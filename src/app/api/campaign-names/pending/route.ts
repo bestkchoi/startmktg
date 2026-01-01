@@ -29,11 +29,26 @@ export async function POST(request: NextRequest) {
     const supabase = await createSupabaseServerClient();
 
     // 중복 체크 (같은 한글명이 이미 있는지)
-    const { data: existing } = await supabase
+    const { data: existing, error: checkError } = await supabase
       .from("pending_campaign_names")
       .select("korean")
       .eq("korean", korean)
-      .single();
+      .maybeSingle();
+
+    // 테이블이 없거나 에러가 발생한 경우 (테이블 미생성 시)
+    if (checkError) {
+      // 테이블이 없는 경우 (42P01: relation does not exist)
+      if (checkError.code === "42P01" || checkError.message.includes("does not exist")) {
+        console.warn("pending_campaign_names 테이블이 아직 생성되지 않았습니다. Supabase에서 테이블을 생성해주세요.");
+        // 테이블이 없어도 에러를 반환하지 않고 성공으로 처리 (기능은 비활성화)
+        return NextResponse.json({
+          ok: true,
+          message: "대기 목록 기능이 아직 활성화되지 않았습니다. Supabase에서 테이블을 생성해주세요.",
+          data: null,
+        });
+      }
+      console.error("Error checking existing campaign name:", checkError);
+    }
 
     if (existing) {
       return NextResponse.json(
@@ -75,6 +90,16 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (error) {
+      // 테이블이 없는 경우 (42P01: relation does not exist)
+      if (error.code === "42P01" || error.message.includes("does not exist")) {
+        console.warn("pending_campaign_names 테이블이 아직 생성되지 않았습니다. Supabase에서 테이블을 생성해주세요.");
+        // 테이블이 없어도 에러를 반환하지 않고 성공으로 처리 (기능은 비활성화)
+        return NextResponse.json({
+          ok: true,
+          message: "대기 목록 기능이 아직 활성화되지 않았습니다. Supabase에서 테이블을 생성해주세요.",
+          data: newItem,
+        });
+      }
       console.error("Error saving pending campaign name:", error);
       return NextResponse.json(
         { ok: false, message: "대기 목록 추가에 실패했습니다." },
@@ -113,6 +138,15 @@ export async function GET() {
       .order("timestamp", { ascending: false });
 
     if (error) {
+      // 테이블이 없는 경우 (42P01: relation does not exist)
+      if (error.code === "42P01" || error.message.includes("does not exist")) {
+        console.warn("pending_campaign_names 테이블이 아직 생성되지 않았습니다. Supabase에서 테이블을 생성해주세요.");
+        // 테이블이 없으면 빈 배열 반환
+        return NextResponse.json({
+          ok: true,
+          data: [],
+        });
+      }
       console.error("Error reading pending campaign names:", error);
       return NextResponse.json(
         { ok: false, message: "대기 목록 조회에 실패했습니다." },
