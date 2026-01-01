@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { readFile, writeFile } from "fs/promises";
-import { join } from "path";
+import { createSupabaseServerClient } from "@/libs/supabase/server";
 
 interface PendingCampaignName {
   korean: string;
@@ -9,13 +8,12 @@ interface PendingCampaignName {
   timestamp: string;
 }
 
-interface PendingCampaignNamesData {
-  pending: PendingCampaignName[];
-}
-
 /**
  * POST /api/campaign-names/pending
  * 사전 정의되지 않은 캠페인명을 대기 목록에 추가
+ * 
+ * 주의: Vercel 서버리스 환경에서는 파일 시스템에 쓰기가 불가능하므로
+ * Supabase 데이터베이스를 사용합니다.
  */
 export async function POST(request: NextRequest) {
   try {
@@ -28,21 +26,16 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const filePath = join(process.cwd(), "src", "lib", "campaign", "pending-campaign-names.json");
-
-    // 기존 파일 읽기
-    let data: PendingCampaignNamesData = { pending: [] };
-    try {
-      const fileContent = await readFile(filePath, "utf-8");
-      data = JSON.parse(fileContent);
-    } catch (error) {
-      // 파일이 없으면 새로 생성
-      data = { pending: [] };
-    }
+    const supabase = await createSupabaseServerClient();
 
     // 중복 체크 (같은 한글명이 이미 있는지)
-    const exists = data.pending.some((item) => item.korean === korean);
-    if (exists) {
+    const { data: existing } = await supabase
+      .from("pending_campaign_names")
+      .select("korean")
+      .eq("korean", korean)
+      .single();
+
+    if (existing) {
       return NextResponse.json(
         { ok: true, message: "이미 대기 목록에 있습니다." },
         { status: 200 }
@@ -69,10 +62,25 @@ export async function POST(request: NextRequest) {
       timestamp: koreaTimeString,
     };
 
-    data.pending.push(newItem);
+    // Supabase에 저장
+    const { data, error } = await supabase
+      .from("pending_campaign_names")
+      .insert({
+        korean: newItem.korean,
+        english: newItem.english || null,
+        normalized: newItem.normalized || null,
+        timestamp: newItem.timestamp,
+      })
+      .select()
+      .single();
 
-    // 파일에 저장
-    await writeFile(filePath, JSON.stringify(data, null, 2), "utf-8");
+    if (error) {
+      console.error("Error saving pending campaign name:", error);
+      return NextResponse.json(
+        { ok: false, message: "대기 목록 추가에 실패했습니다." },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({
       ok: true,
@@ -91,25 +99,31 @@ export async function POST(request: NextRequest) {
 /**
  * GET /api/campaign-names/pending
  * 대기 목록 조회
+ * 
+ * 주의: Vercel 서버리스 환경에서는 파일 시스템 읽기가 제한적이므로
+ * Supabase 데이터베이스에서 조회합니다.
  */
 export async function GET() {
   try {
-    const filePath = join(process.cwd(), "src", "lib", "campaign", "pending-campaign-names.json");
+    const supabase = await createSupabaseServerClient();
 
-    try {
-      const fileContent = await readFile(filePath, "utf-8");
-      const data: PendingCampaignNamesData = JSON.parse(fileContent);
-      return NextResponse.json({
-        ok: true,
-        data: data.pending,
-      });
-    } catch (error) {
-      // 파일이 없으면 빈 배열 반환
-      return NextResponse.json({
-        ok: true,
-        data: [],
-      });
+    const { data, error } = await supabase
+      .from("pending_campaign_names")
+      .select("*")
+      .order("timestamp", { ascending: false });
+
+    if (error) {
+      console.error("Error reading pending campaign names:", error);
+      return NextResponse.json(
+        { ok: false, message: "대기 목록 조회에 실패했습니다." },
+        { status: 500 }
+      );
     }
+
+    return NextResponse.json({
+      ok: true,
+      data: data || [],
+    });
   } catch (error) {
     console.error("Error reading pending campaign names:", error);
     return NextResponse.json(
