@@ -248,7 +248,7 @@ export default function CampaignsPage() {
                 <div className="flex items-center justify-between gap-6">
                   {/* 캠페인 정보 영역 */}
                   <div
-                    onClick={() => router.push(localizedPath(`/campaigns/${campaign.campaign_id}`))}
+                    onClick={() => router.push(localizedPath(`/campaigns/${campaign.campaign_id}`) as any)}
                     className="flex-1 min-w-0 group cursor-pointer"
                   >
                     <div className="flex items-center gap-3 mb-2">
