@@ -178,7 +178,7 @@ export default function CampaignsPage() {
         <div className="text-center">
           <p className="text-sm text-neutral-700 mb-4">{error}</p>
           <Link
-            href={localizedPath("/")}
+            href={localizedPath("/") as any}
             className="text-sm text-neutral-500 hover:text-neutral-900 underline"
           >
             {texts.backToMain}
@@ -194,7 +194,7 @@ export default function CampaignsPage() {
         {/* START MKTG 로고 링크 */}
         <div className="mb-8">
           <Link
-            href={localizedPath("/")}
+            href={localizedPath("/") as any}
             className="inline-block transition-opacity hover:opacity-70"
           >
             <h1 className="text-3xl sm:text-4xl font-light tracking-[-0.02em] uppercase">
