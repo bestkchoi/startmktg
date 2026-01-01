@@ -47,7 +47,7 @@ export default function Page() {
           {/* 브랜드명 */}
           <div className="flex flex-col items-center gap-3">
             <Link
-              href={`/${locale}`}
+              href={`/${locale}` as any}
               className="transition-opacity hover:opacity-70"
             >
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-light tracking-[-0.02em] uppercase text-center leading-tight">
@@ -110,14 +110,14 @@ export default function Page() {
               <div className="flex items-center gap-2">
                 <span className="hidden sm:inline">-</span>
                 <Link
-                  href={`/${locale}/privacy`}
+                  href={`/${locale}/privacy` as any}
                   className="text-blue-600 hover:underline"
                 >
                   {t.privacy}
                 </Link>
                 <span>-</span>
                 <Link
-                  href={`/${locale}/terms`}
+                  href={`/${locale}/terms` as any}
                   className="text-blue-600 hover:underline"
                 >
                   {t.terms}
