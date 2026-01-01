@@ -27,3 +27,4 @@ CREATE POLICY "Allow public insert access" ON pending_campaign_names
   FOR INSERT
   WITH CHECK (true);
 
+

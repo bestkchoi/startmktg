@@ -112,3 +112,4 @@ curl http://localhost:3000/api/campaign-names/pending
 ### GET /api/campaign-names/pending
 대기 목록 조회
 
+
