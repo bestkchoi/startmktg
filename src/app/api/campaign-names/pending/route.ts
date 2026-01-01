@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
 
     // 중복 체크 (같은 한글명이 이미 있는지)
     const { data: existing, error: checkError } = await supabase
-      .from("pending_campaign_names")
+      .from("pending_campaign_names" as any)
       .select("korean")
       .eq("korean", korean)
       .maybeSingle();
@@ -79,13 +79,13 @@ export async function POST(request: NextRequest) {
 
     // Supabase에 저장
     const { data, error } = await supabase
-      .from("pending_campaign_names")
+      .from("pending_campaign_names" as any)
       .insert({
         korean: newItem.korean,
         english: newItem.english || null,
         normalized: newItem.normalized || null,
         timestamp: newItem.timestamp,
-      })
+      } as any)
       .select()
       .single();
 
@@ -133,7 +133,7 @@ export async function GET() {
     const supabase = await createSupabaseServerClient();
 
     const { data, error } = await supabase
-      .from("pending_campaign_names")
+      .from("pending_campaign_names" as any)
       .select("*")
       .order("timestamp", { ascending: false });
 
