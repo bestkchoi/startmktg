@@ -10,9 +10,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const base = "https://startmktg.com";
 
   const titles: Record<string, string> = {
-    en: "Start Marketing - UTM Tools & Campaign Management",
-    ko: "Start Marketing - UTM 도구 및 캠페인 관리",
-    jp: "Start Marketing - UTMツールとキャンペーン管理",
+    en: "Start MKTG - UTM Tools & Campaign Management",
+    ko: "Start MKTG - UTM 도구 및 캠페인 관리",
+    jp: "Start MKTG - UTMツールとキャンペーン管理",
   };
 
   const descriptions: Record<string, string> = {
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: titles[locale] || titles.en,
       description: descriptions[locale] || descriptions.en,
       url: `${base}/${locale}`,
-      siteName: "Start Marketing",
+      siteName: "Start MKTG",
       locale: locale,
     },
   };

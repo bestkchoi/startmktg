@@ -55,7 +55,7 @@ export function UtmCheckerStructuredData({ locale }: { locale: string }) {
         inLanguage: locale,
         publisher: {
           "@type": "Organization",
-          name: "Start Marketing",
+          name: "Start MKTG",
           url: base,
         },
       }}
@@ -71,7 +71,7 @@ export function OrganizationStructuredData() {
     <StructuredData
       type="Organization"
       data={{
-        name: "Start Marketing",
+        name: "Start MKTG",
         url: base,
         logo: `${base}/logo.png`,
         sameAs: [

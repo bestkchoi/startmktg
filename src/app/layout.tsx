@@ -6,26 +6,26 @@ import { PageViewTracker } from "@/components/analytics/page-view";
 
 export const metadata: Metadata = {
   title: {
-    default: "Start Marketing - UTM Tools & Campaign Management",
-    template: "%s | Start Marketing",
+    default: "Start MKTG - UTM Tools & Campaign Management",
+    template: "%s | Start MKTG",
   },
   description: "Free UTM parameter checker, campaign management tools, and marketing analytics platform.",
   keywords: ["UTM", "UTM checker", "marketing tools", "campaign management", "analytics"],
-  authors: [{ name: "Start Marketing" }],
-  creator: "Start Marketing",
-  publisher: "Start Marketing",
+  authors: [{ name: "Start MKTG" }],
+  creator: "Start MKTG",
+  publisher: "Start MKTG",
   metadataBase: new URL("https://startmktg.com"),
   openGraph: {
     type: "website",
     locale: "ko_KR",
     url: "https://startmktg.com",
-    siteName: "Start Marketing",
-    title: "Start Marketing - UTM Tools & Campaign Management",
+    siteName: "Start MKTG",
+    title: "Start MKTG - UTM Tools & Campaign Management",
     description: "Free UTM parameter checker, campaign management tools, and marketing analytics platform.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Start Marketing",
+    title: "Start MKTG",
     description: "Free UTM parameter checker, campaign management tools, and marketing analytics platform.",
   },
   robots: {
