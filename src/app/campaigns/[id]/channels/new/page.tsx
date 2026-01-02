@@ -5,7 +5,6 @@ import { useRouter, useParams, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import type { ChannelType, CreateChannelRequest, MetaCampaignGoal, GoogleCampaignGoal, NaverCampaignType } from "@/types/campaign";
 import { generateUtmParams, buildFinalUrl } from "@/lib/campaign/utm-template";
-import { SiteFooter } from "@/components/footer/site-footer";
 
 const CHANNEL_TYPES: Array<{ value: ChannelType; label: string; description?: string }> = [
   { value: "meta", label: "Meta", description: "Facebook, Instagram" },
@@ -74,9 +73,6 @@ function ChannelSelectionContent() {
           </Link>
         </div>
       </main>
-
-      {/* Footer */}
-      <SiteFooter />
     </div>
   );
 }
@@ -1648,9 +1644,6 @@ function UtmGenerationContent() {
           </div>
         </form>
       </main>
-
-      {/* Footer */}
-      <SiteFooter />
     </div>
   );
 }

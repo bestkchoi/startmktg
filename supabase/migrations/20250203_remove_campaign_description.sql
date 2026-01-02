@@ -3,3 +3,4 @@ ALTER TABLE public.campaigns
 DROP COLUMN IF EXISTS description;
 
 
+

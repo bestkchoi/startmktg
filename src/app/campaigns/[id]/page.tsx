@@ -5,7 +5,6 @@ import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { useLocalizedPath } from "@/hooks/use-locale";
 import type { CampaignWithChannels } from "@/types/campaign";
-import { SiteFooter } from "@/components/footer/site-footer";
 
 const CHANNEL_TYPE_LABELS: Record<string, string> = {
   meta: "Meta",
@@ -251,9 +250,6 @@ export default function CampaignDetailPage() {
           )}
         </section>
       </main>
-
-      {/* Footer */}
-      <SiteFooter />
     </div>
   );
 }

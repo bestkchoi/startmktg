@@ -7,7 +7,7 @@ import { useLocalizedPath, useLocale } from "@/hooks/use-locale";
 import { normalizeCampaignName, buildFinalCampaignName, translateToEnglish, generateNormalizedNameCandidates, lookupDictionary } from "@/lib/campaign/campaign-name";
 import type { CreateStartCampaignRequest, StartCampaign, ChannelType } from "@/types/campaign";
 
-const CHANNEL_TYPES: Array<{ value: ChannelType; label: string; description?: string; adType?: "search" | "display" | "crm" | "other" }> = [
+const CHANNEL_TYPES: Array<{ value: ChannelType; label: string; description?: string; adType?: "search" | "display" | "crm" | "other" | "shopping" }> = [
   { value: "meta", label: "Meta", description: "Facebook, Instagram", adType: "display" },
   { value: "google", label: "Google", description: "Google Ads", adType: "search" },
   { value: "naver", label: "Naver Search", description: "Naver Search Ads", adType: "search" },
@@ -481,7 +481,7 @@ export default function NewCampaignPage() {
 
   const copyFinalName = () => {
     if (showSuccessModal) {
-      navigator.clipboard.writeText(showSuccessModal.final_campaign_name);
+      navigator.clipboard.writeText(showSuccessModal?.final_campaign_name || "");
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
@@ -1479,7 +1479,7 @@ export default function NewCampaignPage() {
               <p className="text-sm text-neutral-600 mb-2">{texts.finalCampaignName}</p>
               <div className="flex items-center gap-2">
                 <p className="text-base font-mono font-medium text-neutral-900 flex-1">
-                  {showSuccessModal.final_campaign_name}
+                  {showSuccessModal?.final_campaign_name}
                 </p>
                 <button
                   onClick={copyFinalName}
@@ -1505,7 +1505,7 @@ export default function NewCampaignPage() {
                           onClick={() => {
                             setShowSuccessModal(null);
                             router.push(
-                              localizedPath(`/campaigns/${showSuccessModal.campaign_id}/channels/new?type=${channelType}`) as any
+                              localizedPath(`/campaigns/${showSuccessModal?.campaign_id}/channels/new?type=${channelType}`) as any
                             );
                           }}
                           className="px-4 py-3 text-sm font-medium text-white bg-neutral-900 border border-neutral-900 transition-all duration-300 hover:bg-white hover:text-neutral-900"
@@ -1519,7 +1519,7 @@ export default function NewCampaignPage() {
                     <button
                       onClick={() => {
                         setShowSuccessModal(null);
-                        router.push(localizedPath(`/campaigns/${showSuccessModal.campaign_id}`) as any);
+                        router.push(localizedPath(`/campaigns/${showSuccessModal?.campaign_id}`) as any);
                       }}
                       className="flex-1 px-6 py-3 text-sm font-medium text-neutral-700 border border-neutral-200 transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-50"
                     >
@@ -1542,7 +1542,7 @@ export default function NewCampaignPage() {
                     <button
                       onClick={() => {
                         setShowSuccessModal(null);
-                        router.push(localizedPath(`/campaigns/${showSuccessModal.campaign_id}/channels/new`) as any);
+                        router.push(localizedPath(`/campaigns/${showSuccessModal?.campaign_id}/channels/new`) as any);
                       }}
                       className="flex-1 px-6 py-3 text-sm font-medium text-white bg-neutral-900 border border-neutral-900 transition-all duration-300 hover:bg-white hover:text-neutral-900"
                     >

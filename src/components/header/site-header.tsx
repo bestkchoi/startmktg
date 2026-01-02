@@ -5,7 +5,6 @@ import { useLocale } from "@/hooks/use-locale";
 import { useLocalizedPath } from "@/hooks/use-locale";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Logo } from "./logo";
 
 export function SiteHeader() {
   const locale = useLocale();
@@ -70,7 +69,9 @@ export function SiteHeader() {
             href={localizedPath("/") as any}
             className="transition-opacity hover:opacity-70"
           >
-            <Logo />
+            <h1 className="text-2xl font-light tracking-[-0.02em] uppercase">
+              START MKTG
+            </h1>
           </Link>
         </div>
 

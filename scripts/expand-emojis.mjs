@@ -267,3 +267,4 @@ fs.writeFileSync(dataPath, JSON.stringify(finalData, null, 2), "utf-8");
 console.log(`✅ 총 ${finalData.length}개의 이모지 데이터가 생성되었습니다.`);
 console.log(`📁 저장 위치: ${dataPath}`);
 
+
