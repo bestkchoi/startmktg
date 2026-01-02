@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SiteHeader } from "@/components/header/site-header";
 
 type Props = {
   children: React.ReactNode;
@@ -45,7 +46,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function LocaleLayout({ children, params }: Props) {
   await params; // params를 await하여 사용
-  return <>{children}</>;
+  return (
+    <>
+      <SiteHeader />
+      {children}
+      <footer className="bg-white border-t border-neutral-200 mt-auto">
+        <div className="mx-auto max-w-6xl px-4 py-8">
+          <div className="text-center text-sm text-neutral-500">
+            <p>© 2025 Start MKTG. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </>
+  );
 }
 
 
