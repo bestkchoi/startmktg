@@ -5,6 +5,7 @@ import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { useLocalizedPath } from "@/hooks/use-locale";
 import type { CampaignWithChannels } from "@/types/campaign";
+import { SiteFooter } from "@/components/footer/site-footer";
 
 const CHANNEL_TYPE_LABELS: Record<string, string> = {
   meta: "Meta",
@@ -105,18 +106,6 @@ export default function CampaignDetailPage() {
   return (
     <div className="min-h-screen bg-white text-neutral-900">
       <main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-4 py-20 sm:px-6">
-        {/* START MKTG 로고 링크 */}
-        <div className="mb-8">
-          <Link
-            href={localizedPath("/") as any}
-            className="inline-block transition-opacity hover:opacity-70"
-          >
-            <h1 className="text-3xl sm:text-4xl font-light tracking-[-0.02em] uppercase">
-              START MKTG
-            </h1>
-          </Link>
-        </div>
-
         {/* 헤더 */}
         <header className="mb-12 flex items-start justify-between">
           <div>
@@ -262,6 +251,9 @@ export default function CampaignDetailPage() {
           )}
         </section>
       </main>
+
+      {/* Footer */}
+      <SiteFooter />
     </div>
   );
 }

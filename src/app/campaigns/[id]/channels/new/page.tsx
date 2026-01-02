@@ -5,6 +5,7 @@ import { useRouter, useParams, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import type { ChannelType, CreateChannelRequest, MetaCampaignGoal, GoogleCampaignGoal, NaverCampaignType } from "@/types/campaign";
 import { generateUtmParams, buildFinalUrl } from "@/lib/campaign/utm-template";
+import { SiteFooter } from "@/components/footer/site-footer";
 
 const CHANNEL_TYPES: Array<{ value: ChannelType; label: string; description?: string }> = [
   { value: "meta", label: "Meta", description: "Facebook, Instagram" },
@@ -73,6 +74,9 @@ function ChannelSelectionContent() {
           </Link>
         </div>
       </main>
+
+      {/* Footer */}
+      <SiteFooter />
     </div>
   );
 }
@@ -530,19 +534,6 @@ function UtmGenerationContent() {
   return (
     <div className="min-h-screen bg-white text-neutral-900">
       <main className="mx-auto flex min-h-screen w-full max-w-4xl flex-col px-4 py-20 sm:px-6">
-        {/* START MKTG 로고 링크 */}
-        <div className="mb-8">
-          <Link
-            // @ts-ignore - Next.js typedRoutes 경고 무시
-            href="/"
-            className="inline-block transition-opacity hover:opacity-70"
-          >
-            <h1 className="text-3xl sm:text-4xl font-light tracking-[-0.02em] uppercase">
-              START MKTG
-            </h1>
-          </Link>
-        </div>
-
         {/* 헤더 */}
         <header className="mb-12">
           <h2 className={`text-4xl sm:text-5xl font-light tracking-[-0.02em] mb-3 ${channelType === "naver" ? "" : "uppercase"}`}>
@@ -1657,6 +1648,9 @@ function UtmGenerationContent() {
           </div>
         </form>
       </main>
+
+      {/* Footer */}
+      <SiteFooter />
     </div>
   );
 }

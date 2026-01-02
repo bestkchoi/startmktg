@@ -8,8 +8,10 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "npm run validate:emojis && next build",
+    "start": "next start",
+    "validate:emojis": "node scripts/validate-emojis.js",
+    "generate:emojis": "node scripts/expand-emojis-full.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",

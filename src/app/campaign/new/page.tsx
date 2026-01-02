@@ -39,6 +39,7 @@ export default function NewCampaignPage() {
       nonBrandSearchAd: "Non-Brand Search Ad",
       all: "All",
       displayAd: "Display Ad",
+      shoppingAd: "Shopping Search Ad",
       crm: "CRM",
       examplePlaceholder: "e.g., Black Friday, Black Friday Sale",
       campaignName: "Campaign Name",
@@ -80,6 +81,7 @@ export default function NewCampaignPage() {
       nonBrandSearchAd: "논브랜드 검색광고",
       all: "전체",
       displayAd: "디스플레이 광고",
+      shoppingAd: "쇼핑검색광고",
       crm: "CRM",
       examplePlaceholder: "예: 블랙프라이데이, Black Friday Sale",
       campaignName: "캠페인명",
@@ -117,7 +119,6 @@ export default function NewCampaignPage() {
     raw_name: "",
     start_date: new Date().toISOString().split("T")[0],
     end_date: null,
-    description: "",
   });
 
   // 실시간 미리보기 상태
@@ -131,11 +132,11 @@ export default function NewCampaignPage() {
   // 매체 선택 상태
   const [selectedChannels, setSelectedChannels] = useState<ChannelType[]>([]);
   
-  // 광고 유형 필터 상태 (전체, 검색광고, 디스플레이 광고, CRM)
-  const [adTypeFilter, setAdTypeFilter] = useState<"all" | "search" | "display" | "crm" | "other">("all");
+  // 광고 유형 필터 상태 (전체, 검색광고, 디스플레이 광고, 쇼핑검색광고, CRM)
+  const [adTypeFilter, setAdTypeFilter] = useState<"all" | "search" | "display" | "shopping" | "crm" | "other">("all");
   
-  // 광고 유형 선택 상태 (검색광고, 디스플레이 광고, CRM 중 하나만 선택 가능)
-  const [selectedAdType, setSelectedAdType] = useState<"search" | "display" | "crm" | null>(null);
+  // 광고 유형 선택 상태 (검색광고, 디스플레이 광고, 쇼핑검색광고, CRM 중 하나만 선택 가능)
+  const [selectedAdType, setSelectedAdType] = useState<"search" | "display" | "shopping" | "crm" | null>(null);
   
   // 검색광고 선택 시 브랜드/논브랜드 선택 상태
   const [searchAdType, setSearchAdType] = useState<"brand" | "non_brand" | null>(null);
@@ -248,42 +249,100 @@ export default function NewCampaignPage() {
   // normalizedName과 startDate, selectedChannels 변경 시 finalCampaignName 업데이트
   // normalizedName에 18자 제한 적용 (검색광고인 경우)
   useEffect(() => {
-    if (normalizedName && formData.start_date) {
+    const isNaverSearch = selectedAdType === "search" && selectedChannels.includes("naver");
+    const isGoogleAds = selectedAdType === "search" && selectedChannels.includes("google");
+    
+    // Naver Search + 검색광고 유형 선택 시 최종 캠페인명 생성 (normalizedName 없어도 가능)
+    if (isNaverSearch && (searchAdType === "brand" || searchAdType === "non_brand") && formData.start_date) {
       try {
-        // 검색광고인 경우 18자 제한 적용
-        const isNaverSearch = selectedAdType === "search" && selectedChannels.includes("naver");
-        const isGoogleAds = selectedAdType === "search" && selectedChannels.includes("google");
-        let finalNormalizedName = normalizedName;
+        // normalizedName이 없어도 빈 문자열 사용하여 prefix만 표시 (UI에서는 빈 문자열, DB 저장 시에는 "campaign" 사용)
+        const finalNormalizedName = normalizedName || "";
         
-        if ((isNaverSearch || isGoogleAds) && finalNormalizedName.length > 18) {
-          finalNormalizedName = finalNormalizedName.substring(0, 18);
-        }
-        
-        // 검색광고인 경우 특별한 형식 사용 (Naver Search 또는 Google Ads)
         const isBrand = searchAdType === "brand";
-        
-        let channel: 'naver' | 'google' | undefined;
-        if (isNaverSearch) {
-          channel = 'naver';
-        } else if (isGoogleAds) {
-          channel = 'google';
-        }
-        
-        // 디스플레이 광고인 경우
-        const adType = selectedAdType === "display" ? "display" : selectedAdType === "search" ? "search" : selectedAdType === "crm" ? "crm" : undefined;
         
         const final = buildFinalCampaignName(
           formData.start_date,
           finalNormalizedName,
-          channel ? { channel, isBrand } : adType ? { adType } : undefined
+          { channel: 'naver', isBrand }
+        );
+        setFinalCampaignName(final);
+        return;
+      } catch (error) {
+        console.error("Error building final campaign name for Naver Search:", error);
+        setFinalCampaignName("");
+        return;
+      }
+    }
+    
+    // Naver Search 선택했지만 검색광고 유형이 선택되지 않은 경우
+    if (isNaverSearch && searchAdType === null) {
+      setFinalCampaignName("");
+      return;
+    }
+    
+    // Google Ads + 검색광고 유형 선택 시 최종 캠페인명 생성 (normalizedName 없어도 가능)
+    if (isGoogleAds && (searchAdType === "brand" || searchAdType === "non_brand") && formData.start_date) {
+      try {
+        // normalizedName이 없어도 빈 문자열 사용하여 prefix만 표시 (UI에서는 빈 문자열, DB 저장 시에는 "campaign" 사용)
+        let finalNormalizedName = normalizedName || "";
+        
+        if (finalNormalizedName && finalNormalizedName.length > 11) {
+          finalNormalizedName = finalNormalizedName.substring(0, 11);
+        }
+        
+        const isBrand = searchAdType === "brand";
+        
+        const final = buildFinalCampaignName(
+          formData.start_date,
+          finalNormalizedName,
+          { channel: 'google', isBrand }
+        );
+        setFinalCampaignName(final);
+        return;
+      } catch (error) {
+        console.error("Error building final campaign name for Google Ads:", error);
+        setFinalCampaignName("");
+        return;
+      }
+    }
+    
+    // Google Ads 선택했지만 검색광고 유형이 선택되지 않은 경우
+    if (isGoogleAds && searchAdType === null) {
+      setFinalCampaignName("");
+      return;
+    }
+    
+    // 디스플레이 광고인 경우
+    if (selectedAdType === "display" && normalizedName && formData.start_date) {
+      try {
+        const final = buildFinalCampaignName(
+          formData.start_date,
+          normalizedName,
+          { adType: 'display' }
         );
         setFinalCampaignName(final);
       } catch (error) {
         setFinalCampaignName("");
       }
-    } else {
-      setFinalCampaignName("");
+      return;
     }
+    
+    // 일반적인 경우 (normalizedName이 있을 때만)
+    if (normalizedName && formData.start_date) {
+      try {
+        const final = buildFinalCampaignName(
+          formData.start_date,
+          normalizedName
+        );
+        setFinalCampaignName(final);
+      } catch (error) {
+        setFinalCampaignName("");
+      }
+      return;
+    }
+    
+    // 위 조건에 해당하지 않으면 빈 문자열
+    setFinalCampaignName("");
   }, [normalizedName, formData.start_date, selectedAdType, selectedChannels, searchAdType]);
 
   // 에러 발생 시 스크롤하여 에러 메시지로 이동
@@ -305,33 +364,32 @@ export default function NewCampaignPage() {
   const handleSelectCandidate = async (candidate: string) => {
     // candidate는 이미 normalizedName 형태이므로 그대로 사용
     setNormalizedName(candidate);
-    // 원본 한글이 있으면 캠페인명을 영어로 변경하고 설명에 한글 저장
+    // 원본 한글이 있으면 캠페인명을 영어로 변경
     if (originalKoreanName) {
       handleChange("raw_name", candidate); // 캠페인명을 영어로 변경
-      handleChange("description", originalKoreanName); // 원본 한글을 설명에 저장
-      
-      // 사전에 없는 캠페인명만 대기 목록에 저장
-      const dictTranslation = lookupDictionary(originalKoreanName);
-      if (!dictTranslation) {
-        try {
-          await fetch("/api/campaign-names/pending", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              korean: originalKoreanName,
-              normalized: candidate,
-            }),
-          });
-        } catch (error) {
-          // 대기 목록 저장 실패는 무시 (사용자 경험에 영향 없음)
-          console.error("Failed to save pending campaign name:", error);
-        }
-      }
-      
-      setOriginalKoreanName(""); // 원본 한글 초기화
     }
+    
+    // 사전에 없는 캠페인명만 대기 목록에 저장
+    const dictTranslation = lookupDictionary(originalKoreanName);
+    if (!dictTranslation) {
+      try {
+        await fetch("/api/campaign-names/pending", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            korean: originalKoreanName,
+            normalized: candidate,
+          }),
+        });
+      } catch (error) {
+        // 대기 목록 저장 실패는 무시 (사용자 경험에 영향 없음)
+        console.error("Failed to save pending campaign name:", error);
+      }
+    }
+    
+    setOriginalKoreanName(""); // 원본 한글 초기화
     setShowTranslationModal(false);
   };
 
@@ -394,11 +452,10 @@ export default function NewCampaignPage() {
         return;
       }
 
-      // 성공 시 캠페인 상세 페이지로 이동 또는 성공 메시지 표시
+      // 성공 시 캠페인 목록 페이지로 자동 이동
       const campaign = data.data as StartCampaign;
       setLoading(false);
-      setSuccessModalSelectedChannels([...selectedChannels]);
-      setShowSuccessModal(campaign);
+      router.push(localizedPath("/campaigns") as any);
     } catch (error) {
       console.error("Failed to create campaign:", error);
       setErrors({ general: texts.errorOccurred });
@@ -433,32 +490,12 @@ export default function NewCampaignPage() {
   return (
     <div className="min-h-screen bg-white text-neutral-900">
       <main className="mx-auto flex min-h-screen w-full max-w-2xl flex-col px-4 py-20 sm:px-6">
-        {/* START MKTG 로고 링크 */}
-        <div className="mb-8">
-          <Link
-            href={localizedPath("/") as any}
-            className="inline-block transition-opacity hover:opacity-70"
-          >
-            <h1 className="text-3xl sm:text-4xl font-light tracking-[-0.02em] uppercase">
-              START MKTG
-            </h1>
-          </Link>
-        </div>
-
         {/* 헤더 */}
-        <header className="mb-12 flex items-start justify-between">
-          <div>
-            <h2 className="text-4xl sm:text-5xl font-light tracking-[-0.02em] mb-3">
-              {texts.createCampaign}
-            </h2>
-            <div className="h-px w-16 bg-neutral-300" />
-          </div>
-          <Link
-            href={localizedPath("/campaigns") as any}
-            className="px-4 py-2 text-sm font-medium text-neutral-700 border border-neutral-200 transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-50"
-          >
-            {texts.campaignList}
-          </Link>
+        <header className="mb-12">
+          <h2 className="text-4xl sm:text-5xl font-light tracking-[-0.02em] mb-3">
+            {texts.createCampaign}
+          </h2>
+          <div className="h-px w-16 bg-neutral-300" />
         </header>
 
 
@@ -493,7 +530,7 @@ export default function NewCampaignPage() {
             <label className="block text-sm font-medium text-neutral-900 mb-3">
               광고 유형 선택 <span className="text-neutral-400 text-xs font-normal">(하나만 선택 가능)</span>
             </label>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {/* 검색광고 카드 */}
               <button
                 type="button"
@@ -535,6 +572,51 @@ export default function NewCampaignPage() {
                   <div className="text-lg font-semibold mb-1">{texts.searchAd}</div>
                   <p className={`text-xs ${selectedAdType === "search" ? "text-neutral-300" : "text-neutral-500"}`}>
                     브랜드명 또는 논브랜드 검색광고
+                  </p>
+                </div>
+              </button>
+
+              {/* 쇼핑검색광고 카드 */}
+              <button
+                type="button"
+                onClick={() => {
+                  if (selectedAdType === "shopping") {
+                    // 이미 선택된 경우 해제
+                    setSelectedAdType(null);
+                    setSelectedChannels(selectedChannels.filter((c) => {
+                      const channel = CHANNEL_TYPES.find((ch) => ch.value === c);
+                      return channel?.adType !== "shopping";
+                    }));
+                    setSearchAdType(null);
+                    setAdTypeFilter("all");
+                  } else {
+                    // 다른 광고 유형 선택 해제 및 쇼핑검색광고 선택
+                    setSelectedAdType("shopping");
+                    setSelectedChannels(selectedChannels.filter((c) => {
+                      const channel = CHANNEL_TYPES.find((ch) => ch.value === c);
+                      return channel?.adType !== "shopping";
+                    }));
+                    setSearchAdType(null);
+                    setAdTypeFilter("shopping");
+                  }
+                }}
+                className={`relative p-5 rounded-xl border-2 transition-all text-left ${
+                  selectedAdType === "shopping"
+                    ? "border-neutral-900 bg-neutral-900 text-white shadow-lg"
+                    : "border-neutral-200 bg-white hover:border-neutral-400 hover:shadow-md"
+                }`}
+              >
+                {selectedAdType === "shopping" && (
+                  <div className="absolute top-3 right-3">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                )}
+                <div className="pr-8">
+                  <div className="text-lg font-semibold mb-1">{texts.shoppingAd}</div>
+                  <p className={`text-xs ${selectedAdType === "shopping" ? "text-neutral-300" : "text-neutral-500"}`}>
+                    쇼핑몰 상품 검색 광고
                   </p>
                 </div>
               </button>
@@ -944,93 +1026,242 @@ export default function NewCampaignPage() {
             </div>
           )}
 
-          {/* 캠페인명 (rawName) */}
-          <div>
-            <label
-              htmlFor="raw_name"
-              className="block text-sm font-medium text-neutral-900 mb-2"
-            >
-              {texts.campaignName} <span className="text-neutral-500">*</span>
-              {selectedAdType === "search" && (selectedChannels.includes("naver") || selectedChannels.includes("google")) && (
-                <span className="text-xs text-neutral-500 font-normal ml-2">
-                  (최대 18자)
-                </span>
-              )}
-            </label>
-            <input
-              id="raw_name"
-              type="text"
-              value={formData.raw_name}
-              onChange={(e) => handleChange("raw_name", e.target.value)}
-                    placeholder={texts.examplePlaceholder}
-              maxLength={selectedAdType === "search" && (selectedChannels.includes("naver") || selectedChannels.includes("google")) ? 18 : 100}
-              required
-              className={`w-full border px-4 py-3 text-sm outline-none transition-all duration-300 ${
-                errors.general || errors.final_campaign_name
-                  ? "border-red-500 bg-red-50 focus:border-red-600 focus:bg-red-50"
-                  : "border-neutral-200 bg-white focus:border-neutral-900 focus:bg-neutral-50"
-              }`}
-            />
-            {errors.raw_name && (
-              <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+          {/* 검색광고 선택 시: 시작일, 종료일 먼저 표시 */}
+          {selectedAdType === "search" && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* 시작일 */}
+              <div lang={locale === "en" ? "en" : locale === "ko" ? "ko" : "en"}>
+                <label
+                  htmlFor="start_date"
+                  className="block text-sm font-medium text-neutral-900 mb-2"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  {texts.startDate} <span className="text-neutral-500">*</span>
+                </label>
+                <div className="relative inline-flex items-center group w-full">
+                  <input
+                    id="start_date"
+                    type="date"
+                    lang={locale === "en" ? "en-US" : locale === "ko" ? "ko-KR" : "en-US"}
+                    value={formData.start_date}
+                    onChange={(e) => handleChange("start_date", e.target.value)}
+                    required
+                    className="border border-neutral-200 bg-white px-4 py-3 pr-10 text-sm outline-none transition-all duration-300 focus:border-neutral-900 focus:bg-neutral-50 w-full cursor-pointer"
+                    onClick={(e) => {
+                      // @ts-ignore - showPicker는 최신 브라우저 API
+                      if (e.currentTarget.showPicker) {
+                        e.currentTarget.showPicker();
+                      }
+                    }}
                   />
-                </svg>
-                {errors.raw_name}
-              </p>
-            )}
-            {(errors.general || errors.final_campaign_name) && !finalCampaignName && (
-              <p ref={errorRef} className="mt-2 text-sm text-red-600 flex items-start gap-2">
-                <svg
-                  className="w-5 h-5 flex-shrink-0 mt-0.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <span className="flex-1">{errors.general || errors.final_campaign_name}</span>
-              </p>
-            )}
-          </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const input = document.getElementById("start_date") as HTMLInputElement;
+                      if (input) {
+                        input.focus();
+                        // @ts-ignore - showPicker는 최신 브라우저 API
+                        if (input.showPicker) {
+                          input.showPicker();
+                        } else {
+                          input.click();
+                        }
+                      }
+                    }}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer p-1 hover:bg-neutral-100 rounded transition-colors"
+                    aria-label={locale === "ko" ? "날짜 선택" : "Select date"}
+                  >
+                    <svg
+                      className="w-5 h-5 text-neutral-400 group-hover:text-neutral-600 transition-colors"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                {errors.start_date && (
+                  <p className="mt-1 text-xs text-neutral-500">{errors.start_date}</p>
+                )}
+              </div>
 
-          {/* 캠페인 설명 */}
-          {formData.description && (
-            <div>
-              <label
-                htmlFor="description"
-                className="block text-sm font-medium text-neutral-900 mb-2"
-              >
-                캠페인 설명
-              </label>
-              <input
-                id="description"
-                type="text"
-                value={formData.description}
-                onChange={(e) => handleChange("description", e.target.value)}
-                placeholder="캠페인 설명을 입력하세요"
-                maxLength={200}
-                className="w-full border border-neutral-200 bg-white px-4 py-3 text-sm outline-none transition-all duration-300 focus:border-neutral-900 focus:bg-neutral-50"
-              />
+              {/* 종료일 (선택) */}
+              <div lang={locale === "en" ? "en" : locale === "ko" ? "ko" : "en"}>
+                <label
+                  htmlFor="end_date"
+                  className="block text-sm font-medium text-neutral-900 mb-2"
+                >
+                  {texts.endDate} <span className="text-neutral-400 text-xs">{texts.optional}</span>
+                </label>
+                <div className="relative inline-flex items-center group w-full">
+                  <input
+                    id="end_date"
+                    type="date"
+                    lang={locale === "en" ? "en-US" : locale === "ko" ? "ko-KR" : "en-US"}
+                    value={formData.end_date || ""}
+                    onChange={(e) => handleChange("end_date", e.target.value || null)}
+                    min={formData.start_date}
+                    className="border border-neutral-200 bg-white px-4 py-3 pr-10 text-sm outline-none transition-all duration-300 focus:border-neutral-900 focus:bg-neutral-50 w-full cursor-pointer"
+                    onClick={(e) => {
+                      // @ts-ignore - showPicker는 최신 브라우저 API
+                      if (e.currentTarget.showPicker) {
+                        e.currentTarget.showPicker();
+                      }
+                    }}
+                  />
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const input = document.getElementById("end_date") as HTMLInputElement;
+                      if (input) {
+                        input.focus();
+                        // @ts-ignore - showPicker는 최신 브라우저 API
+                        if (input.showPicker) {
+                          input.showPicker();
+                        } else {
+                          input.click();
+                        }
+                      }
+                    }}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer p-1 hover:bg-neutral-100 rounded transition-colors"
+                    aria-label={locale === "ko" ? "날짜 선택" : "Select date"}
+                  >
+                    <svg
+                      className="w-5 h-5 text-neutral-400 group-hover:text-neutral-600 transition-colors"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                {errors.end_date && (
+                  <p className="mt-1 text-xs text-neutral-500">{errors.end_date}</p>
+                )}
+              </div>
             </div>
           )}
 
-          {showTranslationModal && translationCandidates.length > 0 && !isTranslating && (
+          {/* Naver Search 또는 Google 선택 시 최종 캠페인명 ID 미리보기 - 시작일 섹션 아래에 표시 */}
+          {selectedAdType === "search" && (selectedChannels.includes("naver") || selectedChannels.includes("google")) && (searchAdType === "brand" || searchAdType === "non_brand") && finalCampaignName && (
+            <div
+              ref={(errors.general || errors.final_campaign_name) ? errorRef : null}
+              className={`mb-6 border-2 px-6 py-5 ${
+                errors.general || errors.final_campaign_name
+                  ? "border-red-500 bg-red-50"
+                  : "border-neutral-900 bg-neutral-50"
+              }`}
+            >
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-xs text-neutral-600 font-medium">{texts.finalCampaignNamePreview}</p>
+                <p className="text-xs text-neutral-500">
+                  {finalCampaignName.length} {texts.characters}
+                </p>
+              </div>
+              <p className="text-lg font-mono font-semibold text-neutral-900">
+                {finalCampaignName}
+              </p>
+              {(errors.general || errors.final_campaign_name) && (
+                <div className="mt-3 flex items-start gap-2">
+                  <svg
+                    className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <p className="text-sm text-red-600 flex-1">
+                    {errors.general || errors.final_campaign_name}
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* 캠페인명 (rawName) - Naver Search 또는 Google 선택 시 숨김 */}
+          {!(selectedAdType === "search" && (selectedChannels.includes("naver") || selectedChannels.includes("google"))) && (
+            <div>
+              <label
+                htmlFor="raw_name"
+                className="block text-sm font-medium text-neutral-900 mb-2"
+              >
+                {texts.campaignName} <span className="text-neutral-500">*</span>
+              </label>
+              <input
+                id="raw_name"
+                type="text"
+                value={formData.raw_name}
+                onChange={(e) => handleChange("raw_name", e.target.value)}
+                      placeholder={texts.examplePlaceholder}
+                maxLength={100}
+                required
+                className={`w-full border px-4 py-3 text-sm outline-none transition-all duration-300 ${
+                  errors.general || errors.final_campaign_name
+                    ? "border-red-500 bg-red-50 focus:border-red-600 focus:bg-red-50"
+                    : "border-neutral-200 bg-white focus:border-neutral-900 focus:bg-neutral-50"
+                }`}
+              />
+              {errors.raw_name && (
+                <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  {errors.raw_name}
+                </p>
+              )}
+              {(errors.general || errors.final_campaign_name) && !finalCampaignName && (
+                <p ref={errorRef} className="mt-2 text-sm text-red-600 flex items-start gap-2">
+                  <svg
+                    className="w-5 h-5 flex-shrink-0 mt-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span className="flex-1">{errors.general || errors.final_campaign_name}</span>
+                </p>
+              )}
+            </div>
+          )}
+
+
+          {/* 번역 모달 - Naver Search 또는 Google 선택 시 숨김 */}
+          {showTranslationModal && translationCandidates.length > 0 && !isTranslating && !(selectedAdType === "search" && (selectedChannels.includes("naver") || selectedChannels.includes("google"))) && (
             <div className="border border-neutral-200 bg-neutral-50 px-4 py-3">
               {lookupDictionary(formData.raw_name) && (
                 <p className="text-xs text-neutral-600 mb-2">
@@ -1049,133 +1280,137 @@ export default function NewCampaignPage() {
             </div>
           )}
 
-
-          {/* 시작일 */}
-          <div lang={locale === "en" ? "en" : locale === "ko" ? "ko" : "en"}>
-            <label
-              htmlFor="start_date"
-              className="block text-sm font-medium text-neutral-900 mb-2"
-            >
-              {texts.startDate} <span className="text-neutral-500">*</span>
-            </label>
-            <div className="relative inline-flex items-center group">
-              <input
-                id="start_date"
-                type="date"
-                lang={locale === "en" ? "en-US" : locale === "ko" ? "ko-KR" : "en-US"}
-                value={formData.start_date}
-                onChange={(e) => handleChange("start_date", e.target.value)}
-                required
-                className="border border-neutral-200 bg-white px-4 py-3 pr-10 text-sm outline-none transition-all duration-300 focus:border-neutral-900 focus:bg-neutral-50 w-auto min-w-[200px] cursor-pointer"
-                onClick={(e) => {
-                  // @ts-ignore - showPicker는 최신 브라우저 API
-                  if (e.currentTarget.showPicker) {
-                    e.currentTarget.showPicker();
-                  }
-                }}
-              />
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const input = document.getElementById("start_date") as HTMLInputElement;
-                  if (input) {
-                    input.focus();
-                    // @ts-ignore - showPicker는 최신 브라우저 API
-                    if (input.showPicker) {
-                      input.showPicker();
-                    } else {
-                      input.click();
-                    }
-                  }
-                }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer p-1 hover:bg-neutral-100 rounded transition-colors"
-                aria-label={locale === "ko" ? "날짜 선택" : "Select date"}
-              >
-                <svg
-                  className="w-5 h-5 text-neutral-400 group-hover:text-neutral-600 transition-colors"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+          {/* 검색광고가 아닌 경우: 시작일, 종료일 표시 */}
+          {selectedAdType !== "search" && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* 시작일 */}
+              <div lang={locale === "en" ? "en" : locale === "ko" ? "ko" : "en"}>
+                <label
+                  htmlFor="start_date"
+                  className="block text-sm font-medium text-neutral-900 mb-2"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  {texts.startDate} <span className="text-neutral-500">*</span>
+                </label>
+                <div className="relative inline-flex items-center group w-full">
+                  <input
+                    id="start_date"
+                    type="date"
+                    lang={locale === "en" ? "en-US" : locale === "ko" ? "ko-KR" : "en-US"}
+                    value={formData.start_date}
+                    onChange={(e) => handleChange("start_date", e.target.value)}
+                    required
+                    className="border border-neutral-200 bg-white px-4 py-3 pr-10 text-sm outline-none transition-all duration-300 focus:border-neutral-900 focus:bg-neutral-50 w-full cursor-pointer"
+                    onClick={(e) => {
+                      // @ts-ignore - showPicker는 최신 브라우저 API
+                      if (e.currentTarget.showPicker) {
+                        e.currentTarget.showPicker();
+                      }
+                    }}
                   />
-                </svg>
-              </button>
-            </div>
-            {errors.start_date && (
-              <p className="mt-1 text-xs text-neutral-500">{errors.start_date}</p>
-            )}
-          </div>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const input = document.getElementById("start_date") as HTMLInputElement;
+                      if (input) {
+                        input.focus();
+                        // @ts-ignore - showPicker는 최신 브라우저 API
+                        if (input.showPicker) {
+                          input.showPicker();
+                        } else {
+                          input.click();
+                        }
+                      }
+                    }}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer p-1 hover:bg-neutral-100 rounded transition-colors"
+                    aria-label={locale === "ko" ? "날짜 선택" : "Select date"}
+                  >
+                    <svg
+                      className="w-5 h-5 text-neutral-400 group-hover:text-neutral-600 transition-colors"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                {errors.start_date && (
+                  <p className="mt-1 text-xs text-neutral-500">{errors.start_date}</p>
+                )}
+              </div>
 
-          {/* 종료일 (선택) */}
-          <div lang={locale === "en" ? "en" : locale === "ko" ? "ko" : "en"}>
-            <label
-              htmlFor="end_date"
-              className="block text-sm font-medium text-neutral-900 mb-2"
-            >
-              {texts.endDate} <span className="text-neutral-400 text-xs">{texts.optional}</span>
-            </label>
-            <div className="relative inline-flex items-center group">
-              <input
-                id="end_date"
-                type="date"
-                lang={locale === "en" ? "en-US" : locale === "ko" ? "ko-KR" : "en-US"}
-                value={formData.end_date || ""}
-                onChange={(e) => handleChange("end_date", e.target.value || null)}
-                min={formData.start_date}
-                className="border border-neutral-200 bg-white px-4 py-3 pr-10 text-sm outline-none transition-all duration-300 focus:border-neutral-900 focus:bg-neutral-50 w-auto min-w-[200px] cursor-pointer"
-                onClick={(e) => {
-                  // @ts-ignore - showPicker는 최신 브라우저 API
-                  if (e.currentTarget.showPicker) {
-                    e.currentTarget.showPicker();
-                  }
-                }}
-              />
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const input = document.getElementById("end_date") as HTMLInputElement;
-                  if (input) {
-                    input.focus();
-                    // @ts-ignore - showPicker는 최신 브라우저 API
-                    if (input.showPicker) {
-                      input.showPicker();
-                    } else {
-                      input.click();
-                    }
-                  }
-                }}
-                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer p-1 hover:bg-neutral-100 rounded transition-colors"
-                aria-label={locale === "ko" ? "날짜 선택" : "Select date"}
-              >
-                <svg
-                  className="w-5 h-5 text-neutral-400 group-hover:text-neutral-600 transition-colors"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+              {/* 종료일 (선택) */}
+              <div lang={locale === "en" ? "en" : locale === "ko" ? "ko" : "en"}>
+                <label
+                  htmlFor="end_date"
+                  className="block text-sm font-medium text-neutral-900 mb-2"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  {texts.endDate} <span className="text-neutral-400 text-xs">{texts.optional}</span>
+                </label>
+                <div className="relative inline-flex items-center group w-full">
+                  <input
+                    id="end_date"
+                    type="date"
+                    lang={locale === "en" ? "en-US" : locale === "ko" ? "ko-KR" : "en-US"}
+                    value={formData.end_date || ""}
+                    onChange={(e) => handleChange("end_date", e.target.value || null)}
+                    min={formData.start_date}
+                    className="border border-neutral-200 bg-white px-4 py-3 pr-10 text-sm outline-none transition-all duration-300 focus:border-neutral-900 focus:bg-neutral-50 w-full cursor-pointer"
+                    onClick={(e) => {
+                      // @ts-ignore - showPicker는 최신 브라우저 API
+                      if (e.currentTarget.showPicker) {
+                        e.currentTarget.showPicker();
+                      }
+                    }}
                   />
-                </svg>
-              </button>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const input = document.getElementById("end_date") as HTMLInputElement;
+                      if (input) {
+                        input.focus();
+                        // @ts-ignore - showPicker는 최신 브라우저 API
+                        if (input.showPicker) {
+                          input.showPicker();
+                        } else {
+                          input.click();
+                        }
+                      }
+                    }}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer p-1 hover:bg-neutral-100 rounded transition-colors"
+                    aria-label={locale === "ko" ? "날짜 선택" : "Select date"}
+                  >
+                    <svg
+                      className="w-5 h-5 text-neutral-400 group-hover:text-neutral-600 transition-colors"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                {errors.end_date && (
+                  <p className="mt-1 text-xs text-neutral-500">{errors.end_date}</p>
+                )}
+              </div>
             </div>
-            {errors.end_date && (
-              <p className="mt-1 text-xs text-neutral-500">{errors.end_date}</p>
-            )}
-          </div>
+          )}
 
-          {/* 최종 캠페인명 ID 미리보기 - 모든 광고 유형 */}
-          {finalCampaignName && (
+          {/* 최종 캠페인명 ID 미리보기 - Naver Search 또는 Google이 아닌 경우 또는 검색광고 유형이 선택되지 않은 경우 */}
+          {finalCampaignName && !(selectedAdType === "search" && (selectedChannels.includes("naver") || selectedChannels.includes("google")) && (searchAdType === "brand" || searchAdType === "non_brand")) && (
             <div
               ref={(errors.general || errors.final_campaign_name) ? errorRef : null}
               className={`mb-6 border-2 px-6 py-5 ${
@@ -1235,8 +1470,8 @@ export default function NewCampaignPage() {
         </form>
       </main>
 
-      {/* 성공 모달 */}
-      {showSuccessModal && (
+      {/* 성공 모달 - 제거됨: 캠페인 생성 후 자동으로 목록 페이지로 이동 */}
+      {false && showSuccessModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white p-8 max-w-md w-full mx-4 border border-neutral-200">
             <h2 className="text-2xl font-light mb-4">{texts.campaignCreated}</h2>

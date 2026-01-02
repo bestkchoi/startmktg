@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useLocale, useLocalizedPath } from "@/hooks/use-locale";
 import type { StartCampaign, ChannelType } from "@/types/campaign";
+import { SiteFooter } from "@/components/footer/site-footer";
 
 const CHANNEL_TYPE_LABELS: Record<ChannelType, string> = {
   meta: "Meta",
@@ -118,6 +119,25 @@ export default function CampaignsPage() {
     return `${start} ~ (종료일 미정)`;
   };
 
+  // 최종 캠페인명에서 끝의 _campaign 제거 (UI 표시용)
+  const formatFinalCampaignName = (finalCampaignName: string) => {
+    // sm_sa_nav_br_YYMMDD_campaign 또는 sm_sa_goo_br_YYMMDD_campaign 형식에서 _campaign 제거
+    if (finalCampaignName.endsWith('_campaign')) {
+      return finalCampaignName.replace(/_campaign$/, '');
+    }
+    return finalCampaignName;
+  };
+
+  // 검색광고 + Google 또는 Naver Search인지 확인하는 함수
+  const isSearchAd = (campaign: CampaignWithChannels) => {
+    // final_campaign_name이 sm_sa_goo_ 또는 sm_sa_nav_로 시작하면 검색광고
+    if (campaign.final_campaign_name?.startsWith('sm_sa_goo_') || 
+        campaign.final_campaign_name?.startsWith('sm_sa_nav_')) {
+      return true;
+    }
+    return false;
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen bg-white text-neutral-900">
@@ -191,40 +211,12 @@ export default function CampaignsPage() {
   return (
     <div className="min-h-screen bg-white text-neutral-900">
       <main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-4 py-20 sm:px-6">
-        {/* START MKTG 로고 링크 */}
-        <div className="mb-8">
-          <Link
-            href={localizedPath("/") as any}
-            className="inline-block transition-opacity hover:opacity-70"
-          >
-            <h1 className="text-3xl sm:text-4xl font-light tracking-[-0.02em] uppercase">
-              START MKTG
-            </h1>
-          </Link>
-        </div>
-
         {/* 헤더 */}
-        <header className="mb-12 flex items-start justify-between">
-          <div>
-            <h1 className="text-4xl sm:text-5xl font-light tracking-[-0.02em] mb-2">
-              {texts.campaignList}
-            </h1>
-            <div className="h-px w-16 bg-neutral-300 mb-4" />
-          </div>
-          <div className="flex gap-3">
-            <Link
-              href={localizedPath("/") as any}
-              className="px-4 py-2 text-sm font-medium text-neutral-700 border border-neutral-200 transition-all duration-300 hover:border-neutral-900 hover:bg-neutral-50"
-            >
-              Main
-            </Link>
-            <Link
-              href={localizedPath("/campaign/new") as any}
-              className="px-4 py-2 text-sm font-medium text-white bg-neutral-900 border border-neutral-900 transition-all duration-300 hover:bg-white hover:text-neutral-900"
-            >
-              Campaign 만들기
-            </Link>
-          </div>
+        <header className="mb-12">
+          <h1 className="text-4xl sm:text-5xl font-light tracking-[-0.02em] mb-2">
+            {texts.campaignList}
+          </h1>
+          <div className="h-px w-16 bg-neutral-300 mb-4" />
         </header>
 
         {/* 캠페인 리스트 */}
@@ -256,7 +248,7 @@ export default function CampaignsPage() {
                         {campaign.raw_name}
                       </h2>
                       <span className="px-2.5 py-1 text-xs font-mono bg-neutral-100 text-neutral-600 rounded">
-                        {campaign.final_campaign_name}
+                        {formatFinalCampaignName(campaign.final_campaign_name)}
                       </span>
                     </div>
                     <div className="text-sm text-neutral-600">
@@ -298,27 +290,29 @@ export default function CampaignsPage() {
                           ))}
                       </div>
                     )}
-                    {/* AD 만들기 버튼 - 매체 태그와 동일한 스타일 */}
-                    <Link
-                      href={localizedPath(`/campaigns/${campaign.campaign_id}/channels/new`) as any}
-                      onClick={(e) => e.stopPropagation()}
-                      className="flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-neutral-700 bg-neutral-100 border-2 border-neutral-200 rounded-lg hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg"
-                    >
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+                    {/* AD 만들기 버튼 - 검색광고(Google 또는 Naver Search)인 경우 표시하지 않음 */}
+                    {!isSearchAd(campaign) && (
+                      <Link
+                        href={localizedPath(`/campaigns/${campaign.campaign_id}/channels/new`) as any}
+                        onClick={(e) => e.stopPropagation()}
+                        className="flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-medium text-neutral-700 bg-neutral-100 border-2 border-neutral-200 rounded-lg hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg"
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2.5}
-                          d="M12 4v16m8-8H4"
-                        />
-                      </svg>
-                      <span>{texts.createAd}</span>
-                    </Link>
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2.5}
+                            d="M12 4v16m8-8H4"
+                          />
+                        </svg>
+                        <span>{texts.createAd}</span>
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>
@@ -326,6 +320,9 @@ export default function CampaignsPage() {
           </div>
         )}
       </main>
+
+      {/* Footer */}
+      <SiteFooter />
     </div>
   );
 }

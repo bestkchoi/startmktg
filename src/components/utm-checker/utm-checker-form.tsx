@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocale } from "@/hooks/use-locale";
 import { getParamMetadata } from "@/lib/utm-checker/param-metadata";
 import { getAdProductFromParams, getAdGroupTypeFromParams } from "@/lib/utm-checker/naver-campaign-type";
@@ -142,6 +142,13 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
   };
 
   const t = texts[locale] || texts.en;
+
+  // 분석 결과가 나오면 GA4 미리보기를 자동으로 열기
+  useEffect(() => {
+    if (result?.ok) {
+      setGa4PreviewOpen(true);
+    }
+  }, [result]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -510,7 +517,6 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
               <div className="group">
                 <div 
                   className="w-full flex items-center justify-between px-4 py-3 mb-4 border border-neutral-200 bg-white rounded-lg transition-all duration-200 hover:bg-neutral-50 hover:border-neutral-300 cursor-pointer"
-                  onMouseEnter={() => setGa4PreviewOpen(true)}
                   onClick={() => setGa4PreviewOpen(!ga4PreviewOpen)}
                 >
                   <h3 className={`text-lg font-light tracking-[-0.02em] text-neutral-900 ${locale === "ko" ? "uppercase" : ""}`}>

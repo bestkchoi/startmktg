@@ -1,0 +1,10867 @@
+[
+  {
+    "char": "😀",
+    "name_ko": "웃는 얼굴",
+    "category": "smileys",
+    "tags": [
+      "웃음",
+      "행복",
+      "기쁨",
+      "미소"
+    ],
+    "name_en": "grinning face"
+  },
+  {
+    "char": "😃",
+    "name_ko": "크게 웃는 얼굴",
+    "category": "smileys",
+    "tags": [
+      "웃음",
+      "행복",
+      "기쁨",
+      "미소"
+    ],
+    "name_en": "grinning face with big eyes"
+  },
+  {
+    "char": "😄",
+    "name_ko": "눈을 감고 웃는 얼굴",
+    "category": "smileys",
+    "tags": [
+      "웃음",
+      "행복",
+      "기쁨",
+      "미소"
+    ],
+    "name_en": "grinning face with smiling eyes"
+  },
+  {
+    "char": "😁",
+    "name_ko": "넓게 웃는 얼굴",
+    "category": "smileys",
+    "tags": [
+      "웃음",
+      "행복",
+      "기쁨",
+      "미소"
+    ],
+    "name_en": "beaming face with smiling eyes"
+  },
+  {
+    "char": "😆",
+    "name_ko": "크게 웃으며 눈을 감은 얼굴",
+    "category": "smileys",
+    "tags": [
+      "웃음",
+      "행복",
+      "기쁨",
+      "미소"
+    ],
+    "name_en": "grinning squinting face"
+  },
+  {
+    "char": "😅",
+    "name_ko": "땀을 흘리며 웃는 얼굴",
+    "category": "smileys",
+    "tags": [
+      "웃음",
+      "땀",
+      "안심"
+    ],
+    "name_en": "grinning face with sweat"
+  },
+  {
+    "char": "🤣",
+    "name_ko": "바닥에 구르며 웃는 얼굴",
+    "category": "smileys",
+    "tags": [
+      "웃음",
+      "폭소",
+      "재미"
+    ],
+    "name_en": "rolling on the floor laughing"
+  },
+  {
+    "char": "😂",
+    "name_ko": "눈물을 흘리며 웃는 얼굴",
+    "category": "smileys",
+    "tags": [
+      "웃음",
+      "눈물",
+      "폭소"
+    ],
+    "name_en": "face with tears of joy"
+  },
+  {
+    "char": "🙂",
+    "name_ko": "살짝 웃는 얼굴",
+    "category": "smileys",
+    "tags": [
+      "미소",
+      "친절",
+      "긍정"
+    ],
+    "name_en": "slightly smiling face"
+  },
+  {
+    "char": "🙃",
+    "name_ko": "거꾸로 된 얼굴",
+    "category": "smileys",
+    "tags": [
+      "장난",
+      "재미",
+      "유머"
+    ],
+    "name_en": "upside-down face"
+  },
+  {
+    "char": "😉",
+    "name_ko": "윙크하는 얼굴",
+    "category": "smileys",
+    "tags": [
+      "윙크",
+      "장난",
+      "친근"
+    ],
+    "name_en": "winking face"
+  },
+  {
+    "char": "😊",
+    "name_ko": "미소 짓는 얼굴",
+    "category": "smileys",
+    "tags": [
+      "미소",
+      "행복",
+      "기쁨"
+    ],
+    "name_en": "smiling face with smiling eyes"
+  },
+  {
+    "char": "😇",
+    "name_ko": "후광이 있는 얼굴",
+    "category": "smileys",
+    "tags": [
+      "천사",
+      "순수",
+      "선량"
+    ],
+    "name_en": "smiling face with halo"
+  },
+  {
+    "char": "🥰",
+    "name_ko": "하트가 있는 미소 얼굴",
+    "category": "smileys",
+    "tags": [
+      "사랑",
+      "미소",
+      "행복"
+    ],
+    "name_en": "smiling face with hearts"
+  },
+  {
+    "char": "😍",
+    "name_ko": "하트 눈 얼굴",
+    "category": "smileys",
+    "tags": [
+      "사랑",
+      "매력",
+      "좋아함"
+    ],
+    "name_en": "smiling face with heart-eyes"
+  },
+  {
+    "char": "❤️",
+    "name_ko": "빨간 하트",
+    "category": "hearts",
+    "tags": [
+      "사랑",
+      "하트",
+      "감정"
+    ],
+    "name_en": "red heart"
+  },
+  {
+    "char": "🧡",
+    "name_ko": "주황 하트",
+    "category": "hearts",
+    "tags": [
+      "사랑",
+      "하트",
+      "감정"
+    ],
+    "name_en": "orange heart"
+  },
+  {
+    "char": "💛",
+    "name_ko": "노란 하트",
+    "category": "hearts",
+    "tags": [
+      "사랑",
+      "하트",
+      "감정"
+    ],
+    "name_en": "yellow heart"
+  },
+  {
+    "char": "💚",
+    "name_ko": "초록 하트",
+    "category": "hearts",
+    "tags": [
+      "사랑",
+      "하트",
+      "감정"
+    ],
+    "name_en": "green heart"
+  },
+  {
+    "char": "💙",
+    "name_ko": "파란 하트",
+    "category": "hearts",
+    "tags": [
+      "사랑",
+      "하트",
+      "감정"
+    ],
+    "name_en": "blue heart"
+  },
+  {
+    "char": "💜",
+    "name_ko": "보라 하트",
+    "category": "hearts",
+    "tags": [
+      "사랑",
+      "하트",
+      "감정"
+    ],
+    "name_en": "purple heart"
+  },
+  {
+    "char": "🖤",
+    "name_ko": "검은 하트",
+    "category": "hearts",
+    "tags": [
+      "사랑",
+      "하트",
+      "감정"
+    ],
+    "name_en": "black heart"
+  },
+  {
+    "char": "🤍",
+    "name_ko": "흰 하트",
+    "category": "hearts",
+    "tags": [
+      "사랑",
+      "하트",
+      "감정"
+    ],
+    "name_en": "white heart"
+  },
+  {
+    "char": "💔",
+    "name_ko": "깨진 하트",
+    "category": "hearts",
+    "tags": [
+      "슬픔",
+      "이별",
+      "상실"
+    ],
+    "name_en": "broken heart"
+  },
+  {
+    "char": "❣️",
+    "name_ko": "하트 느낌표",
+    "category": "hearts",
+    "tags": [
+      "사랑",
+      "강조",
+      "감정"
+    ],
+    "name_en": "heart exclamation"
+  },
+  {
+    "char": "💕",
+    "name_ko": "두 개의 분홍 하트",
+    "category": "hearts",
+    "tags": [
+      "사랑",
+      "하트",
+      "감정"
+    ],
+    "name_en": "two hearts"
+  },
+  {
+    "char": "💞",
+    "name_ko": "회전하는 하트",
+    "category": "hearts",
+    "tags": [
+      "사랑",
+      "하트",
+      "감정"
+    ],
+    "name_en": "revolving hearts"
+  },
+  {
+    "char": "💓",
+    "name_ko": "뛰는 하트",
+    "category": "hearts",
+    "tags": [
+      "사랑",
+      "하트",
+      "감정"
+    ],
+    "name_en": "beating heart"
+  },
+  {
+    "char": "💗",
+    "name_ko": "커지는 하트",
+    "category": "hearts",
+    "tags": [
+      "사랑",
+      "하트",
+      "감정"
+    ],
+    "name_en": "growing heart"
+  },
+  {
+    "char": "💖",
+    "name_ko": "반짝이는 하트",
+    "category": "hearts",
+    "tags": [
+      "사랑",
+      "하트",
+      "감정"
+    ],
+    "name_en": "sparkling heart"
+  },
+  {
+    "char": "💘",
+    "name_ko": "화살이 박힌 하트",
+    "category": "hearts",
+    "tags": [
+      "사랑",
+      "하트",
+      "감정"
+    ],
+    "name_en": "heart with arrow"
+  },
+  {
+    "char": "💝",
+    "name_ko": "리본이 달린 하트",
+    "category": "hearts",
+    "tags": [
+      "사랑",
+      "하트",
+      "선물"
+    ],
+    "name_en": "heart with ribbon"
+  },
+  {
+    "char": "→",
+    "name_ko": "오른쪽 화살표",
+    "category": "arrows",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동"
+    ],
+    "name_en": "right arrow"
+  },
+  {
+    "char": "←",
+    "name_ko": "왼쪽 화살표",
+    "category": "arrows",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동"
+    ],
+    "name_en": "left arrow"
+  },
+  {
+    "char": "↑",
+    "name_ko": "위쪽 화살표",
+    "category": "arrows",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동"
+    ],
+    "name_en": "up arrow"
+  },
+  {
+    "char": "↓",
+    "name_ko": "아래쪽 화살표",
+    "category": "arrows",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동"
+    ],
+    "name_en": "down arrow"
+  },
+  {
+    "char": "↔",
+    "name_ko": "양방향 화살표",
+    "category": "arrows",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동"
+    ],
+    "name_en": "left-right arrow"
+  },
+  {
+    "char": "↗",
+    "name_ko": "오른쪽 위 화살표",
+    "category": "arrows",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동"
+    ],
+    "name_en": "up-right arrow"
+  },
+  {
+    "char": "↘",
+    "name_ko": "오른쪽 아래 화살표",
+    "category": "arrows",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동"
+    ],
+    "name_en": "down-right arrow"
+  },
+  {
+    "char": "↙",
+    "name_ko": "왼쪽 아래 화살표",
+    "category": "arrows",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동"
+    ],
+    "name_en": "down-left arrow"
+  },
+  {
+    "char": "↖",
+    "name_ko": "왼쪽 위 화살표",
+    "category": "arrows",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동"
+    ],
+    "name_en": "up-left arrow"
+  },
+  {
+    "char": "➡️",
+    "name_ko": "오른쪽 검은 화살표",
+    "category": "arrows",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동"
+    ],
+    "name_en": "black right-pointing triangle"
+  },
+  {
+    "char": "⬅️",
+    "name_ko": "왼쪽 검은 화살표",
+    "category": "arrows",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동"
+    ],
+    "name_en": "black left-pointing triangle"
+  },
+  {
+    "char": "⬆️",
+    "name_ko": "위쪽 검은 화살표",
+    "category": "arrows",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동"
+    ],
+    "name_en": "black up-pointing triangle"
+  },
+  {
+    "char": "⬇️",
+    "name_ko": "아래쪽 검은 화살표",
+    "category": "arrows",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동"
+    ],
+    "name_en": "black down-pointing triangle"
+  },
+  {
+    "char": "⭐",
+    "name_ko": "별",
+    "category": "stars",
+    "tags": [
+      "별",
+      "별점",
+      "평점"
+    ],
+    "name_en": "star"
+  },
+  {
+    "char": "🌟",
+    "name_ko": "반짝이는 별",
+    "category": "stars",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점"
+    ],
+    "name_en": "glowing star"
+  },
+  {
+    "char": "✨",
+    "name_ko": "반짝임",
+    "category": "stars",
+    "tags": [
+      "반짝임",
+      "마법",
+      "특별"
+    ],
+    "name_en": "sparkles"
+  },
+  {
+    "char": "💫",
+    "name_ko": "별똥별",
+    "category": "stars",
+    "tags": [
+      "별",
+      "소원",
+      "특별"
+    ],
+    "name_en": "shooting star"
+  },
+  {
+    "char": "⭐️",
+    "name_ko": "중간 크기 흰 별",
+    "category": "stars",
+    "tags": [
+      "별",
+      "별점",
+      "평점"
+    ],
+    "name_en": "white medium star"
+  },
+  {
+    "char": "☀️",
+    "name_ko": "태양",
+    "category": "weather",
+    "tags": [
+      "날씨",
+      "태양",
+      "맑음"
+    ],
+    "name_en": "sun"
+  },
+  {
+    "char": "🌤️",
+    "name_ko": "구름 뒤 태양",
+    "category": "weather",
+    "tags": [
+      "날씨",
+      "맑음",
+      "구름"
+    ],
+    "name_en": "sun behind cloud"
+  },
+  {
+    "char": "⛅",
+    "name_ko": "구름 뒤 태양",
+    "category": "weather",
+    "tags": [
+      "날씨",
+      "맑음",
+      "구름"
+    ],
+    "name_en": "sun behind cloud"
+  },
+  {
+    "char": "🌥️",
+    "name_ko": "구름 뒤 태양",
+    "category": "weather",
+    "tags": [
+      "날씨",
+      "맑음",
+      "구름"
+    ],
+    "name_en": "sun behind cloud"
+  },
+  {
+    "char": "☁️",
+    "name_ko": "구름",
+    "category": "weather",
+    "tags": [
+      "날씨",
+      "구름",
+      "흐림"
+    ],
+    "name_en": "cloud"
+  },
+  {
+    "char": "🌦️",
+    "name_ko": "비와 태양",
+    "category": "weather",
+    "tags": [
+      "날씨",
+      "비",
+      "태양"
+    ],
+    "name_en": "sun behind rain cloud"
+  },
+  {
+    "char": "🌧️",
+    "name_ko": "비",
+    "category": "weather",
+    "tags": [
+      "날씨",
+      "비",
+      "강수"
+    ],
+    "name_en": "cloud with rain"
+  },
+  {
+    "char": "⛈️",
+    "name_ko": "천둥번개와 비",
+    "category": "weather",
+    "tags": [
+      "날씨",
+      "천둥",
+      "번개",
+      "비"
+    ],
+    "name_en": "cloud with lightning and rain"
+  },
+  {
+    "char": "🌩️",
+    "name_ko": "천둥번개",
+    "category": "weather",
+    "tags": [
+      "날씨",
+      "천둥",
+      "번개"
+    ],
+    "name_en": "cloud with lightning"
+  },
+  {
+    "char": "❄️",
+    "name_ko": "눈송이",
+    "category": "weather",
+    "tags": [
+      "날씨",
+      "눈",
+      "겨울"
+    ],
+    "name_en": "snowflake"
+  },
+  {
+    "char": "☃️",
+    "name_ko": "눈사람",
+    "category": "weather",
+    "tags": [
+      "날씨",
+      "눈",
+      "겨울"
+    ],
+    "name_en": "snowman"
+  },
+  {
+    "char": "🐶",
+    "name_ko": "강아지 얼굴",
+    "category": "animals",
+    "tags": [
+      "동물",
+      "강아지",
+      "반려동물"
+    ],
+    "name_en": "dog face"
+  },
+  {
+    "char": "🐱",
+    "name_ko": "고양이 얼굴",
+    "category": "animals",
+    "tags": [
+      "동물",
+      "고양이",
+      "반려동물"
+    ],
+    "name_en": "cat face"
+  },
+  {
+    "char": "🐭",
+    "name_ko": "쥐 얼굴",
+    "category": "animals",
+    "tags": [
+      "동물",
+      "쥐",
+      "작은동물"
+    ],
+    "name_en": "mouse face"
+  },
+  {
+    "char": "🐹",
+    "name_ko": "햄스터",
+    "category": "animals",
+    "tags": [
+      "동물",
+      "햄스터",
+      "반려동물"
+    ],
+    "name_en": "hamster"
+  },
+  {
+    "char": "🐰",
+    "name_ko": "토끼 얼굴",
+    "category": "animals",
+    "tags": [
+      "동물",
+      "토끼",
+      "귀여움"
+    ],
+    "name_en": "rabbit face"
+  },
+  {
+    "char": "🦊",
+    "name_ko": "여우 얼굴",
+    "category": "animals",
+    "tags": [
+      "동물",
+      "여우",
+      "야생동물"
+    ],
+    "name_en": "fox face"
+  },
+  {
+    "char": "🐻",
+    "name_ko": "곰 얼굴",
+    "category": "animals",
+    "tags": [
+      "동물",
+      "곰",
+      "야생동물"
+    ],
+    "name_en": "bear face"
+  },
+  {
+    "char": "🐼",
+    "name_ko": "판다 얼굴",
+    "category": "animals",
+    "tags": [
+      "동물",
+      "판다",
+      "귀여움"
+    ],
+    "name_en": "panda face"
+  },
+  {
+    "char": "🐨",
+    "name_ko": "코알라",
+    "category": "animals",
+    "tags": [
+      "동물",
+      "코알라",
+      "귀여움"
+    ],
+    "name_en": "koala"
+  },
+  {
+    "char": "🐯",
+    "name_ko": "호랑이 얼굴",
+    "category": "animals",
+    "tags": [
+      "동물",
+      "호랑이",
+      "야생동물"
+    ],
+    "name_en": "tiger face"
+  },
+  {
+    "char": "🍎",
+    "name_ko": "빨간 사과",
+    "category": "food",
+    "tags": [
+      "음식",
+      "과일",
+      "사과"
+    ],
+    "name_en": "red apple"
+  },
+  {
+    "char": "🍌",
+    "name_ko": "바나나",
+    "category": "food",
+    "tags": [
+      "음식",
+      "과일",
+      "바나나"
+    ],
+    "name_en": "banana"
+  },
+  {
+    "char": "🍉",
+    "name_ko": "수박",
+    "category": "food",
+    "tags": [
+      "음식",
+      "과일",
+      "수박"
+    ],
+    "name_en": "watermelon"
+  },
+  {
+    "char": "🍇",
+    "name_ko": "포도",
+    "category": "food",
+    "tags": [
+      "음식",
+      "과일",
+      "포도"
+    ],
+    "name_en": "grapes"
+  },
+  {
+    "char": "🍓",
+    "name_ko": "딸기",
+    "category": "food",
+    "tags": [
+      "음식",
+      "과일",
+      "딸기"
+    ],
+    "name_en": "strawberry"
+  },
+  {
+    "char": "🍕",
+    "name_ko": "피자",
+    "category": "food",
+    "tags": [
+      "음식",
+      "피자",
+      "패스트푸드"
+    ],
+    "name_en": "pizza"
+  },
+  {
+    "char": "🍔",
+    "name_ko": "햄버거",
+    "category": "food",
+    "tags": [
+      "음식",
+      "햄버거",
+      "패스트푸드"
+    ],
+    "name_en": "hamburger"
+  },
+  {
+    "char": "🍟",
+    "name_ko": "감자튀김",
+    "category": "food",
+    "tags": [
+      "음식",
+      "감자튀김",
+      "패스트푸드"
+    ],
+    "name_en": "french fries"
+  },
+  {
+    "char": "🍗",
+    "name_ko": "닭다리",
+    "category": "food",
+    "tags": [
+      "음식",
+      "닭고기",
+      "고기"
+    ],
+    "name_en": "poultry leg"
+  },
+  {
+    "char": "🍜",
+    "name_ko": "국수",
+    "category": "food",
+    "tags": [
+      "음식",
+      "국수",
+      "면"
+    ],
+    "name_en": "steaming bowl"
+  },
+  {
+    "char": "🍱",
+    "name_ko": "도시락",
+    "category": "food",
+    "tags": [
+      "음식",
+      "도시락",
+      "일본음식"
+    ],
+    "name_en": "bento box"
+  },
+  {
+    "char": "🍣",
+    "name_ko": "초밥",
+    "category": "food",
+    "tags": [
+      "음식",
+      "초밥",
+      "일본음식"
+    ],
+    "name_en": "sushi"
+  },
+  {
+    "char": "🍰",
+    "name_ko": "케이크",
+    "category": "food",
+    "tags": [
+      "음식",
+      "케이크",
+      "디저트"
+    ],
+    "name_en": "birthday cake"
+  },
+  {
+    "char": "🍫",
+    "name_ko": "초콜릿",
+    "category": "food",
+    "tags": [
+      "음식",
+      "초콜릿",
+      "디저트"
+    ],
+    "name_en": "chocolate bar"
+  },
+  {
+    "char": "☕",
+    "name_ko": "커피",
+    "category": "food",
+    "tags": [
+      "음식",
+      "커피",
+      "음료"
+    ],
+    "name_en": "hot beverage"
+  },
+  {
+    "char": "🇰🇷",
+    "name_ko": "대한민국 국기",
+    "category": "flags",
+    "tags": [
+      "국기",
+      "한국",
+      "대한민국"
+    ],
+    "name_en": "South Korea flag"
+  },
+  {
+    "char": "🇺🇸",
+    "name_ko": "미국 국기",
+    "category": "flags",
+    "tags": [
+      "국기",
+      "미국",
+      "USA"
+    ],
+    "name_en": "United States flag"
+  },
+  {
+    "char": "🇯🇵",
+    "name_ko": "일본 국기",
+    "category": "flags",
+    "tags": [
+      "국기",
+      "일본",
+      "Japan"
+    ],
+    "name_en": "Japan flag"
+  },
+  {
+    "char": "🇨🇳",
+    "name_ko": "중국 국기",
+    "category": "flags",
+    "tags": [
+      "국기",
+      "중국",
+      "China"
+    ],
+    "name_en": "China flag"
+  },
+  {
+    "char": "🇬🇧",
+    "name_ko": "영국 국기",
+    "category": "flags",
+    "tags": [
+      "국기",
+      "영국",
+      "UK"
+    ],
+    "name_en": "United Kingdom flag"
+  },
+  {
+    "char": "🇫🇷",
+    "name_ko": "프랑스 국기",
+    "category": "flags",
+    "tags": [
+      "국기",
+      "프랑스",
+      "France"
+    ],
+    "name_en": "France flag"
+  },
+  {
+    "char": "🇩🇪",
+    "name_ko": "독일 국기",
+    "category": "flags",
+    "tags": [
+      "국기",
+      "독일",
+      "Germany"
+    ],
+    "name_en": "Germany flag"
+  },
+  {
+    "char": "🇮🇹",
+    "name_ko": "이탈리아 국기",
+    "category": "flags",
+    "tags": [
+      "국기",
+      "이탈리아",
+      "Italy"
+    ],
+    "name_en": "Italy flag"
+  },
+  {
+    "char": "🇪🇸",
+    "name_ko": "스페인 국기",
+    "category": "flags",
+    "tags": [
+      "국기",
+      "스페인",
+      "Spain"
+    ],
+    "name_en": "Spain flag"
+  },
+  {
+    "char": "🇨🇦",
+    "name_ko": "캐나다 국기",
+    "category": "flags",
+    "tags": [
+      "국기",
+      "캐나다",
+      "Canada"
+    ],
+    "name_en": "Canada flag"
+  },
+  {
+    "char": "✓",
+    "name_ko": "체크 표시",
+    "category": "symbols",
+    "tags": [
+      "체크",
+      "확인",
+      "완료"
+    ],
+    "name_en": "check mark"
+  },
+  {
+    "char": "✗",
+    "name_ko": "X 표시",
+    "category": "symbols",
+    "tags": [
+      "X",
+      "취소",
+      "거부"
+    ],
+    "name_en": "cross mark"
+  },
+  {
+    "char": "★",
+    "name_ko": "검은 별",
+    "category": "symbols",
+    "tags": [
+      "별",
+      "평점",
+      "중요"
+    ],
+    "name_en": "black star"
+  },
+  {
+    "char": "☆",
+    "name_ko": "흰 별",
+    "category": "symbols",
+    "tags": [
+      "별",
+      "평점",
+      "중요"
+    ],
+    "name_en": "white star"
+  },
+  {
+    "char": "●",
+    "name_ko": "검은 원",
+    "category": "symbols",
+    "tags": [
+      "원",
+      "점",
+      "마커"
+    ],
+    "name_en": "black circle"
+  },
+  {
+    "char": "○",
+    "name_ko": "흰 원",
+    "category": "symbols",
+    "tags": [
+      "원",
+      "점",
+      "마커"
+    ],
+    "name_en": "white circle"
+  },
+  {
+    "char": "■",
+    "name_ko": "검은 사각형",
+    "category": "symbols",
+    "tags": [
+      "사각형",
+      "블록",
+      "마커"
+    ],
+    "name_en": "black square"
+  },
+  {
+    "char": "□",
+    "name_ko": "흰 사각형",
+    "category": "symbols",
+    "tags": [
+      "사각형",
+      "블록",
+      "마커"
+    ],
+    "name_en": "white square"
+  },
+  {
+    "char": "◆",
+    "name_ko": "검은 다이아몬드",
+    "category": "symbols",
+    "tags": [
+      "다이아몬드",
+      "보석",
+      "마커"
+    ],
+    "name_en": "black diamond"
+  },
+  {
+    "char": "◇",
+    "name_ko": "흰 다이아몬드",
+    "category": "symbols",
+    "tags": [
+      "다이아몬드",
+      "보석",
+      "마커"
+    ],
+    "name_en": "white diamond"
+  },
+  {
+    "char": "♥",
+    "name_ko": "검은 하트",
+    "category": "symbols",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정"
+    ],
+    "name_en": "black heart"
+  },
+  {
+    "char": "♠",
+    "name_ko": "스페이드",
+    "category": "symbols",
+    "tags": [
+      "카드",
+      "스페이드",
+      "게임"
+    ],
+    "name_en": "spade suit"
+  },
+  {
+    "char": "♣",
+    "name_ko": "클럽",
+    "category": "symbols",
+    "tags": [
+      "카드",
+      "클럽",
+      "게임"
+    ],
+    "name_en": "club suit"
+  },
+  {
+    "char": "♦",
+    "name_ko": "다이아몬드",
+    "category": "symbols",
+    "tags": [
+      "카드",
+      "다이아몬드",
+      "게임"
+    ],
+    "name_en": "diamond suit"
+  },
+  {
+    "char": "©",
+    "name_ko": "저작권",
+    "category": "text",
+    "tags": [
+      "저작권",
+      "법적",
+      "표시"
+    ],
+    "name_en": "copyright"
+  },
+  {
+    "char": "®",
+    "name_ko": "등록상표",
+    "category": "text",
+    "tags": [
+      "등록상표",
+      "법적",
+      "표시"
+    ],
+    "name_en": "registered"
+  },
+  {
+    "char": "™",
+    "name_ko": "상표",
+    "category": "text",
+    "tags": [
+      "상표",
+      "법적",
+      "표시"
+    ],
+    "name_en": "trade mark"
+  },
+  {
+    "char": "℠",
+    "name_ko": "서비스 마크",
+    "category": "text",
+    "tags": [
+      "서비스마크",
+      "법적",
+      "표시"
+    ],
+    "name_en": "service mark"
+  },
+  {
+    "char": "℃",
+    "name_ko": "섭씨",
+    "category": "text",
+    "tags": [
+      "온도",
+      "섭씨",
+      "단위"
+    ],
+    "name_en": "degree celsius"
+  },
+  {
+    "char": "℉",
+    "name_ko": "화씨",
+    "category": "text",
+    "tags": [
+      "온도",
+      "화씨",
+      "단위"
+    ],
+    "name_en": "degree fahrenheit"
+  },
+  {
+    "char": "№",
+    "name_ko": "번호",
+    "category": "text",
+    "tags": [
+      "번호",
+      "숫자",
+      "표시"
+    ],
+    "name_en": "numero sign"
+  },
+  {
+    "char": "§",
+    "name_ko": "섹션",
+    "category": "text",
+    "tags": [
+      "섹션",
+      "법적",
+      "표시"
+    ],
+    "name_en": "section sign"
+  },
+  {
+    "char": "¶",
+    "name_ko": "단락",
+    "category": "text",
+    "tags": [
+      "단락",
+      "문서",
+      "표시"
+    ],
+    "name_en": "paragraph sign"
+  },
+  {
+    "char": "†",
+    "name_ko": "단검",
+    "category": "text",
+    "tags": [
+      "각주",
+      "참고",
+      "표시"
+    ],
+    "name_en": "dagger"
+  },
+  {
+    "char": "‡",
+    "name_ko": "이중 단검",
+    "category": "text",
+    "tags": [
+      "각주",
+      "참고",
+      "표시"
+    ],
+    "name_en": "double dagger"
+  },
+  {
+    "char": "🤩",
+    "name_ko": "별 눈 얼굴",
+    "name_en": "star-struck",
+    "category": "smileys",
+    "tags": [
+      "별",
+      "놀람",
+      "감동",
+      "star",
+      "surprise",
+      "amazed"
+    ]
+  },
+  {
+    "char": "😘",
+    "name_ko": "키스하는 얼굴",
+    "name_en": "face blowing a kiss",
+    "category": "smileys",
+    "tags": [
+      "키스",
+      "사랑",
+      "애정",
+      "kiss",
+      "love",
+      "affection"
+    ]
+  },
+  {
+    "char": "😗",
+    "name_ko": "키스하는 얼굴",
+    "name_en": "kissing face",
+    "category": "smileys",
+    "tags": [
+      "키스",
+      "사랑",
+      "애정",
+      "kiss",
+      "love",
+      "affection"
+    ]
+  },
+  {
+    "char": "😚",
+    "name_ko": "눈을 감고 키스하는 얼굴",
+    "name_en": "kissing face with closed eyes",
+    "category": "smileys",
+    "tags": [
+      "키스",
+      "사랑",
+      "애정",
+      "kiss",
+      "love",
+      "affection"
+    ]
+  },
+  {
+    "char": "😙",
+    "name_ko": "미소 짓고 키스하는 얼굴",
+    "name_en": "kissing face with smiling eyes",
+    "category": "smileys",
+    "tags": [
+      "키스",
+      "사랑",
+      "애정",
+      "kiss",
+      "love",
+      "affection"
+    ]
+  },
+  {
+    "char": "😋",
+    "name_ko": "맛있게 먹는 얼굴",
+    "name_en": "face savoring food",
+    "category": "smileys",
+    "tags": [
+      "맛",
+      "음식",
+      "먹기",
+      "taste",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "😛",
+    "name_ko": "혀를 내민 얼굴",
+    "name_en": "face with tongue",
+    "category": "smileys",
+    "tags": [
+      "혀",
+      "장난",
+      "재미",
+      "tongue",
+      "playful",
+      "funny"
+    ]
+  },
+  {
+    "char": "😜",
+    "name_ko": "윙크하며 혀를 내민 얼굴",
+    "name_en": "winking face with tongue",
+    "category": "smileys",
+    "tags": [
+      "혀",
+      "윙크",
+      "장난",
+      "tongue",
+      "wink",
+      "playful"
+    ]
+  },
+  {
+    "char": "🤪",
+    "name_ko": "미친 얼굴",
+    "name_en": "zany face",
+    "category": "smileys",
+    "tags": [
+      "미친",
+      "장난",
+      "재미",
+      "crazy",
+      "playful",
+      "funny"
+    ]
+  },
+  {
+    "char": "😝",
+    "name_ko": "눈을 감고 혀를 내민 얼굴",
+    "name_en": "squinting face with tongue",
+    "category": "smileys",
+    "tags": [
+      "혀",
+      "장난",
+      "재미",
+      "tongue",
+      "playful",
+      "funny"
+    ]
+  },
+  {
+    "char": "🤑",
+    "name_ko": "돈 입 얼굴",
+    "name_en": "money-mouth face",
+    "category": "smileys",
+    "tags": [
+      "돈",
+      "부자",
+      "욕심",
+      "money",
+      "rich",
+      "greedy"
+    ]
+  },
+  {
+    "char": "🤗",
+    "name_ko": "포옹하는 얼굴",
+    "name_en": "hugging face",
+    "category": "smileys",
+    "tags": [
+      "포옹",
+      "사랑",
+      "친근",
+      "hug",
+      "love",
+      "friendly"
+    ]
+  },
+  {
+    "char": "🤭",
+    "name_ko": "입을 가린 얼굴",
+    "name_en": "face with hand over mouth",
+    "category": "smileys",
+    "tags": [
+      "비밀",
+      "놀람",
+      "조용",
+      "secret",
+      "surprise",
+      "quiet"
+    ]
+  },
+  {
+    "char": "🤫",
+    "name_ko": "조용히 하는 얼굴",
+    "name_en": "shushing face",
+    "category": "smileys",
+    "tags": [
+      "조용",
+      "비밀",
+      "침묵",
+      "quiet",
+      "secret",
+      "silence"
+    ]
+  },
+  {
+    "char": "🤔",
+    "name_ko": "생각하는 얼굴",
+    "name_en": "thinking face",
+    "category": "smileys",
+    "tags": [
+      "생각",
+      "고민",
+      "의문",
+      "thinking",
+      "wondering",
+      "question"
+    ]
+  },
+  {
+    "char": "🤐",
+    "name_ko": "지퍼 입 얼굴",
+    "name_en": "zipper-mouth face",
+    "category": "smileys",
+    "tags": [
+      "침묵",
+      "비밀",
+      "조용",
+      "silence",
+      "secret",
+      "quiet"
+    ]
+  },
+  {
+    "char": "🤨",
+    "name_ko": "한쪽 눈썹 올린 얼굴",
+    "name_en": "face with raised eyebrow",
+    "category": "smileys",
+    "tags": [
+      "의심",
+      "의문",
+      "호기심",
+      "suspicious",
+      "question",
+      "curious"
+    ]
+  },
+  {
+    "char": "😐",
+    "name_ko": "무표정 얼굴",
+    "name_en": "neutral face",
+    "category": "smileys",
+    "tags": [
+      "무표정",
+      "중립",
+      "평범",
+      "neutral",
+      "expressionless",
+      "normal"
+    ]
+  },
+  {
+    "char": "😑",
+    "name_ko": "무표정 얼굴",
+    "name_en": "expressionless face",
+    "category": "smileys",
+    "tags": [
+      "무표정",
+      "중립",
+      "평범",
+      "neutral",
+      "expressionless",
+      "normal"
+    ]
+  },
+  {
+    "char": "😶",
+    "name_ko": "입 없는 얼굴",
+    "name_en": "face without mouth",
+    "category": "smileys",
+    "tags": [
+      "무표정",
+      "침묵",
+      "말없음",
+      "expressionless",
+      "silence",
+      "speechless"
+    ]
+  },
+  {
+    "char": "😏",
+    "name_ko": "비웃는 얼굴",
+    "name_en": "smirking face",
+    "category": "smileys",
+    "tags": [
+      "비웃음",
+      "장난",
+      "교활",
+      "smirk",
+      "playful",
+      "sly"
+    ]
+  },
+  {
+    "char": "😒",
+    "name_ko": "불만스러운 얼굴",
+    "name_en": "unamused face",
+    "category": "smileys",
+    "tags": [
+      "불만",
+      "지루",
+      "무관심",
+      "unamused",
+      "bored",
+      "indifferent"
+    ]
+  },
+  {
+    "char": "🙄",
+    "name_ko": "눈을 굴리는 얼굴",
+    "name_en": "face with rolling eyes",
+    "category": "smileys",
+    "tags": [
+      "눈굴림",
+      "지루",
+      "무관심",
+      "rolling eyes",
+      "bored",
+      "indifferent"
+    ]
+  },
+  {
+    "char": "😬",
+    "name_ko": "긴장한 얼굴",
+    "name_en": "grimacing face",
+    "category": "smileys",
+    "tags": [
+      "긴장",
+      "불편",
+      "어색",
+      "nervous",
+      "uncomfortable",
+      "awkward"
+    ]
+  },
+  {
+    "char": "🤥",
+    "name_ko": "거짓말하는 얼굴",
+    "name_en": "lying face",
+    "category": "smileys",
+    "tags": [
+      "거짓말",
+      "거짓",
+      "의심",
+      "lying",
+      "false",
+      "suspicious"
+    ]
+  },
+  {
+    "char": "😌",
+    "name_ko": "안심하는 얼굴",
+    "name_en": "relieved face",
+    "category": "smileys",
+    "tags": [
+      "안심",
+      "편안",
+      "만족",
+      "relieved",
+      "comfortable",
+      "satisfied"
+    ]
+  },
+  {
+    "char": "😔",
+    "name_ko": "우울한 얼굴",
+    "name_en": "pensive face",
+    "category": "smileys",
+    "tags": [
+      "우울",
+      "슬픔",
+      "생각",
+      "sad",
+      "depressed",
+      "thinking"
+    ]
+  },
+  {
+    "char": "😪",
+    "name_ko": "졸린 얼굴",
+    "name_en": "sleepy face",
+    "category": "smileys",
+    "tags": [
+      "졸림",
+      "피곤",
+      "수면",
+      "sleepy",
+      "tired",
+      "sleep"
+    ]
+  },
+  {
+    "char": "🤤",
+    "name_ko": "침 흘리는 얼굴",
+    "name_en": "drooling face",
+    "category": "smileys",
+    "tags": [
+      "침",
+      "배고픔",
+      "욕심",
+      "drool",
+      "hungry",
+      "desire"
+    ]
+  },
+  {
+    "char": "😴",
+    "name_ko": "자는 얼굴",
+    "name_en": "sleeping face",
+    "category": "smileys",
+    "tags": [
+      "수면",
+      "졸림",
+      "피곤",
+      "sleep",
+      "sleepy",
+      "tired"
+    ]
+  },
+  {
+    "char": "😷",
+    "name_ko": "마스크 쓴 얼굴",
+    "name_en": "face with medical mask",
+    "category": "smileys",
+    "tags": [
+      "마스크",
+      "병",
+      "보호",
+      "mask",
+      "sick",
+      "protection"
+    ]
+  },
+  {
+    "char": "🤒",
+    "name_ko": "열이 있는 얼굴",
+    "name_en": "face with thermometer",
+    "category": "smileys",
+    "tags": [
+      "열",
+      "병",
+      "아픔",
+      "fever",
+      "sick",
+      "pain"
+    ]
+  },
+  {
+    "char": "🤕",
+    "name_ko": "붕대 감은 얼굴",
+    "name_en": "face with head-bandage",
+    "category": "smileys",
+    "tags": [
+      "부상",
+      "아픔",
+      "치료",
+      "injury",
+      "pain",
+      "treatment"
+    ]
+  },
+  {
+    "char": "🤢",
+    "name_ko": "구역질 나는 얼굴",
+    "name_en": "nauseated face",
+    "category": "smileys",
+    "tags": [
+      "구역질",
+      "병",
+      "불편",
+      "nauseated",
+      "sick",
+      "uncomfortable"
+    ]
+  },
+  {
+    "char": "🤮",
+    "name_ko": "토하는 얼굴",
+    "name_en": "face vomiting",
+    "category": "smileys",
+    "tags": [
+      "토함",
+      "병",
+      "불편",
+      "vomiting",
+      "sick",
+      "uncomfortable"
+    ]
+  },
+  {
+    "char": "🤧",
+    "name_ko": "재채기하는 얼굴",
+    "name_en": "sneezing face",
+    "category": "smileys",
+    "tags": [
+      "재채기",
+      "병",
+      "감기",
+      "sneezing",
+      "sick",
+      "cold"
+    ]
+  },
+  {
+    "char": "🥵",
+    "name_ko": "뜨거운 얼굴",
+    "name_en": "hot face",
+    "category": "smileys",
+    "tags": [
+      "뜨거움",
+      "열",
+      "더위",
+      "hot",
+      "heat",
+      "warm"
+    ]
+  },
+  {
+    "char": "🥶",
+    "name_ko": "차가운 얼굴",
+    "name_en": "cold face",
+    "category": "smileys",
+    "tags": [
+      "차가움",
+      "추위",
+      "춥다",
+      "cold",
+      "freezing",
+      "chilly"
+    ]
+  },
+  {
+    "char": "😵",
+    "name_ko": "어지러운 얼굴",
+    "name_en": "dizzy face",
+    "category": "smileys",
+    "tags": [
+      "어지러움",
+      "현기증",
+      "병",
+      "dizzy",
+      "vertigo",
+      "sick"
+    ]
+  },
+  {
+    "char": "🤯",
+    "name_ko": "폭발하는 머리",
+    "name_en": "exploding head",
+    "category": "smileys",
+    "tags": [
+      "폭발",
+      "놀람",
+      "충격",
+      "exploding",
+      "surprise",
+      "shock"
+    ]
+  },
+  {
+    "char": "🤠",
+    "name_ko": "카우보이 모자 얼굴",
+    "name_en": "cowboy hat face",
+    "category": "smileys",
+    "tags": [
+      "카우보이",
+      "모자",
+      "서부",
+      "cowboy",
+      "hat",
+      "western"
+    ]
+  },
+  {
+    "char": "🥳",
+    "name_ko": "파티하는 얼굴",
+    "name_en": "partying face",
+    "category": "smileys",
+    "tags": [
+      "파티",
+      "축하",
+      "기쁨",
+      "party",
+      "celebration",
+      "joy"
+    ]
+  },
+  {
+    "char": "🥸",
+    "name_ko": "변장한 얼굴",
+    "name_en": "disguised face",
+    "category": "smileys",
+    "tags": [
+      "변장",
+      "가면",
+      "숨김",
+      "disguised",
+      "mask",
+      "hidden"
+    ]
+  },
+  {
+    "char": "😎",
+    "name_ko": "선글라스 쓴 웃는 얼굴",
+    "name_en": "smiling face with sunglasses",
+    "category": "smileys",
+    "tags": [
+      "선글라스",
+      "멋",
+      "시원",
+      "sunglasses",
+      "cool",
+      "fresh"
+    ]
+  },
+  {
+    "char": "🤓",
+    "name_ko": "안경 쓴 얼굴",
+    "name_en": "nerd face",
+    "category": "smileys",
+    "tags": [
+      "안경",
+      "공부",
+      "지식",
+      "glasses",
+      "study",
+      "knowledge"
+    ]
+  },
+  {
+    "char": "🧐",
+    "name_ko": "단안경 쓴 얼굴",
+    "name_en": "face with monocle",
+    "category": "smileys",
+    "tags": [
+      "단안경",
+      "관찰",
+      "호기심",
+      "monocle",
+      "observation",
+      "curious"
+    ]
+  },
+  {
+    "char": "😕",
+    "name_ko": "혼란스러운 얼굴",
+    "name_en": "confused face",
+    "category": "smileys",
+    "tags": [
+      "혼란",
+      "의문",
+      "불확실",
+      "confused",
+      "question",
+      "uncertain"
+    ]
+  },
+  {
+    "char": "😟",
+    "name_ko": "걱정스러운 얼굴",
+    "name_en": "worried face",
+    "category": "smileys",
+    "tags": [
+      "걱정",
+      "불안",
+      "근심",
+      "worried",
+      "anxious",
+      "concern"
+    ]
+  },
+  {
+    "char": "🙁",
+    "name_ko": "약간 찡그린 얼굴",
+    "name_en": "slightly frowning face",
+    "category": "smileys",
+    "tags": [
+      "불만",
+      "슬픔",
+      "실망",
+      "unhappy",
+      "sad",
+      "disappointed"
+    ]
+  },
+  {
+    "char": "☹️",
+    "name_ko": "찡그린 얼굴",
+    "name_en": "frowning face",
+    "category": "smileys",
+    "tags": [
+      "불만",
+      "슬픔",
+      "실망",
+      "unhappy",
+      "sad",
+      "disappointed"
+    ]
+  },
+  {
+    "char": "😮",
+    "name_ko": "입 벌린 얼굴",
+    "name_en": "face with open mouth",
+    "category": "smileys",
+    "tags": [
+      "놀람",
+      "입벌림",
+      "의외",
+      "surprise",
+      "open mouth",
+      "unexpected"
+    ]
+  },
+  {
+    "char": "😯",
+    "name_ko": "조용히 놀란 얼굴",
+    "name_en": "hushed face",
+    "category": "smileys",
+    "tags": [
+      "놀람",
+      "조용",
+      "충격",
+      "surprise",
+      "quiet",
+      "shock"
+    ]
+  },
+  {
+    "char": "😲",
+    "name_ko": "놀란 얼굴",
+    "name_en": "astonished face",
+    "category": "smileys",
+    "tags": [
+      "놀람",
+      "충격",
+      "의외",
+      "surprise",
+      "shock",
+      "unexpected"
+    ]
+  },
+  {
+    "char": "😳",
+    "name_ko": "얼굴 빨개진 얼굴",
+    "name_en": "flushed face",
+    "category": "smileys",
+    "tags": [
+      "부끄러움",
+      "당황",
+      "빨개짐",
+      "embarrassed",
+      "flushed",
+      "blush"
+    ]
+  },
+  {
+    "char": "🥺",
+    "name_ko": "간청하는 얼굴",
+    "name_en": "pleading face",
+    "category": "smileys",
+    "tags": [
+      "간청",
+      "부탁",
+      "애원",
+      "pleading",
+      "request",
+      "begging"
+    ]
+  },
+  {
+    "char": "😦",
+    "name_ko": "입 벌리고 찡그린 얼굴",
+    "name_en": "frowning face with open mouth",
+    "category": "smileys",
+    "tags": [
+      "불만",
+      "놀람",
+      "실망",
+      "unhappy",
+      "surprise",
+      "disappointed"
+    ]
+  },
+  {
+    "char": "😧",
+    "name_ko": "고통스러운 얼굴",
+    "name_en": "anguished face",
+    "category": "smileys",
+    "tags": [
+      "고통",
+      "아픔",
+      "불편",
+      "pain",
+      "suffering",
+      "uncomfortable"
+    ]
+  },
+  {
+    "char": "😨",
+    "name_ko": "두려워하는 얼굴",
+    "name_en": "fearful face",
+    "category": "smileys",
+    "tags": [
+      "두려움",
+      "공포",
+      "무서움",
+      "fear",
+      "scared",
+      "afraid"
+    ]
+  },
+  {
+    "char": "😰",
+    "name_ko": "땀 흘리며 걱정하는 얼굴",
+    "name_en": "anxious face with sweat",
+    "category": "smileys",
+    "tags": [
+      "걱정",
+      "땀",
+      "불안",
+      "worried",
+      "sweat",
+      "anxious"
+    ]
+  },
+  {
+    "char": "😥",
+    "name_ko": "실망하지만 안도하는 얼굴",
+    "name_en": "sad but relieved face",
+    "category": "smileys",
+    "tags": [
+      "실망",
+      "안도",
+      "복잡",
+      "disappointed",
+      "relieved",
+      "complex"
+    ]
+  },
+  {
+    "char": "😢",
+    "name_ko": "우는 얼굴",
+    "name_en": "crying face",
+    "category": "smileys",
+    "tags": [
+      "울음",
+      "슬픔",
+      "눈물",
+      "crying",
+      "sad",
+      "tears"
+    ]
+  },
+  {
+    "char": "😭",
+    "name_ko": "크게 우는 얼굴",
+    "name_en": "loudly crying face",
+    "category": "smileys",
+    "tags": [
+      "울음",
+      "슬픔",
+      "눈물",
+      "crying",
+      "sad",
+      "tears"
+    ]
+  },
+  {
+    "char": "😱",
+    "name_ko": "비명 지르는 얼굴",
+    "name_en": "face screaming in fear",
+    "category": "smileys",
+    "tags": [
+      "비명",
+      "공포",
+      "놀람",
+      "scream",
+      "fear",
+      "surprise"
+    ]
+  },
+  {
+    "char": "😖",
+    "name_ko": "고민하는 얼굴",
+    "name_en": "confounded face",
+    "category": "smileys",
+    "tags": [
+      "고민",
+      "혼란",
+      "불만",
+      "confused",
+      "troubled",
+      "unhappy"
+    ]
+  },
+  {
+    "char": "😣",
+    "name_ko": "인내하는 얼굴",
+    "name_en": "persevering face",
+    "category": "smileys",
+    "tags": [
+      "인내",
+      "고통",
+      "참음",
+      "persevering",
+      "pain",
+      "endurance"
+    ]
+  },
+  {
+    "char": "😞",
+    "name_ko": "실망한 얼굴",
+    "name_en": "disappointed face",
+    "category": "smileys",
+    "tags": [
+      "실망",
+      "슬픔",
+      "불만",
+      "disappointed",
+      "sad",
+      "unhappy"
+    ]
+  },
+  {
+    "char": "😓",
+    "name_ko": "땀 흘리는 얼굴",
+    "name_en": "downcast face with sweat",
+    "category": "smileys",
+    "tags": [
+      "땀",
+      "피곤",
+      "불편",
+      "sweat",
+      "tired",
+      "uncomfortable"
+    ]
+  },
+  {
+    "char": "😩",
+    "name_ko": "피곤한 얼굴",
+    "name_en": "weary face",
+    "category": "smileys",
+    "tags": [
+      "피곤",
+      "지침",
+      "불만",
+      "tired",
+      "exhausted",
+      "unhappy"
+    ]
+  },
+  {
+    "char": "😫",
+    "name_ko": "지친 얼굴",
+    "name_en": "tired face",
+    "category": "smileys",
+    "tags": [
+      "피곤",
+      "지침",
+      "불만",
+      "tired",
+      "exhausted",
+      "unhappy"
+    ]
+  },
+  {
+    "char": "🥱",
+    "name_ko": "하품하는 얼굴",
+    "name_en": "yawning face",
+    "category": "smileys",
+    "tags": [
+      "하품",
+      "졸림",
+      "피곤",
+      "yawn",
+      "sleepy",
+      "tired"
+    ]
+  },
+  {
+    "char": "😤",
+    "name_ko": "콧김 나오는 얼굴",
+    "name_en": "face with steam from nose",
+    "category": "smileys",
+    "tags": [
+      "화남",
+      "불만",
+      "짜증",
+      "angry",
+      "unhappy",
+      "annoyed"
+    ]
+  },
+  {
+    "char": "😡",
+    "name_ko": "화난 얼굴",
+    "name_en": "pouting face",
+    "category": "smileys",
+    "tags": [
+      "화남",
+      "불만",
+      "짜증",
+      "angry",
+      "unhappy",
+      "annoyed"
+    ]
+  },
+  {
+    "char": "😠",
+    "name_ko": "화난 얼굴",
+    "name_en": "angry face",
+    "category": "smileys",
+    "tags": [
+      "화남",
+      "불만",
+      "짜증",
+      "angry",
+      "unhappy",
+      "annoyed"
+    ]
+  },
+  {
+    "char": "🤬",
+    "name_ko": "욕하는 얼굴",
+    "name_en": "face with symbols on mouth",
+    "category": "smileys",
+    "tags": [
+      "욕",
+      "화남",
+      "불만",
+      "swearing",
+      "angry",
+      "unhappy"
+    ]
+  },
+  {
+    "char": "😈",
+    "name_ko": "웃는 악마 얼굴",
+    "name_en": "smiling face with horns",
+    "category": "smileys",
+    "tags": [
+      "악마",
+      "장난",
+      "교활",
+      "devil",
+      "playful",
+      "sly"
+    ]
+  },
+  {
+    "char": "👿",
+    "name_ko": "화난 악마 얼굴",
+    "name_en": "angry face with horns",
+    "category": "smileys",
+    "tags": [
+      "악마",
+      "화남",
+      "불만",
+      "devil",
+      "angry",
+      "unhappy"
+    ]
+  },
+  {
+    "char": "💀",
+    "name_ko": "해골",
+    "name_en": "skull",
+    "category": "smileys",
+    "tags": [
+      "해골",
+      "죽음",
+      "무서움",
+      "skull",
+      "death",
+      "scary"
+    ]
+  },
+  {
+    "char": "☠️",
+    "name_ko": "해골과 뼈",
+    "name_en": "skull and crossbones",
+    "category": "smileys",
+    "tags": [
+      "해골",
+      "죽음",
+      "위험",
+      "skull",
+      "death",
+      "danger"
+    ]
+  },
+  {
+    "char": "💩",
+    "name_ko": "똥 얼굴",
+    "name_en": "pile of poo",
+    "category": "smileys",
+    "tags": [
+      "똥",
+      "장난",
+      "재미",
+      "poo",
+      "playful",
+      "funny"
+    ]
+  },
+  {
+    "char": "🤡",
+    "name_ko": "광대 얼굴",
+    "name_en": "clown face",
+    "category": "smileys",
+    "tags": [
+      "광대",
+      "장난",
+      "재미",
+      "clown",
+      "playful",
+      "funny"
+    ]
+  },
+  {
+    "char": "👹",
+    "name_ko": "오니",
+    "name_en": "ogre",
+    "category": "smileys",
+    "tags": [
+      "오니",
+      "악마",
+      "무서움",
+      "ogre",
+      "devil",
+      "scary"
+    ]
+  },
+  {
+    "char": "👺",
+    "name_ko": "도깨비",
+    "name_en": "goblin",
+    "category": "smileys",
+    "tags": [
+      "도깨비",
+      "악마",
+      "무서움",
+      "goblin",
+      "devil",
+      "scary"
+    ]
+  },
+  {
+    "char": "👻",
+    "name_ko": "유령",
+    "name_en": "ghost",
+    "category": "smileys",
+    "tags": [
+      "유령",
+      "무서움",
+      "할로윈",
+      "ghost",
+      "scary",
+      "halloween"
+    ]
+  },
+  {
+    "char": "👽",
+    "name_ko": "외계인",
+    "name_en": "alien",
+    "category": "smileys",
+    "tags": [
+      "외계인",
+      "우주",
+      "신비",
+      "alien",
+      "space",
+      "mystery"
+    ]
+  },
+  {
+    "char": "👾",
+    "name_ko": "외계 괴물",
+    "name_en": "alien monster",
+    "category": "smileys",
+    "tags": [
+      "외계인",
+      "게임",
+      "재미",
+      "alien",
+      "game",
+      "funny"
+    ]
+  },
+  {
+    "char": "🤖",
+    "name_ko": "로봇",
+    "name_en": "robot",
+    "category": "smileys",
+    "tags": [
+      "로봇",
+      "기계",
+      "과학",
+      "robot",
+      "machine",
+      "science"
+    ]
+  },
+  {
+    "char": "😺",
+    "name_ko": "웃는 고양이 얼굴",
+    "name_en": "grinning cat",
+    "category": "smileys",
+    "tags": [
+      "고양이",
+      "웃음",
+      "행복",
+      "cat",
+      "grinning",
+      "happy"
+    ]
+  },
+  {
+    "char": "😸",
+    "name_ko": "크게 웃는 고양이 얼굴",
+    "name_en": "grinning cat with smiling eyes",
+    "category": "smileys",
+    "tags": [
+      "고양이",
+      "웃음",
+      "행복",
+      "cat",
+      "grinning",
+      "happy"
+    ]
+  },
+  {
+    "char": "😹",
+    "name_ko": "눈물 흘리며 웃는 고양이",
+    "name_en": "cat with tears of joy",
+    "category": "smileys",
+    "tags": [
+      "고양이",
+      "웃음",
+      "눈물",
+      "cat",
+      "laughing",
+      "tears"
+    ]
+  },
+  {
+    "char": "😻",
+    "name_ko": "하트 눈 고양이",
+    "name_en": "smiling cat with heart-eyes",
+    "category": "smileys",
+    "tags": [
+      "고양이",
+      "사랑",
+      "좋아함",
+      "cat",
+      "love",
+      "like"
+    ]
+  },
+  {
+    "char": "😼",
+    "name_ko": "비웃는 고양이",
+    "name_en": "cat with wry smile",
+    "category": "smileys",
+    "tags": [
+      "고양이",
+      "비웃음",
+      "교활",
+      "cat",
+      "smirk",
+      "sly"
+    ]
+  },
+  {
+    "char": "😽",
+    "name_ko": "키스하는 고양이",
+    "name_en": "kissing cat",
+    "category": "smileys",
+    "tags": [
+      "고양이",
+      "키스",
+      "사랑",
+      "cat",
+      "kiss",
+      "love"
+    ]
+  },
+  {
+    "char": "🙀",
+    "name_ko": "놀란 고양이",
+    "name_en": "weary cat",
+    "category": "smileys",
+    "tags": [
+      "고양이",
+      "놀람",
+      "피곤",
+      "cat",
+      "surprise",
+      "tired"
+    ]
+  },
+  {
+    "char": "😿",
+    "name_ko": "우는 고양이",
+    "name_en": "crying cat face",
+    "category": "smileys",
+    "tags": [
+      "고양이",
+      "울음",
+      "슬픔",
+      "cat",
+      "crying",
+      "sad"
+    ]
+  },
+  {
+    "char": "😾",
+    "name_ko": "화난 고양이",
+    "name_en": "pouting cat",
+    "category": "smileys",
+    "tags": [
+      "고양이",
+      "화남",
+      "불만",
+      "cat",
+      "angry",
+      "unhappy"
+    ]
+  },
+  {
+    "char": "🙈",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 111",
+    "name_en": "emoji face 111",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🙉",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 112",
+    "name_en": "emoji face 112",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🙊",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 113",
+    "name_en": "emoji face 113",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "💋",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 114",
+    "name_en": "emoji face 114",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "💌",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 115",
+    "name_en": "emoji face 115",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "💟",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 123",
+    "name_en": "emoji face 123",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "❤️‍🔥",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 126",
+    "name_en": "emoji face 126",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "❤️‍🩹",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 127",
+    "name_en": "emoji face 127",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🤎",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 135",
+    "name_en": "emoji face 135",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "💯",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 136",
+    "name_en": "emoji face 136",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "💢",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 137",
+    "name_en": "emoji face 137",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "💥",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 138",
+    "name_en": "emoji face 138",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "💦",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 140",
+    "name_en": "emoji face 140",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "💨",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 141",
+    "name_en": "emoji face 141",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🕳️",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 142",
+    "name_en": "emoji face 142",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "💣",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 143",
+    "name_en": "emoji face 143",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "💬",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 144",
+    "name_en": "emoji face 144",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "♥️",
+    "category": "hearts",
+    "name_ko": "하트 20",
+    "name_en": "heart 20",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "❤",
+    "category": "hearts",
+    "name_ko": "하트 21",
+    "name_en": "heart 21",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "↔️",
+    "category": "arrows",
+    "name_ko": "화살표 14",
+    "name_en": "arrow 14",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "↕️",
+    "category": "arrows",
+    "name_ko": "화살표 15",
+    "name_en": "arrow 15",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "↖️",
+    "category": "arrows",
+    "name_ko": "화살표 16",
+    "name_en": "arrow 16",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "↗️",
+    "category": "arrows",
+    "name_ko": "화살표 17",
+    "name_en": "arrow 17",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "↘️",
+    "category": "arrows",
+    "name_ko": "화살표 18",
+    "name_en": "arrow 18",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "↙️",
+    "category": "arrows",
+    "name_ko": "화살표 19",
+    "name_en": "arrow 19",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "🔀",
+    "category": "arrows",
+    "name_ko": "화살표 20",
+    "name_en": "arrow 20",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "🔁",
+    "category": "arrows",
+    "name_ko": "화살표 21",
+    "name_en": "arrow 21",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "🔂",
+    "category": "arrows",
+    "name_ko": "화살표 22",
+    "name_en": "arrow 22",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "🔄",
+    "category": "arrows",
+    "name_ko": "화살표 23",
+    "name_en": "arrow 23",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "🔃",
+    "category": "arrows",
+    "name_ko": "화살표 24",
+    "name_en": "arrow 24",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "➡",
+    "category": "arrows",
+    "name_ko": "화살표 25",
+    "name_en": "arrow 25",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⬅",
+    "category": "arrows",
+    "name_ko": "화살표 26",
+    "name_en": "arrow 26",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⬆",
+    "category": "arrows",
+    "name_ko": "화살표 27",
+    "name_en": "arrow 27",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⬇",
+    "category": "arrows",
+    "name_ko": "화살표 28",
+    "name_en": "arrow 28",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "↕",
+    "category": "arrows",
+    "name_ko": "화살표 29",
+    "name_en": "arrow 29",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⛄",
+    "category": "weather",
+    "name_ko": "날씨 12",
+    "name_en": "weather 12",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "🌨️",
+    "category": "weather",
+    "name_ko": "날씨 13",
+    "name_en": "weather 13",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "🌫️",
+    "category": "weather",
+    "name_ko": "날씨 14",
+    "name_en": "weather 14",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "🌪️",
+    "category": "weather",
+    "name_ko": "날씨 15",
+    "name_en": "weather 15",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "🌈",
+    "category": "weather",
+    "name_ko": "날씨 16",
+    "name_en": "weather 16",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "🦁",
+    "category": "animals",
+    "name_ko": "동물 11",
+    "name_en": "animal 11",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐮",
+    "category": "animals",
+    "name_ko": "동물 12",
+    "name_en": "animal 12",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐷",
+    "category": "animals",
+    "name_ko": "동물 13",
+    "name_en": "animal 13",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐽",
+    "category": "animals",
+    "name_ko": "동물 14",
+    "name_en": "animal 14",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐸",
+    "category": "animals",
+    "name_ko": "동물 15",
+    "name_en": "animal 15",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐵",
+    "category": "animals",
+    "name_ko": "동물 16",
+    "name_en": "animal 16",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐒",
+    "category": "animals",
+    "name_ko": "동물 20",
+    "name_en": "animal 20",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐔",
+    "category": "animals",
+    "name_ko": "동물 21",
+    "name_en": "animal 21",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐧",
+    "category": "animals",
+    "name_ko": "동물 22",
+    "name_en": "animal 22",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐦",
+    "category": "animals",
+    "name_ko": "동물 23",
+    "name_en": "animal 23",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐤",
+    "category": "animals",
+    "name_ko": "동물 24",
+    "name_en": "animal 24",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐣",
+    "category": "animals",
+    "name_ko": "동물 25",
+    "name_en": "animal 25",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐥",
+    "category": "animals",
+    "name_ko": "동물 26",
+    "name_en": "animal 26",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦆",
+    "category": "animals",
+    "name_ko": "동물 27",
+    "name_en": "animal 27",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦅",
+    "category": "animals",
+    "name_ko": "동물 28",
+    "name_en": "animal 28",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦉",
+    "category": "animals",
+    "name_ko": "동물 29",
+    "name_en": "animal 29",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦇",
+    "category": "animals",
+    "name_ko": "동물 30",
+    "name_en": "animal 30",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐺",
+    "category": "animals",
+    "name_ko": "동물 31",
+    "name_en": "animal 31",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐗",
+    "category": "animals",
+    "name_ko": "동물 32",
+    "name_en": "animal 32",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐴",
+    "category": "animals",
+    "name_ko": "동물 33",
+    "name_en": "animal 33",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦄",
+    "category": "animals",
+    "name_ko": "동물 34",
+    "name_en": "animal 34",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐝",
+    "category": "animals",
+    "name_ko": "동물 35",
+    "name_en": "animal 35",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐛",
+    "category": "animals",
+    "name_ko": "동물 36",
+    "name_en": "animal 36",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦋",
+    "category": "animals",
+    "name_ko": "동물 37",
+    "name_en": "animal 37",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐌",
+    "category": "animals",
+    "name_ko": "동물 38",
+    "name_en": "animal 38",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐞",
+    "category": "animals",
+    "name_ko": "동물 39",
+    "name_en": "animal 39",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐜",
+    "category": "animals",
+    "name_ko": "동물 40",
+    "name_en": "animal 40",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦟",
+    "category": "animals",
+    "name_ko": "동물 41",
+    "name_en": "animal 41",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦗",
+    "category": "animals",
+    "name_ko": "동물 42",
+    "name_en": "animal 42",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🕷️",
+    "category": "animals",
+    "name_ko": "동물 43",
+    "name_en": "animal 43",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦂",
+    "category": "animals",
+    "name_ko": "동물 44",
+    "name_en": "animal 44",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐢",
+    "category": "animals",
+    "name_ko": "동물 45",
+    "name_en": "animal 45",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐍",
+    "category": "animals",
+    "name_ko": "동물 46",
+    "name_en": "animal 46",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦎",
+    "category": "animals",
+    "name_ko": "동물 47",
+    "name_en": "animal 47",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦖",
+    "category": "animals",
+    "name_ko": "동물 48",
+    "name_en": "animal 48",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦕",
+    "category": "animals",
+    "name_ko": "동물 49",
+    "name_en": "animal 49",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐙",
+    "category": "animals",
+    "name_ko": "동물 50",
+    "name_en": "animal 50",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦑",
+    "category": "animals",
+    "name_ko": "동물 51",
+    "name_en": "animal 51",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦐",
+    "category": "animals",
+    "name_ko": "동물 52",
+    "name_en": "animal 52",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦞",
+    "category": "animals",
+    "name_ko": "동물 53",
+    "name_en": "animal 53",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦀",
+    "category": "animals",
+    "name_ko": "동물 54",
+    "name_en": "animal 54",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐡",
+    "category": "animals",
+    "name_ko": "동물 55",
+    "name_en": "animal 55",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐠",
+    "category": "animals",
+    "name_ko": "동물 56",
+    "name_en": "animal 56",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐟",
+    "category": "animals",
+    "name_ko": "동물 57",
+    "name_en": "animal 57",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐬",
+    "category": "animals",
+    "name_ko": "동물 58",
+    "name_en": "animal 58",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐳",
+    "category": "animals",
+    "name_ko": "동물 59",
+    "name_en": "animal 59",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐋",
+    "category": "animals",
+    "name_ko": "동물 60",
+    "name_en": "animal 60",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦈",
+    "category": "animals",
+    "name_ko": "동물 61",
+    "name_en": "animal 61",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐊",
+    "category": "animals",
+    "name_ko": "동물 62",
+    "name_en": "animal 62",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐅",
+    "category": "animals",
+    "name_ko": "동물 63",
+    "name_en": "animal 63",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐆",
+    "category": "animals",
+    "name_ko": "동물 64",
+    "name_en": "animal 64",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦓",
+    "category": "animals",
+    "name_ko": "동물 65",
+    "name_en": "animal 65",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦍",
+    "category": "animals",
+    "name_ko": "동물 66",
+    "name_en": "animal 66",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦧",
+    "category": "animals",
+    "name_ko": "동물 67",
+    "name_en": "animal 67",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐘",
+    "category": "animals",
+    "name_ko": "동물 68",
+    "name_en": "animal 68",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦛",
+    "category": "animals",
+    "name_ko": "동물 69",
+    "name_en": "animal 69",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦏",
+    "category": "animals",
+    "name_ko": "동물 70",
+    "name_en": "animal 70",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐪",
+    "category": "animals",
+    "name_ko": "동물 71",
+    "name_en": "animal 71",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐫",
+    "category": "animals",
+    "name_ko": "동물 72",
+    "name_en": "animal 72",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦒",
+    "category": "animals",
+    "name_ko": "동물 73",
+    "name_en": "animal 73",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦘",
+    "category": "animals",
+    "name_ko": "동물 74",
+    "name_en": "animal 74",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦬",
+    "category": "animals",
+    "name_ko": "동물 75",
+    "name_en": "animal 75",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐃",
+    "category": "animals",
+    "name_ko": "동물 76",
+    "name_en": "animal 76",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐂",
+    "category": "animals",
+    "name_ko": "동물 77",
+    "name_en": "animal 77",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐄",
+    "category": "animals",
+    "name_ko": "동물 78",
+    "name_en": "animal 78",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐎",
+    "category": "animals",
+    "name_ko": "동물 79",
+    "name_en": "animal 79",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐖",
+    "category": "animals",
+    "name_ko": "동물 80",
+    "name_en": "animal 80",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🍵",
+    "category": "food",
+    "name_ko": "음식 16",
+    "name_en": "food 16",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍶",
+    "category": "food",
+    "name_ko": "음식 17",
+    "name_en": "food 17",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍷",
+    "category": "food",
+    "name_ko": "음식 18",
+    "name_en": "food 18",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍸",
+    "category": "food",
+    "name_ko": "음식 19",
+    "name_en": "food 19",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍹",
+    "category": "food",
+    "name_ko": "음식 20",
+    "name_en": "food 20",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍺",
+    "category": "food",
+    "name_ko": "음식 21",
+    "name_en": "food 21",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍻",
+    "category": "food",
+    "name_ko": "음식 22",
+    "name_en": "food 22",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥂",
+    "category": "food",
+    "name_ko": "음식 23",
+    "name_en": "food 23",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥃",
+    "category": "food",
+    "name_ko": "음식 24",
+    "name_en": "food 24",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥤",
+    "category": "food",
+    "name_ko": "음식 25",
+    "name_en": "food 25",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🧃",
+    "category": "food",
+    "name_ko": "음식 26",
+    "name_en": "food 26",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🧉",
+    "category": "food",
+    "name_ko": "음식 27",
+    "name_en": "food 27",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🧊",
+    "category": "food",
+    "name_ko": "음식 28",
+    "name_en": "food 28",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥢",
+    "category": "food",
+    "name_ko": "음식 29",
+    "name_en": "food 29",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍽️",
+    "category": "food",
+    "name_ko": "음식 30",
+    "name_en": "food 30",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍴",
+    "category": "food",
+    "name_ko": "음식 31",
+    "name_en": "food 31",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥄",
+    "category": "food",
+    "name_ko": "음식 32",
+    "name_en": "food 32",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍏",
+    "category": "food",
+    "name_ko": "음식 33",
+    "name_en": "food 33",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍐",
+    "category": "food",
+    "name_ko": "음식 34",
+    "name_en": "food 34",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍊",
+    "category": "food",
+    "name_ko": "음식 35",
+    "name_en": "food 35",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍋",
+    "category": "food",
+    "name_ko": "음식 36",
+    "name_en": "food 36",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍈",
+    "category": "food",
+    "name_ko": "음식 41",
+    "name_en": "food 41",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍒",
+    "category": "food",
+    "name_ko": "음식 42",
+    "name_en": "food 42",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍑",
+    "category": "food",
+    "name_ko": "음식 43",
+    "name_en": "food 43",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥭",
+    "category": "food",
+    "name_ko": "음식 44",
+    "name_en": "food 44",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍍",
+    "category": "food",
+    "name_ko": "음식 45",
+    "name_en": "food 45",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥥",
+    "category": "food",
+    "name_ko": "음식 46",
+    "name_en": "food 46",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥝",
+    "category": "food",
+    "name_ko": "음식 47",
+    "name_en": "food 47",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍅",
+    "category": "food",
+    "name_ko": "음식 48",
+    "name_en": "food 48",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍆",
+    "category": "food",
+    "name_ko": "음식 49",
+    "name_en": "food 49",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥑",
+    "category": "food",
+    "name_ko": "음식 50",
+    "name_en": "food 50",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥦",
+    "category": "food",
+    "name_ko": "음식 51",
+    "name_en": "food 51",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥬",
+    "category": "food",
+    "name_ko": "음식 52",
+    "name_en": "food 52",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥒",
+    "category": "food",
+    "name_ko": "음식 53",
+    "name_en": "food 53",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🌶️",
+    "category": "food",
+    "name_ko": "음식 54",
+    "name_en": "food 54",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🌽",
+    "category": "food",
+    "name_ko": "음식 55",
+    "name_en": "food 55",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥕",
+    "category": "food",
+    "name_ko": "음식 56",
+    "name_en": "food 56",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥔",
+    "category": "food",
+    "name_ko": "음식 57",
+    "name_en": "food 57",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍠",
+    "category": "food",
+    "name_ko": "음식 58",
+    "name_en": "food 58",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥐",
+    "category": "food",
+    "name_ko": "음식 59",
+    "name_en": "food 59",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥯",
+    "category": "food",
+    "name_ko": "음식 60",
+    "name_en": "food 60",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍞",
+    "category": "food",
+    "name_ko": "음식 61",
+    "name_en": "food 61",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥖",
+    "category": "food",
+    "name_ko": "음식 62",
+    "name_en": "food 62",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥨",
+    "category": "food",
+    "name_ko": "음식 63",
+    "name_en": "food 63",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🧀",
+    "category": "food",
+    "name_ko": "음식 64",
+    "name_en": "food 64",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥚",
+    "category": "food",
+    "name_ko": "음식 65",
+    "name_en": "food 65",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍳",
+    "category": "food",
+    "name_ko": "음식 66",
+    "name_en": "food 66",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥞",
+    "category": "food",
+    "name_ko": "음식 67",
+    "name_en": "food 67",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥓",
+    "category": "food",
+    "name_ko": "음식 68",
+    "name_en": "food 68",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥩",
+    "category": "food",
+    "name_ko": "음식 69",
+    "name_en": "food 69",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍖",
+    "category": "food",
+    "name_ko": "음식 71",
+    "name_en": "food 71",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🌭",
+    "category": "food",
+    "name_ko": "음식 72",
+    "name_en": "food 72",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍿",
+    "category": "food",
+    "name_ko": "음식 73",
+    "name_en": "food 73",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🧂",
+    "category": "food",
+    "name_ko": "음식 74",
+    "name_en": "food 74",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥜",
+    "category": "food",
+    "name_ko": "음식 75",
+    "name_en": "food 75",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🌰",
+    "category": "food",
+    "name_ko": "음식 76",
+    "name_en": "food 76",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🇦🇺",
+    "category": "flags",
+    "name_ko": "국기 11",
+    "name_en": "flag 11",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇧🇷",
+    "category": "flags",
+    "name_ko": "국기 12",
+    "name_en": "flag 12",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇮🇳",
+    "category": "flags",
+    "name_ko": "국기 13",
+    "name_en": "flag 13",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇷🇺",
+    "category": "flags",
+    "name_ko": "국기 14",
+    "name_en": "flag 14",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇲🇽",
+    "category": "flags",
+    "name_ko": "국기 15",
+    "name_en": "flag 15",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇦🇷",
+    "category": "flags",
+    "name_ko": "국기 16",
+    "name_en": "flag 16",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇿🇦",
+    "category": "flags",
+    "name_ko": "국기 17",
+    "name_en": "flag 17",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇪🇬",
+    "category": "flags",
+    "name_ko": "국기 18",
+    "name_en": "flag 18",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇳🇬",
+    "category": "flags",
+    "name_ko": "국기 19",
+    "name_en": "flag 19",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇰🇪",
+    "category": "flags",
+    "name_ko": "국기 20",
+    "name_en": "flag 20",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇹🇭",
+    "category": "flags",
+    "name_ko": "국기 21",
+    "name_en": "flag 21",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇻🇳",
+    "category": "flags",
+    "name_ko": "국기 22",
+    "name_en": "flag 22",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇵🇭",
+    "category": "flags",
+    "name_ko": "국기 23",
+    "name_en": "flag 23",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇮🇩",
+    "category": "flags",
+    "name_ko": "국기 24",
+    "name_en": "flag 24",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇲🇾",
+    "category": "flags",
+    "name_ko": "국기 25",
+    "name_en": "flag 25",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇸🇬",
+    "category": "flags",
+    "name_ko": "국기 26",
+    "name_en": "flag 26",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇭🇰",
+    "category": "flags",
+    "name_ko": "국기 27",
+    "name_en": "flag 27",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇹🇼",
+    "category": "flags",
+    "name_ko": "국기 28",
+    "name_en": "flag 28",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇳🇿",
+    "category": "flags",
+    "name_ko": "국기 29",
+    "name_en": "flag 29",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇨🇱",
+    "category": "flags",
+    "name_ko": "국기 30",
+    "name_en": "flag 30",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇵🇪",
+    "category": "flags",
+    "name_ko": "국기 31",
+    "name_en": "flag 31",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇨🇴",
+    "category": "flags",
+    "name_ko": "국기 32",
+    "name_en": "flag 32",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇻🇪",
+    "category": "flags",
+    "name_ko": "국기 33",
+    "name_en": "flag 33",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇪🇨",
+    "category": "flags",
+    "name_ko": "국기 34",
+    "name_en": "flag 34",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇵🇦",
+    "category": "flags",
+    "name_ko": "국기 35",
+    "name_en": "flag 35",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇨🇷",
+    "category": "flags",
+    "name_ko": "국기 36",
+    "name_en": "flag 36",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇬🇹",
+    "category": "flags",
+    "name_ko": "국기 37",
+    "name_en": "flag 37",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇭🇳",
+    "category": "flags",
+    "name_ko": "국기 38",
+    "name_en": "flag 38",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇳🇮",
+    "category": "flags",
+    "name_ko": "국기 39",
+    "name_en": "flag 39",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇸🇻",
+    "category": "flags",
+    "name_ko": "국기 40",
+    "name_en": "flag 40",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇧🇿",
+    "category": "flags",
+    "name_ko": "국기 41",
+    "name_en": "flag 41",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇯🇲",
+    "category": "flags",
+    "name_ko": "국기 42",
+    "name_en": "flag 42",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇭🇹",
+    "category": "flags",
+    "name_ko": "국기 43",
+    "name_en": "flag 43",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇩🇴",
+    "category": "flags",
+    "name_ko": "국기 44",
+    "name_en": "flag 44",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇨🇺",
+    "category": "flags",
+    "name_ko": "국기 45",
+    "name_en": "flag 45",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇵🇷",
+    "category": "flags",
+    "name_ko": "국기 46",
+    "name_en": "flag 46",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇹🇹",
+    "category": "flags",
+    "name_ko": "국기 47",
+    "name_en": "flag 47",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇧🇧",
+    "category": "flags",
+    "name_ko": "국기 48",
+    "name_en": "flag 48",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇬🇾",
+    "category": "flags",
+    "name_ko": "국기 49",
+    "name_en": "flag 49",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇸🇷",
+    "category": "flags",
+    "name_ko": "국기 50",
+    "name_en": "flag 50",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇧🇴",
+    "category": "flags",
+    "name_ko": "국기 52",
+    "name_en": "flag 52",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇵🇾",
+    "category": "flags",
+    "name_ko": "국기 53",
+    "name_en": "flag 53",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇺🇾",
+    "category": "flags",
+    "name_ko": "국기 54",
+    "name_en": "flag 54",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "•",
+    "category": "symbols",
+    "name_ko": "기호 26",
+    "name_en": "symbol 26",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "‣",
+    "category": "symbols",
+    "name_ko": "기호 27",
+    "name_en": "symbol 27",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁃",
+    "category": "symbols",
+    "name_ko": "기호 28",
+    "name_en": "symbol 28",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁌",
+    "category": "symbols",
+    "name_ko": "기호 29",
+    "name_en": "symbol 29",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁍",
+    "category": "symbols",
+    "name_ko": "기호 30",
+    "name_en": "symbol 30",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁎",
+    "category": "symbols",
+    "name_ko": "기호 31",
+    "name_en": "symbol 31",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁏",
+    "category": "symbols",
+    "name_ko": "기호 32",
+    "name_en": "symbol 32",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁐",
+    "category": "symbols",
+    "name_ko": "기호 33",
+    "name_en": "symbol 33",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁑",
+    "category": "symbols",
+    "name_ko": "기호 34",
+    "name_en": "symbol 34",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁒",
+    "category": "symbols",
+    "name_ko": "기호 35",
+    "name_en": "symbol 35",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁓",
+    "category": "symbols",
+    "name_ko": "기호 36",
+    "name_en": "symbol 36",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁔",
+    "category": "symbols",
+    "name_ko": "기호 37",
+    "name_en": "symbol 37",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁕",
+    "category": "symbols",
+    "name_ko": "기호 38",
+    "name_en": "symbol 38",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁖",
+    "category": "symbols",
+    "name_ko": "기호 39",
+    "name_en": "symbol 39",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁗",
+    "category": "symbols",
+    "name_ko": "기호 40",
+    "name_en": "symbol 40",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁘",
+    "category": "symbols",
+    "name_ko": "기호 41",
+    "name_en": "symbol 41",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁙",
+    "category": "symbols",
+    "name_ko": "기호 42",
+    "name_en": "symbol 42",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁚",
+    "category": "symbols",
+    "name_ko": "기호 43",
+    "name_en": "symbol 43",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁛",
+    "category": "symbols",
+    "name_ko": "기호 44",
+    "name_en": "symbol 44",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁜",
+    "category": "symbols",
+    "name_ko": "기호 45",
+    "name_en": "symbol 45",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁝",
+    "category": "symbols",
+    "name_ko": "기호 46",
+    "name_en": "symbol 46",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "⁞",
+    "category": "symbols",
+    "name_ko": "기호 47",
+    "name_en": "symbol 47",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": " ",
+    "category": "symbols",
+    "name_ko": "기호 48",
+    "name_en": "symbol 48",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✘",
+    "category": "symbols",
+    "name_ko": "기호 51",
+    "name_en": "symbol 51",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✙",
+    "category": "symbols",
+    "name_ko": "기호 52",
+    "name_en": "symbol 52",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✚",
+    "category": "symbols",
+    "name_ko": "기호 53",
+    "name_en": "symbol 53",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✛",
+    "category": "symbols",
+    "name_ko": "기호 54",
+    "name_en": "symbol 54",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✜",
+    "category": "symbols",
+    "name_ko": "기호 55",
+    "name_en": "symbol 55",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✝",
+    "category": "symbols",
+    "name_ko": "기호 56",
+    "name_en": "symbol 56",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✞",
+    "category": "symbols",
+    "name_ko": "기호 57",
+    "name_en": "symbol 57",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✟",
+    "category": "symbols",
+    "name_ko": "기호 58",
+    "name_en": "symbol 58",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✠",
+    "category": "symbols",
+    "name_ko": "기호 59",
+    "name_en": "symbol 59",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✡",
+    "category": "symbols",
+    "name_ko": "기호 60",
+    "name_en": "symbol 60",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✢",
+    "category": "symbols",
+    "name_ko": "기호 61",
+    "name_en": "symbol 61",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✣",
+    "category": "symbols",
+    "name_ko": "기호 62",
+    "name_en": "symbol 62",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✤",
+    "category": "symbols",
+    "name_ko": "기호 63",
+    "name_en": "symbol 63",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✥",
+    "category": "symbols",
+    "name_ko": "기호 64",
+    "name_en": "symbol 64",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✦",
+    "category": "symbols",
+    "name_ko": "기호 65",
+    "name_en": "symbol 65",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✧",
+    "category": "symbols",
+    "name_ko": "기호 66",
+    "name_en": "symbol 66",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✩",
+    "category": "symbols",
+    "name_ko": "기호 68",
+    "name_en": "symbol 68",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✪",
+    "category": "symbols",
+    "name_ko": "기호 69",
+    "name_en": "symbol 69",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✫",
+    "category": "symbols",
+    "name_ko": "기호 70",
+    "name_en": "symbol 70",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✬",
+    "category": "symbols",
+    "name_ko": "기호 71",
+    "name_en": "symbol 71",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✭",
+    "category": "symbols",
+    "name_ko": "기호 72",
+    "name_en": "symbol 72",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✮",
+    "category": "symbols",
+    "name_ko": "기호 73",
+    "name_en": "symbol 73",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✯",
+    "category": "symbols",
+    "name_ko": "기호 74",
+    "name_en": "symbol 74",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✰",
+    "category": "symbols",
+    "name_ko": "기호 75",
+    "name_en": "symbol 75",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✱",
+    "category": "symbols",
+    "name_ko": "기호 76",
+    "name_en": "symbol 76",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✲",
+    "category": "symbols",
+    "name_ko": "기호 77",
+    "name_en": "symbol 77",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✳",
+    "category": "symbols",
+    "name_ko": "기호 78",
+    "name_en": "symbol 78",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✴",
+    "category": "symbols",
+    "name_ko": "기호 79",
+    "name_en": "symbol 79",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✵",
+    "category": "symbols",
+    "name_ko": "기호 80",
+    "name_en": "symbol 80",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✶",
+    "category": "symbols",
+    "name_ko": "기호 81",
+    "name_en": "symbol 81",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✷",
+    "category": "symbols",
+    "name_ko": "기호 82",
+    "name_en": "symbol 82",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✸",
+    "category": "symbols",
+    "name_ko": "기호 83",
+    "name_en": "symbol 83",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✹",
+    "category": "symbols",
+    "name_ko": "기호 84",
+    "name_en": "symbol 84",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✺",
+    "category": "symbols",
+    "name_ko": "기호 85",
+    "name_en": "symbol 85",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✻",
+    "category": "symbols",
+    "name_ko": "기호 86",
+    "name_en": "symbol 86",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✼",
+    "category": "symbols",
+    "name_ko": "기호 87",
+    "name_en": "symbol 87",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✽",
+    "category": "symbols",
+    "name_ko": "기호 88",
+    "name_en": "symbol 88",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✾",
+    "category": "symbols",
+    "name_ko": "기호 89",
+    "name_en": "symbol 89",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "✿",
+    "category": "symbols",
+    "name_ko": "기호 90",
+    "name_en": "symbol 90",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❀",
+    "category": "symbols",
+    "name_ko": "기호 91",
+    "name_en": "symbol 91",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❁",
+    "category": "symbols",
+    "name_ko": "기호 92",
+    "name_en": "symbol 92",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❂",
+    "category": "symbols",
+    "name_ko": "기호 93",
+    "name_en": "symbol 93",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❃",
+    "category": "symbols",
+    "name_ko": "기호 94",
+    "name_en": "symbol 94",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❄",
+    "category": "symbols",
+    "name_ko": "기호 95",
+    "name_en": "symbol 95",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❅",
+    "category": "symbols",
+    "name_ko": "기호 96",
+    "name_en": "symbol 96",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❆",
+    "category": "symbols",
+    "name_ko": "기호 97",
+    "name_en": "symbol 97",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❇",
+    "category": "symbols",
+    "name_ko": "기호 98",
+    "name_en": "symbol 98",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❈",
+    "category": "symbols",
+    "name_ko": "기호 99",
+    "name_en": "symbol 99",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❉",
+    "category": "symbols",
+    "name_ko": "기호 100",
+    "name_en": "symbol 100",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❊",
+    "category": "symbols",
+    "name_ko": "기호 101",
+    "name_en": "symbol 101",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❋",
+    "category": "symbols",
+    "name_ko": "기호 102",
+    "name_en": "symbol 102",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❍",
+    "category": "symbols",
+    "name_ko": "기호 104",
+    "name_en": "symbol 104",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❏",
+    "category": "symbols",
+    "name_ko": "기호 106",
+    "name_en": "symbol 106",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❐",
+    "category": "symbols",
+    "name_ko": "기호 107",
+    "name_en": "symbol 107",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❑",
+    "category": "symbols",
+    "name_ko": "기호 108",
+    "name_en": "symbol 108",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "❒",
+    "category": "symbols",
+    "name_ko": "기호 109",
+    "name_en": "symbol 109",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "▲",
+    "category": "symbols",
+    "name_ko": "기호 110",
+    "name_en": "symbol 110",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "△",
+    "category": "symbols",
+    "name_ko": "기호 111",
+    "name_en": "symbol 111",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "▴",
+    "category": "symbols",
+    "name_ko": "기호 112",
+    "name_en": "symbol 112",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "▵",
+    "category": "symbols",
+    "name_ko": "기호 113",
+    "name_en": "symbol 113",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "▶",
+    "category": "symbols",
+    "name_ko": "기호 114",
+    "name_en": "symbol 114",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "▷",
+    "category": "symbols",
+    "name_ko": "기호 115",
+    "name_en": "symbol 115",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "▸",
+    "category": "symbols",
+    "name_ko": "기호 116",
+    "name_en": "symbol 116",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "▹",
+    "category": "symbols",
+    "name_ko": "기호 117",
+    "name_en": "symbol 117",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "►",
+    "category": "symbols",
+    "name_ko": "기호 118",
+    "name_en": "symbol 118",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "▻",
+    "category": "symbols",
+    "name_ko": "기호 119",
+    "name_en": "symbol 119",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "▼",
+    "category": "symbols",
+    "name_ko": "기호 120",
+    "name_en": "symbol 120",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "▽",
+    "category": "symbols",
+    "name_ko": "기호 121",
+    "name_en": "symbol 121",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "▾",
+    "category": "symbols",
+    "name_ko": "기호 122",
+    "name_en": "symbol 122",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "▿",
+    "category": "symbols",
+    "name_ko": "기호 123",
+    "name_en": "symbol 123",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◀",
+    "category": "symbols",
+    "name_ko": "기호 124",
+    "name_en": "symbol 124",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◁",
+    "category": "symbols",
+    "name_ko": "기호 125",
+    "name_en": "symbol 125",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◂",
+    "category": "symbols",
+    "name_ko": "기호 126",
+    "name_en": "symbol 126",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◃",
+    "category": "symbols",
+    "name_ko": "기호 127",
+    "name_en": "symbol 127",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◄",
+    "category": "symbols",
+    "name_ko": "기호 128",
+    "name_en": "symbol 128",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◅",
+    "category": "symbols",
+    "name_ko": "기호 129",
+    "name_en": "symbol 129",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◈",
+    "category": "symbols",
+    "name_ko": "기호 132",
+    "name_en": "symbol 132",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◉",
+    "category": "symbols",
+    "name_ko": "기호 133",
+    "name_en": "symbol 133",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◊",
+    "category": "symbols",
+    "name_ko": "기호 134",
+    "name_en": "symbol 134",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◌",
+    "category": "symbols",
+    "name_ko": "기호 136",
+    "name_en": "symbol 136",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◍",
+    "category": "symbols",
+    "name_ko": "기호 137",
+    "name_en": "symbol 137",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◎",
+    "category": "symbols",
+    "name_ko": "기호 138",
+    "name_en": "symbol 138",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◐",
+    "category": "symbols",
+    "name_ko": "기호 140",
+    "name_en": "symbol 140",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◑",
+    "category": "symbols",
+    "name_ko": "기호 141",
+    "name_en": "symbol 141",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◒",
+    "category": "symbols",
+    "name_ko": "기호 142",
+    "name_en": "symbol 142",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◓",
+    "category": "symbols",
+    "name_ko": "기호 143",
+    "name_en": "symbol 143",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◔",
+    "category": "symbols",
+    "name_ko": "기호 144",
+    "name_en": "symbol 144",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◕",
+    "category": "symbols",
+    "name_ko": "기호 145",
+    "name_en": "symbol 145",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◖",
+    "category": "symbols",
+    "name_ko": "기호 146",
+    "name_en": "symbol 146",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◗",
+    "category": "symbols",
+    "name_ko": "기호 147",
+    "name_en": "symbol 147",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◘",
+    "category": "symbols",
+    "name_ko": "기호 148",
+    "name_en": "symbol 148",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◙",
+    "category": "symbols",
+    "name_ko": "기호 149",
+    "name_en": "symbol 149",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◚",
+    "category": "symbols",
+    "name_ko": "기호 150",
+    "name_en": "symbol 150",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◛",
+    "category": "symbols",
+    "name_ko": "기호 151",
+    "name_en": "symbol 151",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◜",
+    "category": "symbols",
+    "name_ko": "기호 152",
+    "name_en": "symbol 152",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◝",
+    "category": "symbols",
+    "name_ko": "기호 153",
+    "name_en": "symbol 153",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◞",
+    "category": "symbols",
+    "name_ko": "기호 154",
+    "name_en": "symbol 154",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◟",
+    "category": "symbols",
+    "name_ko": "기호 155",
+    "name_en": "symbol 155",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◠",
+    "category": "symbols",
+    "name_ko": "기호 156",
+    "name_en": "symbol 156",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◡",
+    "category": "symbols",
+    "name_ko": "기호 157",
+    "name_en": "symbol 157",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◢",
+    "category": "symbols",
+    "name_ko": "기호 158",
+    "name_en": "symbol 158",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◣",
+    "category": "symbols",
+    "name_ko": "기호 159",
+    "name_en": "symbol 159",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "◤",
+    "category": "symbols",
+    "name_ko": "기호 160",
+    "name_en": "symbol 160",
+    "tags": [
+      "기호",
+      "심볼",
+      "symbol",
+      "mark"
+    ]
+  },
+  {
+    "char": "€",
+    "category": "text",
+    "name_ko": "텍스트 35",
+    "name_en": "text 35",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "£",
+    "category": "text",
+    "name_ko": "텍스트 36",
+    "name_en": "text 36",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "¥",
+    "category": "text",
+    "name_ko": "텍스트 37",
+    "name_en": "text 37",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "¢",
+    "category": "text",
+    "name_ko": "텍스트 38",
+    "name_en": "text 38",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "¤",
+    "category": "text",
+    "name_ko": "텍스트 39",
+    "name_en": "text 39",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "¦",
+    "category": "text",
+    "name_ko": "텍스트 40",
+    "name_en": "text 40",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "¨",
+    "category": "text",
+    "name_ko": "텍스트 42",
+    "name_en": "text 42",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ª",
+    "category": "text",
+    "name_ko": "텍스트 44",
+    "name_en": "text 44",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "«",
+    "category": "text",
+    "name_ko": "텍스트 45",
+    "name_en": "text 45",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "¬",
+    "category": "text",
+    "name_ko": "텍스트 46",
+    "name_en": "text 46",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "¯",
+    "category": "text",
+    "name_ko": "텍스트 48",
+    "name_en": "text 48",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "°",
+    "category": "text",
+    "name_ko": "텍스트 49",
+    "name_en": "text 49",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "±",
+    "category": "text",
+    "name_ko": "텍스트 50",
+    "name_en": "text 50",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "²",
+    "category": "text",
+    "name_ko": "텍스트 51",
+    "name_en": "text 51",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "³",
+    "category": "text",
+    "name_ko": "텍스트 52",
+    "name_en": "text 52",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "´",
+    "category": "text",
+    "name_ko": "텍스트 53",
+    "name_en": "text 53",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "µ",
+    "category": "text",
+    "name_ko": "텍스트 54",
+    "name_en": "text 54",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "·",
+    "category": "text",
+    "name_ko": "텍스트 56",
+    "name_en": "text 56",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "¸",
+    "category": "text",
+    "name_ko": "텍스트 57",
+    "name_en": "text 57",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "¹",
+    "category": "text",
+    "name_ko": "텍스트 58",
+    "name_en": "text 58",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "º",
+    "category": "text",
+    "name_ko": "텍스트 59",
+    "name_en": "text 59",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "»",
+    "category": "text",
+    "name_ko": "텍스트 60",
+    "name_en": "text 60",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "¼",
+    "category": "text",
+    "name_ko": "텍스트 61",
+    "name_en": "text 61",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "½",
+    "category": "text",
+    "name_ko": "텍스트 62",
+    "name_en": "text 62",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "¾",
+    "category": "text",
+    "name_ko": "텍스트 63",
+    "name_en": "text 63",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "¿",
+    "category": "text",
+    "name_ko": "텍스트 64",
+    "name_en": "text 64",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "À",
+    "category": "text",
+    "name_ko": "텍스트 65",
+    "name_en": "text 65",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Á",
+    "category": "text",
+    "name_ko": "텍스트 66",
+    "name_en": "text 66",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Â",
+    "category": "text",
+    "name_ko": "텍스트 67",
+    "name_en": "text 67",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ã",
+    "category": "text",
+    "name_ko": "텍스트 68",
+    "name_en": "text 68",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ä",
+    "category": "text",
+    "name_ko": "텍스트 69",
+    "name_en": "text 69",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Å",
+    "category": "text",
+    "name_ko": "텍스트 70",
+    "name_en": "text 70",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Æ",
+    "category": "text",
+    "name_ko": "텍스트 71",
+    "name_en": "text 71",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ç",
+    "category": "text",
+    "name_ko": "텍스트 72",
+    "name_en": "text 72",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "È",
+    "category": "text",
+    "name_ko": "텍스트 73",
+    "name_en": "text 73",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "É",
+    "category": "text",
+    "name_ko": "텍스트 74",
+    "name_en": "text 74",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ê",
+    "category": "text",
+    "name_ko": "텍스트 75",
+    "name_en": "text 75",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ë",
+    "category": "text",
+    "name_ko": "텍스트 76",
+    "name_en": "text 76",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ì",
+    "category": "text",
+    "name_ko": "텍스트 77",
+    "name_en": "text 77",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Í",
+    "category": "text",
+    "name_ko": "텍스트 78",
+    "name_en": "text 78",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Î",
+    "category": "text",
+    "name_ko": "텍스트 79",
+    "name_en": "text 79",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ï",
+    "category": "text",
+    "name_ko": "텍스트 80",
+    "name_en": "text 80",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ð",
+    "category": "text",
+    "name_ko": "텍스트 81",
+    "name_en": "text 81",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ñ",
+    "category": "text",
+    "name_ko": "텍스트 82",
+    "name_en": "text 82",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ò",
+    "category": "text",
+    "name_ko": "텍스트 83",
+    "name_en": "text 83",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ó",
+    "category": "text",
+    "name_ko": "텍스트 84",
+    "name_en": "text 84",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ô",
+    "category": "text",
+    "name_ko": "텍스트 85",
+    "name_en": "text 85",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Õ",
+    "category": "text",
+    "name_ko": "텍스트 86",
+    "name_en": "text 86",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ö",
+    "category": "text",
+    "name_ko": "텍스트 87",
+    "name_en": "text 87",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "×",
+    "category": "text",
+    "name_ko": "텍스트 88",
+    "name_en": "text 88",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ø",
+    "category": "text",
+    "name_ko": "텍스트 89",
+    "name_en": "text 89",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ù",
+    "category": "text",
+    "name_ko": "텍스트 90",
+    "name_en": "text 90",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ú",
+    "category": "text",
+    "name_ko": "텍스트 91",
+    "name_en": "text 91",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Û",
+    "category": "text",
+    "name_ko": "텍스트 92",
+    "name_en": "text 92",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ü",
+    "category": "text",
+    "name_ko": "텍스트 93",
+    "name_en": "text 93",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Ý",
+    "category": "text",
+    "name_ko": "텍스트 94",
+    "name_en": "text 94",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "Þ",
+    "category": "text",
+    "name_ko": "텍스트 95",
+    "name_en": "text 95",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ß",
+    "category": "text",
+    "name_ko": "텍스트 96",
+    "name_en": "text 96",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "à",
+    "category": "text",
+    "name_ko": "텍스트 97",
+    "name_en": "text 97",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "á",
+    "category": "text",
+    "name_ko": "텍스트 98",
+    "name_en": "text 98",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "â",
+    "category": "text",
+    "name_ko": "텍스트 99",
+    "name_en": "text 99",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ã",
+    "category": "text",
+    "name_ko": "텍스트 100",
+    "name_en": "text 100",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ä",
+    "category": "text",
+    "name_ko": "텍스트 101",
+    "name_en": "text 101",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "å",
+    "category": "text",
+    "name_ko": "텍스트 102",
+    "name_en": "text 102",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "æ",
+    "category": "text",
+    "name_ko": "텍스트 103",
+    "name_en": "text 103",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ç",
+    "category": "text",
+    "name_ko": "텍스트 104",
+    "name_en": "text 104",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "è",
+    "category": "text",
+    "name_ko": "텍스트 105",
+    "name_en": "text 105",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "é",
+    "category": "text",
+    "name_ko": "텍스트 106",
+    "name_en": "text 106",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ê",
+    "category": "text",
+    "name_ko": "텍스트 107",
+    "name_en": "text 107",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ë",
+    "category": "text",
+    "name_ko": "텍스트 108",
+    "name_en": "text 108",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ì",
+    "category": "text",
+    "name_ko": "텍스트 109",
+    "name_en": "text 109",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "í",
+    "category": "text",
+    "name_ko": "텍스트 110",
+    "name_en": "text 110",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "î",
+    "category": "text",
+    "name_ko": "텍스트 111",
+    "name_en": "text 111",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ï",
+    "category": "text",
+    "name_ko": "텍스트 112",
+    "name_en": "text 112",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ð",
+    "category": "text",
+    "name_ko": "텍스트 113",
+    "name_en": "text 113",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ñ",
+    "category": "text",
+    "name_ko": "텍스트 114",
+    "name_en": "text 114",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ò",
+    "category": "text",
+    "name_ko": "텍스트 115",
+    "name_en": "text 115",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ó",
+    "category": "text",
+    "name_ko": "텍스트 116",
+    "name_en": "text 116",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ô",
+    "category": "text",
+    "name_ko": "텍스트 117",
+    "name_en": "text 117",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "õ",
+    "category": "text",
+    "name_ko": "텍스트 118",
+    "name_en": "text 118",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ö",
+    "category": "text",
+    "name_ko": "텍스트 119",
+    "name_en": "text 119",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "÷",
+    "category": "text",
+    "name_ko": "텍스트 120",
+    "name_en": "text 120",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ø",
+    "category": "text",
+    "name_ko": "텍스트 121",
+    "name_en": "text 121",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ù",
+    "category": "text",
+    "name_ko": "텍스트 122",
+    "name_en": "text 122",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ú",
+    "category": "text",
+    "name_ko": "텍스트 123",
+    "name_en": "text 123",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "û",
+    "category": "text",
+    "name_ko": "텍스트 124",
+    "name_en": "text 124",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ü",
+    "category": "text",
+    "name_ko": "텍스트 125",
+    "name_en": "text 125",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ý",
+    "category": "text",
+    "name_ko": "텍스트 126",
+    "name_en": "text 126",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "þ",
+    "category": "text",
+    "name_ko": "텍스트 127",
+    "name_en": "text 127",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "ÿ",
+    "category": "text",
+    "name_ko": "텍스트 128",
+    "name_en": "text 128",
+    "tags": [
+      "텍스트",
+      "문자",
+      "text",
+      "character"
+    ]
+  },
+  {
+    "char": "🐏",
+    "category": "animals",
+    "name_ko": "동물 81",
+    "name_en": "animal 81",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐑",
+    "category": "animals",
+    "name_ko": "동물 82",
+    "name_en": "animal 82",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦙",
+    "category": "animals",
+    "name_ko": "동물 83",
+    "name_en": "animal 83",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐐",
+    "category": "animals",
+    "name_ko": "동물 84",
+    "name_en": "animal 84",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦌",
+    "category": "animals",
+    "name_ko": "동물 85",
+    "name_en": "animal 85",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐕",
+    "category": "animals",
+    "name_ko": "동물 86",
+    "name_en": "animal 86",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐩",
+    "category": "animals",
+    "name_ko": "동물 87",
+    "name_en": "animal 87",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦮",
+    "category": "animals",
+    "name_ko": "동물 88",
+    "name_en": "animal 88",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐕‍🦺",
+    "category": "animals",
+    "name_ko": "동물 89",
+    "name_en": "animal 89",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐈",
+    "category": "animals",
+    "name_ko": "동물 90",
+    "name_en": "animal 90",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐈‍⬛",
+    "category": "animals",
+    "name_ko": "동물 91",
+    "name_en": "animal 91",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "👋",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 145",
+    "name_en": "emoji face 145",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🤚",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 146",
+    "name_en": "emoji face 146",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🖐️",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 147",
+    "name_en": "emoji face 147",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "✋",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 148",
+    "name_en": "emoji face 148",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🖖",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 149",
+    "name_en": "emoji face 149",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "👌",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 150",
+    "name_en": "emoji face 150",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🤌",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 151",
+    "name_en": "emoji face 151",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🤏",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 152",
+    "name_en": "emoji face 152",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "✌️",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 153",
+    "name_en": "emoji face 153",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🤞",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 154",
+    "name_en": "emoji face 154",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🤟",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 155",
+    "name_en": "emoji face 155",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🤘",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 156",
+    "name_en": "emoji face 156",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🤙",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 157",
+    "name_en": "emoji face 157",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "👈",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 158",
+    "name_en": "emoji face 158",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "👉",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 159",
+    "name_en": "emoji face 159",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "👆",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 160",
+    "name_en": "emoji face 160",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🖕",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 161",
+    "name_en": "emoji face 161",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "👇",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 162",
+    "name_en": "emoji face 162",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "☝️",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 163",
+    "name_en": "emoji face 163",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "👍",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 164",
+    "name_en": "emoji face 164",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "👎",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 165",
+    "name_en": "emoji face 165",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "✊",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 166",
+    "name_en": "emoji face 166",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "👊",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 167",
+    "name_en": "emoji face 167",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🤛",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 168",
+    "name_en": "emoji face 168",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🤜",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 169",
+    "name_en": "emoji face 169",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "👏",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 170",
+    "name_en": "emoji face 170",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🙌",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 171",
+    "name_en": "emoji face 171",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "👐",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 172",
+    "name_en": "emoji face 172",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🤲",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 173",
+    "name_en": "emoji face 173",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🤝",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 174",
+    "name_en": "emoji face 174",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🙏",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 175",
+    "name_en": "emoji face 175",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "✍️",
+    "category": "smileys",
+    "name_ko": "이모지 얼굴 176",
+    "name_en": "emoji face 176",
+    "tags": [
+      "얼굴",
+      "이모지",
+      "표정",
+      "face",
+      "emoji",
+      "expression"
+    ]
+  },
+  {
+    "char": "🦤",
+    "category": "animals",
+    "name_ko": "동물 92",
+    "name_en": "animal 92",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🪶",
+    "category": "animals",
+    "name_ko": "동물 93",
+    "name_en": "animal 93",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦩",
+    "category": "animals",
+    "name_ko": "동물 94",
+    "name_en": "animal 94",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦚",
+    "category": "animals",
+    "name_ko": "동물 95",
+    "name_en": "animal 95",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦜",
+    "category": "animals",
+    "name_ko": "동물 96",
+    "name_en": "animal 96",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐓",
+    "category": "animals",
+    "name_ko": "동물 97",
+    "name_en": "animal 97",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦃",
+    "category": "animals",
+    "name_ko": "동물 98",
+    "name_en": "animal 98",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦣",
+    "category": "animals",
+    "name_ko": "동물 100",
+    "name_en": "animal 100",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦔",
+    "category": "animals",
+    "name_ko": "동물 101",
+    "name_en": "animal 101",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦡",
+    "category": "animals",
+    "name_ko": "동물 102",
+    "name_en": "animal 102",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦫",
+    "category": "animals",
+    "name_ko": "동물 103",
+    "name_en": "animal 103",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦦",
+    "category": "animals",
+    "name_ko": "동물 104",
+    "name_en": "animal 104",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🦨",
+    "category": "animals",
+    "name_ko": "동물 105",
+    "name_en": "animal 105",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "🐾",
+    "category": "animals",
+    "name_ko": "동물 108",
+    "name_en": "animal 108",
+    "tags": [
+      "동물",
+      "자연",
+      "animal",
+      "nature"
+    ]
+  },
+  {
+    "char": "👁️‍🗨️",
+    "category": "hearts",
+    "name_ko": "눈 말풍선",
+    "name_en": "eye in speech bubble",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🗨️",
+    "category": "hearts",
+    "name_ko": "왼쪽 말풍선",
+    "name_en": "left speech bubble",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🗯️",
+    "category": "hearts",
+    "name_ko": "오른쪽 분노 말풍선",
+    "name_en": "right anger bubble",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "💭",
+    "category": "hearts",
+    "name_ko": "생각 말풍선",
+    "name_en": "thought balloon",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "💤",
+    "category": "hearts",
+    "name_ko": "zzz",
+    "name_en": "zzz",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "💮",
+    "category": "hearts",
+    "name_ko": "흰 꽃",
+    "name_en": "white flower",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🉐",
+    "category": "hearts",
+    "name_ko": "할인",
+    "name_en": "circled ideograph accept",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🉑",
+    "category": "hearts",
+    "name_ko": "수락",
+    "name_en": "circled ideograph advantage",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "㊙️",
+    "category": "hearts",
+    "name_ko": "비밀",
+    "name_en": "circled ideograph secret",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "㊗️",
+    "category": "hearts",
+    "name_ko": "축하",
+    "name_en": "circled ideograph congratulation",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🈴",
+    "category": "hearts",
+    "name_ko": "합격",
+    "name_en": "squared cjk unified ideograph-5408",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🈵",
+    "category": "hearts",
+    "name_ko": "만원",
+    "name_en": "squared cjk unified ideograph-6e80",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🈹",
+    "category": "hearts",
+    "name_ko": "할인",
+    "name_en": "squared cjk unified ideograph-5272",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🈲",
+    "category": "hearts",
+    "name_ko": "금지",
+    "name_en": "squared cjk unified ideograph-7981",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🈸",
+    "category": "hearts",
+    "name_ko": "신청",
+    "name_en": "squared cjk unified ideograph-7533",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🈺",
+    "category": "hearts",
+    "name_ko": "영업중",
+    "name_en": "squared cjk unified ideograph-55b6",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🈶",
+    "category": "hearts",
+    "name_ko": "있음",
+    "name_en": "squared cjk unified ideograph-6709",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🈚",
+    "category": "hearts",
+    "name_ko": "없음",
+    "name_en": "squared cjk unified ideograph-7121",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🈷️",
+    "category": "hearts",
+    "name_ko": "월",
+    "name_en": "squared cjk unified ideograph-6708",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🈳",
+    "category": "hearts",
+    "name_ko": "빈자리",
+    "name_en": "squared cjk unified ideograph-7a7a",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🈂️",
+    "category": "hearts",
+    "name_ko": "서비스",
+    "name_en": "squared katakana sa",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🛑",
+    "category": "hearts",
+    "name_ko": "정지 신호",
+    "name_en": "stop sign",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🛐",
+    "category": "hearts",
+    "name_ko": "종교 장소",
+    "name_en": "place of worship",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🛠️",
+    "category": "hearts",
+    "name_ko": "망치와 렌치",
+    "name_en": "hammer and wrench",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🛡️",
+    "category": "hearts",
+    "name_ko": "방패",
+    "name_en": "shield",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🛢️",
+    "category": "hearts",
+    "name_ko": "오일 드럼",
+    "name_en": "oil drum",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🛣️",
+    "category": "hearts",
+    "name_ko": "고속도로",
+    "name_en": "motorway",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🛤️",
+    "category": "hearts",
+    "name_ko": "철도",
+    "name_en": "railway track",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🛥️",
+    "category": "hearts",
+    "name_ko": "모터보트",
+    "name_en": "motor boat",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🛩️",
+    "category": "hearts",
+    "name_ko": "작은 비행기",
+    "name_en": "small airplane",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🛫",
+    "category": "hearts",
+    "name_ko": "비행기 출발",
+    "name_en": "airplane departure",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "🛬",
+    "category": "hearts",
+    "name_ko": "비행기 도착",
+    "name_en": "airplane arrival",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "⇐",
+    "category": "arrows",
+    "name_ko": "이중 왼쪽 화살표",
+    "name_en": "leftwards double arrow",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇒",
+    "category": "arrows",
+    "name_ko": "이중 오른쪽 화살표",
+    "name_en": "rightwards double arrow",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇑",
+    "category": "arrows",
+    "name_ko": "이중 위쪽 화살표",
+    "name_en": "upwards double arrow",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇓",
+    "category": "arrows",
+    "name_ko": "이중 아래쪽 화살표",
+    "name_en": "downwards double arrow",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇔",
+    "category": "arrows",
+    "name_ko": "이중 양방향 화살표",
+    "name_en": "left right double arrow",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇕",
+    "category": "arrows",
+    "name_ko": "이중 위아래 화살표",
+    "name_en": "up down double arrow",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇖",
+    "category": "arrows",
+    "name_ko": "이중 왼쪽 위 화살표",
+    "name_en": "north west double arrow",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇗",
+    "category": "arrows",
+    "name_ko": "이중 오른쪽 위 화살표",
+    "name_en": "north east double arrow",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇘",
+    "category": "arrows",
+    "name_ko": "이중 오른쪽 아래 화살표",
+    "name_en": "south east double arrow",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇙",
+    "category": "arrows",
+    "name_ko": "이중 왼쪽 아래 화살표",
+    "name_en": "south west double arrow",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇚",
+    "category": "arrows",
+    "name_ko": "삼중 왼쪽 화살표",
+    "name_en": "leftwards triple arrow",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇛",
+    "category": "arrows",
+    "name_ko": "삼중 오른쪽 화살표",
+    "name_en": "rightwards triple arrow",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇜",
+    "category": "arrows",
+    "name_ko": "왼쪽 화살표 후크",
+    "name_en": "leftwards arrow with hook",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇝",
+    "category": "arrows",
+    "name_ko": "오른쪽 화살표 후크",
+    "name_en": "rightwards arrow with hook",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇞",
+    "category": "arrows",
+    "name_ko": "위쪽 화살표 바",
+    "name_en": "upwards arrow to bar",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇟",
+    "category": "arrows",
+    "name_ko": "아래쪽 화살표 바",
+    "name_en": "downwards arrow to bar",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇠",
+    "category": "arrows",
+    "name_ko": "왼쪽 화살표 바",
+    "name_en": "leftwards arrow to bar",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇡",
+    "category": "arrows",
+    "name_ko": "위쪽 화살표 바",
+    "name_en": "upwards arrow to bar over downwards arrow to bar",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇢",
+    "category": "arrows",
+    "name_ko": "오른쪽 화살표 바",
+    "name_en": "rightwards arrow to bar",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇣",
+    "category": "arrows",
+    "name_ko": "아래쪽 화살표 바",
+    "name_en": "downwards arrow to bar",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇤",
+    "category": "arrows",
+    "name_ko": "왼쪽 화살표 테일",
+    "name_en": "leftwards arrow with tail",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇥",
+    "category": "arrows",
+    "name_ko": "오른쪽 화살표 테일",
+    "name_en": "rightwards arrow with tail",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇦",
+    "category": "arrows",
+    "name_ko": "왼쪽 화살표 더블",
+    "name_en": "leftwards arrow from bar",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇧",
+    "category": "arrows",
+    "name_ko": "위쪽 화살표 더블",
+    "name_en": "upwards arrow from bar",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇨",
+    "category": "arrows",
+    "name_ko": "오른쪽 화살표 더블",
+    "name_en": "rightwards arrow from bar",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇩",
+    "category": "arrows",
+    "name_ko": "아래쪽 화살표 더블",
+    "name_en": "downwards arrow from bar",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇪",
+    "category": "arrows",
+    "name_ko": "위쪽 화살표 화살촉",
+    "name_en": "upwards arrow with tip leftwards",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇫",
+    "category": "arrows",
+    "name_ko": "위쪽 화살표 화살촉 오른쪽",
+    "name_en": "upwards arrow with tip rightwards",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇬",
+    "category": "arrows",
+    "name_ko": "아래쪽 화살표 화살촉",
+    "name_en": "downwards arrow with tip leftwards",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇭",
+    "category": "arrows",
+    "name_ko": "아래쪽 화살표 화살촉 오른쪽",
+    "name_en": "downwards arrow with tip rightwards",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇮",
+    "category": "arrows",
+    "name_ko": "오른쪽 화살표 화살촉",
+    "name_en": "rightwards arrow with tip upwards",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "⇯",
+    "category": "arrows",
+    "name_ko": "오른쪽 화살표 화살촉 아래",
+    "name_en": "rightwards arrow with tip downwards",
+    "tags": [
+      "화살표",
+      "방향",
+      "이동",
+      "arrow",
+      "direction",
+      "move"
+    ]
+  },
+  {
+    "char": "☀",
+    "category": "weather",
+    "name_ko": "태양",
+    "name_en": "black sun with rays",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☁",
+    "category": "weather",
+    "name_ko": "구름",
+    "name_en": "cloud",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☂",
+    "category": "weather",
+    "name_ko": "우산",
+    "name_en": "umbrella",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☃",
+    "category": "weather",
+    "name_ko": "눈사람",
+    "name_en": "snowman",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☄",
+    "category": "weather",
+    "name_ko": "혜성",
+    "name_en": "comet",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☇",
+    "category": "weather",
+    "name_ko": "번개",
+    "name_en": "lightning",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☈",
+    "category": "weather",
+    "name_ko": "천둥",
+    "name_en": "thunderstorm",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☉",
+    "category": "weather",
+    "name_ko": "태양",
+    "name_en": "sun",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☊",
+    "category": "weather",
+    "name_ko": "달",
+    "name_en": "ascending node",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☋",
+    "category": "weather",
+    "name_ko": "달",
+    "name_en": "descending node",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☌",
+    "category": "weather",
+    "name_ko": "합",
+    "name_en": "conjunction",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☍",
+    "category": "weather",
+    "name_ko": "충",
+    "name_en": "opposition",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☎",
+    "category": "weather",
+    "name_ko": "전화",
+    "name_en": "black telephone",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☏",
+    "category": "weather",
+    "name_ko": "전화",
+    "name_en": "white telephone",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☐",
+    "category": "weather",
+    "name_ko": "체크박스",
+    "name_en": "ballot box",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☑",
+    "category": "weather",
+    "name_ko": "체크박스 체크",
+    "name_en": "ballot box with check",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☒",
+    "category": "weather",
+    "name_ko": "체크박스 X",
+    "name_en": "ballot box with x",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☓",
+    "category": "weather",
+    "name_ko": "X",
+    "name_en": "saltire",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☔",
+    "category": "weather",
+    "name_ko": "우산 비",
+    "name_en": "umbrella with rain drops",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☖",
+    "category": "weather",
+    "name_ko": "장기",
+    "name_en": "white shogi piece",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☗",
+    "category": "weather",
+    "name_ko": "장기",
+    "name_en": "black shogi piece",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☘",
+    "category": "weather",
+    "name_ko": "클로버",
+    "name_en": "shamrock",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☙",
+    "category": "weather",
+    "name_ko": "장식",
+    "name_en": "reversed rotated floral heart bullet",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☚",
+    "category": "weather",
+    "name_ko": "왼쪽 검은 손가락",
+    "name_en": "black left pointing index",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☛",
+    "category": "weather",
+    "name_ko": "오른쪽 검은 손가락",
+    "name_en": "black right pointing index",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☜",
+    "category": "weather",
+    "name_ko": "왼쪽 흰 손가락",
+    "name_en": "white left pointing index",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☝",
+    "category": "weather",
+    "name_ko": "위쪽 검은 손가락",
+    "name_en": "white up pointing index",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☞",
+    "category": "weather",
+    "name_ko": "오른쪽 흰 손가락",
+    "name_en": "white right pointing index",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "☟",
+    "category": "weather",
+    "name_ko": "아래쪽 흰 손가락",
+    "name_en": "white down pointing index",
+    "tags": [
+      "날씨",
+      "기상",
+      "weather",
+      "climate"
+    ]
+  },
+  {
+    "char": "🍪",
+    "category": "food",
+    "name_ko": "쿠키",
+    "name_en": "cookie",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍩",
+    "category": "food",
+    "name_ko": "도넛",
+    "name_en": "doughnut",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍨",
+    "category": "food",
+    "name_ko": "아이스크림",
+    "name_en": "ice cream",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍦",
+    "category": "food",
+    "name_ko": "소프트 아이스크림",
+    "name_en": "soft ice cream",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍧",
+    "category": "food",
+    "name_ko": "빙수",
+    "name_en": "shaved ice",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍮",
+    "category": "food",
+    "name_ko": "푸딩",
+    "name_en": "custard",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍯",
+    "category": "food",
+    "name_ko": "꿀",
+    "name_en": "honey pot",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🍼",
+    "category": "food",
+    "name_ko": "우유병",
+    "name_en": "baby bottle",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🥛",
+    "category": "food",
+    "name_ko": "우유",
+    "name_en": "glass of milk",
+    "tags": [
+      "음식",
+      "먹기",
+      "food",
+      "eating"
+    ]
+  },
+  {
+    "char": "🇳🇱",
+    "category": "flags",
+    "name_ko": "네덜란드 국기",
+    "name_en": "Netherlands flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇧🇪",
+    "category": "flags",
+    "name_ko": "벨기에 국기",
+    "name_en": "Belgium flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇨🇭",
+    "category": "flags",
+    "name_ko": "스위스 국기",
+    "name_en": "Switzerland flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇦🇹",
+    "category": "flags",
+    "name_ko": "오스트리아 국기",
+    "name_en": "Austria flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇸🇪",
+    "category": "flags",
+    "name_ko": "스웨덴 국기",
+    "name_en": "Sweden flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇳🇴",
+    "category": "flags",
+    "name_ko": "노르웨이 국기",
+    "name_en": "Norway flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇩🇰",
+    "category": "flags",
+    "name_ko": "덴마크 국기",
+    "name_en": "Denmark flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇫🇮",
+    "category": "flags",
+    "name_ko": "핀란드 국기",
+    "name_en": "Finland flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇵🇱",
+    "category": "flags",
+    "name_ko": "폴란드 국기",
+    "name_en": "Poland flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇨🇿",
+    "category": "flags",
+    "name_ko": "체코 국기",
+    "name_en": "Czech Republic flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇭🇺",
+    "category": "flags",
+    "name_ko": "헝가리 국기",
+    "name_en": "Hungary flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇷🇴",
+    "category": "flags",
+    "name_ko": "루마니아 국기",
+    "name_en": "Romania flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇧🇬",
+    "category": "flags",
+    "name_ko": "불가리아 국기",
+    "name_en": "Bulgaria flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇬🇷",
+    "category": "flags",
+    "name_ko": "그리스 국기",
+    "name_en": "Greece flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇹🇷",
+    "category": "flags",
+    "name_ko": "터키 국기",
+    "name_en": "Turkey flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇸🇦",
+    "category": "flags",
+    "name_ko": "사우디아라비아 국기",
+    "name_en": "Saudi Arabia flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇦🇪",
+    "category": "flags",
+    "name_ko": "아랍에미리트 국기",
+    "name_en": "United Arab Emirates flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇮🇱",
+    "category": "flags",
+    "name_ko": "이스라엘 국기",
+    "name_en": "Israel flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇮🇷",
+    "category": "flags",
+    "name_ko": "이란 국기",
+    "name_en": "Iran flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇮🇶",
+    "category": "flags",
+    "name_ko": "이라크 국기",
+    "name_en": "Iraq flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇸🇾",
+    "category": "flags",
+    "name_ko": "시리아 국기",
+    "name_en": "Syria flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇯🇴",
+    "category": "flags",
+    "name_ko": "요르단 국기",
+    "name_en": "Jordan flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇱🇧",
+    "category": "flags",
+    "name_ko": "레바논 국기",
+    "name_en": "Lebanon flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇵🇰",
+    "category": "flags",
+    "name_ko": "파키스탄 국기",
+    "name_en": "Pakistan flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇧🇩",
+    "category": "flags",
+    "name_ko": "방글라데시 국기",
+    "name_en": "Bangladesh flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇱🇰",
+    "category": "flags",
+    "name_ko": "스리랑카 국기",
+    "name_en": "Sri Lanka flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇲🇲",
+    "category": "flags",
+    "name_ko": "미얀마 국기",
+    "name_en": "Myanmar flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇰🇭",
+    "category": "flags",
+    "name_ko": "캄보디아 국기",
+    "name_en": "Cambodia flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "🇱🇦",
+    "category": "flags",
+    "name_ko": "라오스 국기",
+    "name_en": "Laos flag",
+    "tags": [
+      "국기",
+      "나라",
+      "flag",
+      "country"
+    ]
+  },
+  {
+    "char": "☪",
+    "category": "stars",
+    "name_ko": "초승달 별",
+    "name_en": "star and crescent",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☸",
+    "category": "stars",
+    "name_ko": "법륜",
+    "name_en": "wheel of dharma",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☯",
+    "category": "stars",
+    "name_ko": "음양",
+    "name_en": "yin yang",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☮",
+    "category": "stars",
+    "name_ko": "평화 기호",
+    "name_en": "peace symbol",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☨",
+    "category": "stars",
+    "name_ko": "십자가",
+    "name_en": "cross of lorraine",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☩",
+    "category": "stars",
+    "name_ko": "십자가",
+    "name_en": "cross of jerusalem",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☦",
+    "category": "stars",
+    "name_ko": "정교회 십자가",
+    "name_en": "orthodox cross",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☧",
+    "category": "stars",
+    "name_ko": "키로",
+    "name_en": "chi rho",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☫",
+    "category": "stars",
+    "name_ko": "파르시",
+    "name_en": "farsi symbol",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☬",
+    "category": "stars",
+    "name_ko": "아디 샤크",
+    "name_en": "adi shakti",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☭",
+    "category": "stars",
+    "name_ko": "낫과 망치",
+    "name_en": "hammer and sickle",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☰",
+    "category": "stars",
+    "name_ko": "건",
+    "name_en": "trigram for heaven",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☱",
+    "category": "stars",
+    "name_ko": "태",
+    "name_en": "trigram for lake",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☲",
+    "category": "stars",
+    "name_ko": "리",
+    "name_en": "trigram for fire",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☳",
+    "category": "stars",
+    "name_ko": "진",
+    "name_en": "trigram for thunder",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☴",
+    "category": "stars",
+    "name_ko": "손",
+    "name_en": "trigram for wind",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☵",
+    "category": "stars",
+    "name_ko": "감",
+    "name_en": "trigram for water",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☶",
+    "category": "stars",
+    "name_ko": "간",
+    "name_en": "trigram for mountain",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☷",
+    "category": "stars",
+    "name_ko": "곤",
+    "name_en": "trigram for earth",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☹",
+    "category": "stars",
+    "name_ko": "찡그린 얼굴",
+    "name_en": "white frowning face",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☺",
+    "category": "stars",
+    "name_ko": "웃는 얼굴",
+    "name_en": "white smiling face",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☻",
+    "category": "stars",
+    "name_ko": "검은 웃는 얼굴",
+    "name_en": "black smiling face",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☼",
+    "category": "stars",
+    "name_ko": "태양",
+    "name_en": "white sun with rays",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☽",
+    "category": "stars",
+    "name_ko": "초승달",
+    "name_en": "first quarter moon",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☾",
+    "category": "stars",
+    "name_ko": "초승달",
+    "name_en": "last quarter moon",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "☿",
+    "category": "stars",
+    "name_ko": "수성",
+    "name_en": "mercury",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "♀",
+    "category": "stars",
+    "name_ko": "금성",
+    "name_en": "venus",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "♁",
+    "category": "stars",
+    "name_ko": "지구",
+    "name_en": "earth",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "♂",
+    "category": "stars",
+    "name_ko": "화성",
+    "name_en": "mars",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "♃",
+    "category": "stars",
+    "name_ko": "목성",
+    "name_en": "jupiter",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "♄",
+    "category": "stars",
+    "name_ko": "토성",
+    "name_en": "saturn",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "♅",
+    "category": "stars",
+    "name_ko": "천왕성",
+    "name_en": "uranus",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "♆",
+    "category": "stars",
+    "name_ko": "해왕성",
+    "name_en": "neptune",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "♇",
+    "category": "stars",
+    "name_ko": "명왕성",
+    "name_en": "pluto",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "⚝",
+    "category": "stars",
+    "name_ko": "별",
+    "name_en": "outlined white star",
+    "tags": [
+      "별",
+      "반짝임",
+      "평점",
+      "star",
+      "sparkle",
+      "rating"
+    ]
+  },
+  {
+    "char": "♡",
+    "category": "hearts",
+    "name_ko": "흰 하트 수트",
+    "name_en": "white heart suit",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "♢",
+    "category": "hearts",
+    "name_ko": "다이아몬드 수트",
+    "name_en": "white diamond suit",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "♤",
+    "category": "hearts",
+    "name_ko": "스페이드 수트",
+    "name_en": "white spade suit",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "♧",
+    "category": "hearts",
+    "name_ko": "클럽 수트",
+    "name_en": "white club suit",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "♩",
+    "category": "hearts",
+    "name_ko": "음표",
+    "name_en": "quarter note",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "♫",
+    "category": "hearts",
+    "name_ko": "음표",
+    "name_en": "beamed eighth notes",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "♬",
+    "category": "hearts",
+    "name_ko": "음표",
+    "name_en": "beamed sixteenth notes",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "♭",
+    "category": "hearts",
+    "name_ko": "플랫",
+    "name_en": "music flat sign",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  },
+  {
+    "char": "♮",
+    "category": "hearts",
+    "name_ko": "내추럴",
+    "name_en": "music natural sign",
+    "tags": [
+      "하트",
+      "사랑",
+      "감정",
+      "heart",
+      "love",
+      "emotion"
+    ]
+  }
+]

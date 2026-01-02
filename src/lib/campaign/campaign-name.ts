@@ -232,11 +232,18 @@ export function buildFinalCampaignName(
   // 검색광고인 경우 특별한 형식 사용 (Naver Search 또는 Google Ads)
   if (options?.channel === 'naver' || options?.channel === 'google') {
     const channelPrefix = options.channel === 'naver' ? 'nav' : 'goo';
-    const prefix = options.isBrand ? `sm_sa_${channelPrefix}_br_` : `sm_sa_${channelPrefix}_nb_`;
-    // prefix 길이: 12자 (sm_sa_nav_br_ 또는 sm_sa_nav_nb_ 또는 sm_sa_goo_br_ 또는 sm_sa_goo_nb_), 총 30자 제한이므로 캠페인명은 최대 18자
-    const maxNameLength = 18;
+    const brandPrefix = options.isBrand ? 'br' : 'nb';
+    // sm_sa_nav_br_YYMMDD_ 형식으로 시작일 포함
+    const prefix = `sm_sa_${channelPrefix}_${brandPrefix}_${datePrefix}`;
+    // cleanName이 비어있으면 prefix만 반환 (마지막 언더스코어와 캠페인명 없이)
+    if (!cleanName || cleanName.trim() === '') {
+      return prefix;
+    }
+    // prefix 길이 계산: sm_sa_nav_br_YYMMDD = 18자 (YYMMDD 포함)
+    // 총 30자 제한이므로 캠페인명은 최대 11자 (30 - 18 - 1(언더스코어) = 11)
+    const maxNameLength = 11;
     const truncatedName = cleanName.length > maxNameLength ? cleanName.substring(0, maxNameLength) : cleanName;
-    return `${prefix}${truncatedName}`;
+    return `${prefix}_${truncatedName}`;
   }
 
   // 일반적인 경우: sm_YYMMDD_normalizedName 형식
