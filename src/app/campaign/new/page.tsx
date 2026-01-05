@@ -4,8 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useLocalizedPath, useLocale } from "@/hooks/use-locale";
-import { normalizeCampaignName, buildFinalCampaignName, translateToEnglish, generateNormalizedNameCandidates, lookupDictionary } from "@/lib/campaign/campaign-name";
-import type { CreateStartCampaignRequest, StartCampaign, ChannelType } from "@/types/campaign";
+import { normalizeCampaignName, buildFinalCampaignName, translateToEnglish, generateNormalizedNameCandidates, lookupDictionary, buildSearchAdCampaignName } from "@/lib/campaign/campaign-name";
+import type { CreateStartCampaignRequest, StartCampaign, ChannelType, SearchAdCampaignOption } from "@/types/campaign";
 
 const CHANNEL_TYPES: Array<{ value: ChannelType; label: string; description?: string; adType?: "search" | "display" | "crm" | "other" | "shopping" }> = [
   { value: "meta", label: "Meta", description: "Facebook, Instagram", adType: "display" },
@@ -69,7 +69,7 @@ export default function NewCampaignPage() {
       selectChannelsCount: "{count} channel(s) selected",
     },
     ko: {
-      createCampaign: "Campaign 만들기",
+      createCampaign: "UTM LINK 만들기",
       campaignList: "Campaign 목록",
       finalCampaignNamePreview: "최종 캠페인명 ID 미리보기",
       characters: "자",
@@ -140,6 +140,18 @@ export default function NewCampaignPage() {
   
   // 검색광고 선택 시 브랜드/논브랜드 선택 상태
   const [searchAdType, setSearchAdType] = useState<"brand" | "non_brand" | null>(null);
+  
+  // 검색광고 캠페인 옵션 선택 상태 (home, cmp, cat, prd, intent 중 1개만 선택)
+  const [campaignOption, setCampaignOption] = useState<SearchAdCampaignOption | null>(null);
+  
+  // 캠페인 옵션 정의
+  const CAMPAIGN_OPTIONS: Array<{ value: SearchAdCampaignOption; label: string; description: string }> = [
+    { value: "home", label: "메인 페이지 랜딩", description: "home" },
+    { value: "cmp", label: "경쟁사 맥락", description: "cmp" },
+    { value: "cat", label: "카테고리 맥락", description: "cat" },
+    { value: "prd", label: "제품, 기능 맥락", description: "prd" },
+    { value: "intent", label: "행동 의도 맥락", description: "intent" },
+  ];
 
   // 에러 메시지 스크롤용 ref
   const errorRef = useRef<HTMLDivElement | HTMLParagraphElement>(null);
@@ -247,67 +259,34 @@ export default function NewCampaignPage() {
   }, [formData.raw_name, selectedAdType]);
 
   // normalizedName과 startDate, selectedChannels 변경 시 finalCampaignName 업데이트
-  // normalizedName에 18자 제한 적용 (검색광고인 경우)
+  // 새로운 검색광고 네이밍 규칙 적용: sm_sa_[media]_[br|nb]_[YYMMDD]_[campaign_option]
   useEffect(() => {
     const isNaverSearch = selectedAdType === "search" && selectedChannels.includes("naver");
     const isGoogleAds = selectedAdType === "search" && selectedChannels.includes("google");
     
-    // Naver Search + 검색광고 유형 선택 시 최종 캠페인명 생성 (normalizedName 없어도 가능)
-    if (isNaverSearch && (searchAdType === "brand" || searchAdType === "non_brand") && formData.start_date) {
+    // 검색광고인 경우 새로운 네이밍 규칙 적용
+    if ((isNaverSearch || isGoogleAds) && (searchAdType === "brand" || searchAdType === "non_brand") && campaignOption && formData.start_date) {
       try {
-        // normalizedName이 없어도 빈 문자열 사용하여 prefix만 표시 (UI에서는 빈 문자열, DB 저장 시에는 "campaign" 사용)
-        const finalNormalizedName = normalizedName || "";
+        const media = isNaverSearch ? 'nav' : 'ggl';
+        const searchType = searchAdType === "brand" ? 'br' : 'nb';
         
-        const isBrand = searchAdType === "brand";
-        
-        const final = buildFinalCampaignName(
+        const final = buildSearchAdCampaignName(
           formData.start_date,
-          finalNormalizedName,
-          { channel: 'naver', isBrand }
+          media,
+          searchType,
+          campaignOption
         );
         setFinalCampaignName(final);
         return;
       } catch (error) {
-        console.error("Error building final campaign name for Naver Search:", error);
+        console.error("Error building final campaign name for Search Ad:", error);
         setFinalCampaignName("");
         return;
       }
     }
     
-    // Naver Search 선택했지만 검색광고 유형이 선택되지 않은 경우
-    if (isNaverSearch && searchAdType === null) {
-      setFinalCampaignName("");
-      return;
-    }
-    
-    // Google Ads + 검색광고 유형 선택 시 최종 캠페인명 생성 (normalizedName 없어도 가능)
-    if (isGoogleAds && (searchAdType === "brand" || searchAdType === "non_brand") && formData.start_date) {
-      try {
-        // normalizedName이 없어도 빈 문자열 사용하여 prefix만 표시 (UI에서는 빈 문자열, DB 저장 시에는 "campaign" 사용)
-        let finalNormalizedName = normalizedName || "";
-        
-        if (finalNormalizedName && finalNormalizedName.length > 11) {
-          finalNormalizedName = finalNormalizedName.substring(0, 11);
-        }
-        
-        const isBrand = searchAdType === "brand";
-        
-        const final = buildFinalCampaignName(
-          formData.start_date,
-          finalNormalizedName,
-          { channel: 'google', isBrand }
-        );
-        setFinalCampaignName(final);
-        return;
-      } catch (error) {
-        console.error("Error building final campaign name for Google Ads:", error);
-        setFinalCampaignName("");
-        return;
-      }
-    }
-    
-    // Google Ads 선택했지만 검색광고 유형이 선택되지 않은 경우
-    if (isGoogleAds && searchAdType === null) {
+    // 검색광고 선택했지만 필수 옵션이 선택되지 않은 경우
+    if ((isNaverSearch || isGoogleAds) && (searchAdType === null || campaignOption === null)) {
       setFinalCampaignName("");
       return;
     }
@@ -343,7 +322,7 @@ export default function NewCampaignPage() {
     
     // 위 조건에 해당하지 않으면 빈 문자열
     setFinalCampaignName("");
-  }, [normalizedName, formData.start_date, selectedAdType, selectedChannels, searchAdType]);
+  }, [normalizedName, formData.start_date, selectedAdType, selectedChannels, searchAdType, campaignOption]);
 
   // 에러 발생 시 스크롤하여 에러 메시지로 이동
   useEffect(() => {
@@ -432,6 +411,7 @@ export default function NewCampaignPage() {
           normalized_name: normalizedName,
           selected_channels: selectedChannels,
           search_ad_type: searchAdType,
+          search_ad_campaign_option: campaignOption,
         }),
       });
 
@@ -993,37 +973,78 @@ export default function NewCampaignPage() {
 
           {/* 검색광고 선택 시 세부설정 패널 */}
           {selectedAdType === "search" && (
-            <div className="mb-6 p-4 border border-neutral-200 rounded-lg bg-white">
-              <p className="text-xs font-medium text-neutral-700 mb-3">{texts.searchAdType}</p>
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSearchAdType("brand");
-                  }}
-                  className={`flex-1 px-4 py-2.5 text-sm font-medium rounded transition-colors ${
-                    searchAdType === "brand"
-                      ? "bg-neutral-900 text-white"
-                      : "bg-white text-neutral-700 border border-neutral-300 hover:border-neutral-900"
-                  }`}
-                >
-                  {texts.brandSearchAd}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSearchAdType("non_brand");
-                  }}
-                  className={`flex-1 px-4 py-2.5 text-sm font-medium rounded transition-colors ${
-                    searchAdType === "non_brand"
-                      ? "bg-neutral-900 text-white"
-                      : "bg-white text-neutral-700 border border-neutral-300 hover:border-neutral-900"
-                  }`}
-                >
-                  {texts.nonBrandSearchAd}
-                </button>
+            <>
+              <div className="mb-6 p-4 border border-neutral-200 rounded-lg bg-white">
+                <p className="text-xs font-medium text-neutral-700 mb-3">{texts.searchAdType}</p>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSearchAdType("brand");
+                    }}
+                    className={`flex-1 px-4 py-2.5 text-sm font-medium rounded transition-colors ${
+                      searchAdType === "brand"
+                        ? "bg-neutral-900 text-white"
+                        : "bg-white text-neutral-700 border border-neutral-300 hover:border-neutral-900"
+                    }`}
+                  >
+                    {texts.brandSearchAd}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSearchAdType("non_brand");
+                    }}
+                    className={`flex-1 px-4 py-2.5 text-sm font-medium rounded transition-colors ${
+                      searchAdType === "non_brand"
+                        ? "bg-neutral-900 text-white"
+                        : "bg-white text-neutral-700 border border-neutral-300 hover:border-neutral-900"
+                    }`}
+                  >
+                    {texts.nonBrandSearchAd}
+                  </button>
+                </div>
               </div>
-            </div>
+              
+              {/* 캠페인 옵션 선택 (반드시 1개만 선택) */}
+              {selectedAdType === "search" && (searchAdType === "brand" || searchAdType === "non_brand") && (
+                <div className="mb-6 p-4 border border-neutral-200 rounded-lg bg-white">
+                  <p className="text-xs font-medium text-neutral-700 mb-3">
+                    캠페인 옵션 선택 <span className="text-neutral-400 text-xs font-normal">(반드시 1개만 선택)</span>
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2">
+                    {CAMPAIGN_OPTIONS.map((option) => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => {
+                          setCampaignOption(option.value);
+                        }}
+                        className={`relative px-4 py-3 text-sm font-medium rounded transition-colors text-left ${
+                          campaignOption === option.value
+                            ? "bg-neutral-900 text-white border-2 border-neutral-900"
+                            : "bg-white text-neutral-700 border-2 border-neutral-200 hover:border-neutral-900"
+                        }`}
+                      >
+                        {campaignOption === option.value && (
+                          <div className="absolute top-2 right-2">
+                            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                        )}
+                        <div className="pr-6">
+                          <div className="font-semibold mb-1">{option.label}</div>
+                          <div className={`text-xs ${campaignOption === option.value ? "text-neutral-300" : "text-neutral-500"}`}>
+                            {option.description}
+                          </div>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
           )}
 
           {/* 검색광고 선택 시: 시작일, 종료일 먼저 표시 */}
@@ -1156,7 +1177,7 @@ export default function NewCampaignPage() {
           )}
 
           {/* Naver Search 또는 Google 선택 시 최종 캠페인명 ID 미리보기 - 시작일 섹션 아래에 표시 */}
-          {selectedAdType === "search" && (selectedChannels.includes("naver") || selectedChannels.includes("google")) && (searchAdType === "brand" || searchAdType === "non_brand") && finalCampaignName && (
+          {selectedAdType === "search" && (selectedChannels.includes("naver") || selectedChannels.includes("google")) && (searchAdType === "brand" || searchAdType === "non_brand") && campaignOption && finalCampaignName && (
             <div
               ref={(errors.general || errors.final_campaign_name) ? errorRef : null}
               className={`mb-6 border-2 px-6 py-5 ${
@@ -1198,7 +1219,7 @@ export default function NewCampaignPage() {
           )}
 
           {/* 캠페인명 (rawName) - Naver Search 또는 Google 선택 시 숨김 */}
-          {!(selectedAdType === "search" && (selectedChannels.includes("naver") || selectedChannels.includes("google"))) && (
+          {!(selectedAdType === "search" && (selectedChannels.includes("naver") || selectedChannels.includes("google")) && campaignOption) && (
             <div>
               <label
                 htmlFor="raw_name"
@@ -1261,7 +1282,7 @@ export default function NewCampaignPage() {
 
 
           {/* 번역 모달 - Naver Search 또는 Google 선택 시 숨김 */}
-          {showTranslationModal && translationCandidates.length > 0 && !isTranslating && !(selectedAdType === "search" && (selectedChannels.includes("naver") || selectedChannels.includes("google"))) && (
+          {showTranslationModal && translationCandidates.length > 0 && !isTranslating && !(selectedAdType === "search" && (selectedChannels.includes("naver") || selectedChannels.includes("google")) && campaignOption) && (
             <div className="border border-neutral-200 bg-neutral-50 px-4 py-3">
               {lookupDictionary(formData.raw_name) && (
                 <p className="text-xs text-neutral-600 mb-2">
@@ -1410,7 +1431,7 @@ export default function NewCampaignPage() {
           )}
 
           {/* 최종 캠페인명 ID 미리보기 - Naver Search 또는 Google이 아닌 경우 또는 검색광고 유형이 선택되지 않은 경우 */}
-          {finalCampaignName && !(selectedAdType === "search" && (selectedChannels.includes("naver") || selectedChannels.includes("google")) && (searchAdType === "brand" || searchAdType === "non_brand")) && (
+          {finalCampaignName && !(selectedAdType === "search" && (selectedChannels.includes("naver") || selectedChannels.includes("google")) && (searchAdType === "brand" || searchAdType === "non_brand") && campaignOption) && (
             <div
               ref={(errors.general || errors.final_campaign_name) ? errorRef : null}
               className={`mb-6 border-2 px-6 py-5 ${

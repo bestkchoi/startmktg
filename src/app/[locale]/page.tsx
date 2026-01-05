@@ -19,7 +19,9 @@ export default function Page() {
     },
   };
   
-  const t = texts[locale] || texts.en;
+  // en은 ko로 매핑
+  const actualLocale = locale === "en" ? "ko" : locale;
+  const t = texts[actualLocale] || texts.ko;
   
   return (
     <main className="min-h-[calc(100vh-200px)] bg-white text-neutral-900">

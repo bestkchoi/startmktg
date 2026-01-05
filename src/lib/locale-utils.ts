@@ -17,6 +17,10 @@ export function getLocaleFromPath(pathname: string): Locale | null {
   if (firstSegment === "kr") {
     firstSegment = "ko";
   }
+  // en을 ko로 매핑 (영어는 개발 대상이 아님)
+  if (firstSegment === "en") {
+    firstSegment = "ko";
+  }
   
   if (SUPPORTED_LOCALES.includes(firstSegment as Locale)) {
     return firstSegment as Locale;
@@ -67,7 +71,7 @@ export function detectBrowserLocale(): Locale {
     }
   }
   
-  return "en"; // 기본값은 영어
+  return "ko"; // 기본값은 한국어
 }
 
 /**

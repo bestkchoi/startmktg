@@ -141,7 +141,9 @@ export function UtmCheckerForm({ compact = false }: { compact?: boolean }) {
     },
   };
 
-  const t = texts[locale] || texts.en;
+  // en은 ko로 매핑
+  const actualLocale = locale === "en" ? "ko" : locale;
+  const t = texts[actualLocale] || texts.ko;
 
   // 분석 결과가 나오면 GA4 미리보기를 자동으로 열기
   useEffect(() => {

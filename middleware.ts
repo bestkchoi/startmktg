@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 const SUPPORTED_LOCALES = ["en", "ko", "jp"];
-const DEFAULT_LOCALE = "en"; // 영어를 기본값으로 설정
+const DEFAULT_LOCALE = "ko"; // 한국어를 기본값으로 설정
 
 /**
  * Accept-Language 헤더에서 언어 감지
@@ -57,6 +57,31 @@ export function middleware(request: NextRequest) {
 		return NextResponse.next();
 	}
 
+	// 언어 루트 경로 리디렉션 (가장 우선 처리)
+	// /en 또는 /en/ → /ko/로 301 리디렉션
+	if (pathname === "/en" || pathname === "/en/") {
+		const newUrl = request.nextUrl.clone();
+		newUrl.pathname = "/ko/";
+		console.log("[Middleware] Redirecting /en to /ko/ (301)");
+		return NextResponse.redirect(newUrl, 301);
+	}
+	
+	// /ko 또는 /ko/ → /ko/utm-checker로 301 리디렉션
+	if (pathname === "/ko" || pathname === "/ko/") {
+		const newUrl = request.nextUrl.clone();
+		newUrl.pathname = "/ko/utm-checker";
+		console.log("[Middleware] Redirecting /ko to /ko/utm-checker (301)");
+		return NextResponse.redirect(newUrl, 301);
+	}
+	
+	// /jp 또는 /jp/ → /jp/utm-checker로 301 리디렉션 (일관성을 위해)
+	if (pathname === "/jp" || pathname === "/jp/") {
+		const newUrl = request.nextUrl.clone();
+		newUrl.pathname = "/jp/utm-checker";
+		console.log("[Middleware] Redirecting /jp to /jp/utm-checker (301)");
+		return NextResponse.redirect(newUrl, 301);
+	}
+
 	// 이미 locale이 있는지 확인 (kr도 ko로 처리)
 	const hasLocale = SUPPORTED_LOCALES.some(
 		(locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
@@ -64,7 +89,7 @@ export function middleware(request: NextRequest) {
 
 	if (hasLocale) {
 		console.log("[Middleware] Already has locale:", pathname);
-		// locale이 있으면 그대로 진행
+		// locale이 있고 하위 경로가 있으면 그대로 진행
 		return NextResponse.next();
 	}
 
@@ -79,13 +104,22 @@ export function middleware(request: NextRequest) {
 	// 단, Accept-Language 헤더가 없거나 감지 실패한 경우에만 쿠키 사용
 	const cookieLocale = request.cookies.get("NEXT_LOCALE")?.value;
 	if (cookieLocale && SUPPORTED_LOCALES.includes(cookieLocale)) {
-		// Accept-Language 헤더가 없거나 기본값(en)으로 감지된 경우에만 쿠키 사용
-		if (!acceptLanguage || detectedLocale === DEFAULT_LOCALE) {
+		// Accept-Language 헤더가 없거나 기본값(ko)으로 감지된 경우에만 쿠키 사용
+		// 단, "en" 쿠키는 무시 (한국어만 지원)
+		if (cookieLocale === "en") {
+			console.log("[Middleware] Ignoring 'en' cookie, using ko");
+			detectedLocale = "ko";
+		} else if (!acceptLanguage || detectedLocale === DEFAULT_LOCALE) {
 			console.log("[Middleware] Using cookie locale (fallback):", cookieLocale);
 			detectedLocale = cookieLocale;
 		} else {
 			console.log("[Middleware] Ignoring cookie locale (", cookieLocale, ") in favor of Accept-Language (", detectedLocale, ")");
 		}
+	}
+	
+	// 최종적으로 "en"이 감지된 경우 "ko"로 변경
+	if (detectedLocale === "en") {
+		detectedLocale = "ko";
 	}
 
 	// 리다이렉트 URL 생성

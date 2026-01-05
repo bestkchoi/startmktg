@@ -81,6 +81,9 @@ export type StartCampaign = {
   updated_at: string;
 };
 
+// 검색광고 캠페인 옵션 타입
+export type SearchAdCampaignOption = "home" | "cmp" | "cat" | "prd" | "intent";
+
 export type CreateStartCampaignRequest = {
   raw_name: string;
   start_date: string; // YYYY-MM-DD
@@ -90,6 +93,7 @@ export type CreateStartCampaignRequest = {
   selected_channels?: ChannelType[]; // 선택한 매체 목록
   description?: string; // 캠페인 설명 (한글 원본 등)
   search_ad_type?: "brand" | "non_brand" | null; // 검색광고 유형 (브랜드/논브랜드)
+  search_ad_campaign_option?: SearchAdCampaignOption | null; // 검색광고 캠페인 옵션 (home, cmp, cat, prd, intent)
 };
 
 export type UpdateStartCampaignRequest = {

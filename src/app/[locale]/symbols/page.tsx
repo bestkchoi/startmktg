@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { useLocale } from "@/hooks/use-locale";
-import emojisData from "@/../../data/emojis_ko.json";
 import {
   copyToClipboard,
   getRecentEmojis,
@@ -41,6 +40,21 @@ export default function SymbolsPage() {
   const [favoriteEmojis, setFavoriteEmojis] = useState<string[]>([]);
   const [showToast, setShowToast] = useState(false);
   const [copiedEmoji, setCopiedEmoji] = useState<string>("");
+  const [emojisData, setEmojisData] = useState<EmojiItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // 이모지 데이터 동적 로드
+  useEffect(() => {
+    import("@/../../data/emojis_ko.json")
+      .then((module) => {
+        setEmojisData(module.default as EmojiItem[]);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error("이모지 데이터 로드 실패:", err);
+        setIsLoading(false);
+      });
+  }, []);
 
   // 로컬 스토리지에서 데이터 불러오기
   useEffect(() => {
@@ -83,24 +97,38 @@ export default function SymbolsPage() {
     []
   );
 
-  // 카테고리별로 이모지 그룹화
-  const emojisByCategory = categories.reduce((acc, category) => {
-    const categoryEmojis = (emojisData as EmojiItem[]).filter(
-      (emoji) => emoji.category === category.id
-    );
-    if (categoryEmojis.length > 0) {
-      acc[category.id] = categoryEmojis;
-    }
-    return acc;
-  }, {} as Record<string, EmojiItem[]>);
+  // 카테고리별로 이모지 그룹화 (메모이제이션)
+  const emojisByCategory = useMemo(() => {
+    return categories.reduce((acc, category) => {
+      const categoryEmojis = emojisData.filter(
+        (emoji) => emoji.category === category.id
+      );
+      if (categoryEmojis.length > 0) {
+        acc[category.id] = categoryEmojis;
+      }
+      return acc;
+    }, {} as Record<string, EmojiItem[]>);
+  }, [emojisData]);
 
-  // 검색 시 필터링된 이모지
-  const filteredEmojis = searchQuery
-    ? filterEmojis(emojisData as EmojiItem[], searchQuery, "all")
-    : [];
+  // 검색 시 필터링된 이모지 (메모이제이션)
+  const filteredEmojis = useMemo(() => {
+    return searchQuery
+      ? filterEmojis(emojisData, searchQuery, "all")
+      : [];
+  }, [emojisData, searchQuery]);
 
   // 검색 모드인지 확인
   const isSearchMode = searchQuery.trim().length > 0;
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-neutral-500">이모지 데이터를 불러오는 중...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -182,7 +210,7 @@ export default function SymbolsPage() {
                 <div className="flex flex-wrap gap-1">
                   {favoriteEmojis
                     .map((emojiChar) => {
-                      const emoji = (emojisData as EmojiItem[]).find(
+                      const emoji = emojisData.find(
                         (e) => e.char === emojiChar
                       );
                       return emoji ? { ...emoji, char: emojiChar } : null;
@@ -224,7 +252,7 @@ export default function SymbolsPage() {
                 <div className="flex flex-wrap gap-1">
                   {recentEmojis
                     .map((emojiChar) => {
-                      const emoji = (emojisData as EmojiItem[]).find(
+                      const emoji = emojisData.find(
                         (e) => e.char === emojiChar
                       );
                       return emoji ? { ...emoji, char: emojiChar } : null;

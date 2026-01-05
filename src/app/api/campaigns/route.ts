@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import { createSupabaseServerClient } from "@/libs/supabase/server";
 import type { StartCampaign, CreateStartCampaignRequest } from "@/types/campaign";
-import { normalizeCampaignName, buildFinalCampaignName } from "@/lib/campaign/campaign-name";
+import { normalizeCampaignName, buildFinalCampaignName, buildSearchAdCampaignName } from "@/lib/campaign/campaign-name";
 import {
   respond,
   missingEnvResponse,
@@ -36,8 +36,28 @@ export async function POST(req: NextRequest) {
   // 검증
   const errors: Record<string, string> = {};
 
-  if (!payload.raw_name || typeof payload.raw_name !== "string" || payload.raw_name.trim().length === 0) {
+  // 검색광고(Google 또는 Naver) 선택 시 raw_name은 선택사항
+  const isNaverSearch = payload.selected_channels?.includes("naver") || false;
+  const isGoogleAds = payload.selected_channels?.includes("google") || false;
+  const isSearchAd = isNaverSearch || isGoogleAds;
+
+  if (!isSearchAd && (!payload.raw_name || typeof payload.raw_name !== "string" || payload.raw_name.trim().length === 0)) {
     errors.raw_name = "캠페인명은 필수입니다.";
+  }
+
+  // 검색광고인 경우 필수 필드 검증
+  if (isSearchAd) {
+    if (!payload.search_ad_type || (payload.search_ad_type !== "brand" && payload.search_ad_type !== "non_brand")) {
+      errors.search_ad_type = "검색광고 유형(브랜드/논브랜드)을 선택해주세요.";
+    }
+    if (!payload.search_ad_campaign_option) {
+      errors.search_ad_campaign_option = "캠페인 옵션을 선택해주세요.";
+    } else {
+      const validOptions = ["home", "cmp", "cat", "prd", "intent"];
+      if (!validOptions.includes(payload.search_ad_campaign_option)) {
+        errors.search_ad_campaign_option = `캠페인 옵션은 ${validOptions.join(", ")} 중 하나여야 합니다.`;
+      }
+    }
   }
 
   if (!payload.start_date || typeof payload.start_date !== "string") {
@@ -73,30 +93,53 @@ export async function POST(req: NextRequest) {
 
   try {
     // normalizedName 생성
-    let normalizedName = payload.normalized_name 
-      ? payload.normalized_name 
-      : normalizeCampaignName(payload.raw_name);
-
-    // 검색광고인 경우 18자 제한 (Naver Search 또는 Google Ads: sm_sa_nav_br_/sm_sa_nav_nb_/sm_sa_goo_br_/sm_sa_goo_nb_ prefix 12자 + 캠페인명 18자 = 30자)
+    // 검색광고인 경우 raw_name이 없을 수 있음
     const isNaverSearch = payload.selected_channels?.includes("naver") || false;
     const isGoogleAds = payload.selected_channels?.includes("google") || false;
+    const isSearchAd = isNaverSearch || isGoogleAds;
+    
+    let normalizedName = payload.normalized_name || "";
+    if (!normalizedName && payload.raw_name && payload.raw_name.trim().length > 0) {
+      normalizedName = normalizeCampaignName(payload.raw_name);
+    }
+    // 검색광고이고 normalizedName이 없으면 빈 문자열 사용
+    if (isSearchAd && !normalizedName) {
+      normalizedName = "";
+    }
+
+    // 검색광고인 경우 18자 제한 (Naver Search 또는 Google Ads: sm_sa_nav_br_/sm_sa_nav_nb_/sm_sa_goo_br_/sm_sa_goo_nb_ prefix 12자 + 캠페인명 18자 = 30자)
     if ((isNaverSearch || isGoogleAds) && normalizedName.length > 18) {
       normalizedName = normalizedName.substring(0, 18);
     }
 
     // finalCampaignName 생성
-    const isBrand = payload.search_ad_type === "brand";
-    let channel: 'naver' | 'google' | undefined;
-    if (isNaverSearch) {
-      channel = 'naver';
-    } else if (isGoogleAds) {
-      channel = 'google';
+    let finalCampaignName: string;
+    
+    // 검색광고인 경우 새로운 네이밍 규칙 적용
+    if (isSearchAd && payload.search_ad_type && payload.search_ad_campaign_option) {
+      const media = isNaverSearch ? 'nav' : 'ggl';
+      const searchType = payload.search_ad_type === "brand" ? 'br' : 'nb';
+      finalCampaignName = buildSearchAdCampaignName(
+        payload.start_date,
+        media,
+        searchType,
+        payload.search_ad_campaign_option
+      );
+    } else {
+      // 기존 로직 (비검색광고)
+      const isBrand = payload.search_ad_type === "brand";
+      let channel: 'naver' | 'google' | undefined;
+      if (isNaverSearch) {
+        channel = 'naver';
+      } else if (isGoogleAds) {
+        channel = 'google';
+      }
+      finalCampaignName = buildFinalCampaignName(
+        payload.start_date,
+        normalizedName,
+        channel ? { channel, isBrand } : undefined
+      );
     }
-    const finalCampaignName = buildFinalCampaignName(
-      payload.start_date,
-      normalizedName,
-      channel ? { channel, isBrand } : undefined
-    );
 
     // brandId 결정 (없으면 null, 로그인 없이 사용 가능하도록)
     const brandId = payload.brand_id || null;
@@ -152,17 +195,21 @@ export async function POST(req: NextRequest) {
     }
 
     // 캠페인 생성 (로그인 없이 사용 가능하도록 user_id 관련 필드는 null)
+    // raw_name이 없으면 빈 문자열 사용 (검색광고의 경우)
+    const rawName = payload.raw_name && payload.raw_name.trim().length > 0 
+      ? payload.raw_name.trim() 
+      : "";
+    
     const { data, error } = await supabase
       .from("campaigns")
       .insert({
-        raw_name: payload.raw_name.trim(),
-        normalized_name: normalizedName,
+        raw_name: rawName,
+        normalized_name: normalizedName || "",
         final_campaign_name: finalCampaignName,
         start_date: payload.start_date,
         end_date: payload.end_date && payload.end_date.length > 0 ? payload.end_date : null,
         brand_id: brandId,
         creator_user_id: null, // 로그인 없이 사용 가능
-        description: payload.description || null, // 캠페인 설명 (한글 원본 등)
         user_id: null, // 로그인 없이 사용 가능
       } as any)
       .select()

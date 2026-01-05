@@ -9,7 +9,7 @@ const STATIC_PAGES = [
   "",
   "utm-checker",
   "campaigns",
-  "campaign/new",
+  "utm/new",
   "dashboard",
 ];
 
@@ -17,7 +17,7 @@ export async function GET() {
   // 정적 페이지 URL 생성
   const staticUrls = STATIC_PAGES.map((page) => {
     const path = page ? `/${LOCALE}/${page}` : `/${LOCALE}`;
-    const priority = page === "" ? "1.0" : page === "campaign/new" ? "0.7" : "0.8";
+    const priority = page === "" ? "1.0" : page === "utm/new" ? "0.7" : "0.8";
     return `  <url>
     <loc>${BASE_URL}${path}</loc>
     <lastmod>${new Date().toISOString().split("T")[0]}</lastmod>

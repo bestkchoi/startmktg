@@ -15,7 +15,11 @@ export function useLocale(): Locale {
     if (locale === "kr") {
       locale = "ko";
     }
-    if (locale === "ko" || locale === "en" || locale === "jp") {
+    // en을 ko로 매핑 (영어는 개발 대상이 아님)
+    if (locale === "en") {
+      locale = "ko";
+    }
+    if (locale === "ko" || locale === "jp") {
       return locale as Locale;
     }
   }
@@ -23,14 +27,21 @@ export function useLocale(): Locale {
   // fallback: pathname에서 추출
   const pathname = usePathname();
   let locale = getLocaleFromPath(pathname);
+  // en을 ko로 매핑 (영어는 개발 대상이 아님)
+  if (locale === "en") {
+    locale = "ko";
+  }
   // kr을 ko로 매핑
   if (locale === null) {
     const segments = pathname.split("/").filter(Boolean);
     if (segments.length > 0 && segments[0] === "kr") {
       locale = "ko";
     }
+    if (segments.length > 0 && segments[0] === "en") {
+      locale = "ko";
+    }
   }
-  return locale || "en"; // 기본값은 영어
+  return locale || "ko"; // 기본값은 한국어
 }
 
 /**

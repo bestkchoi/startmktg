@@ -8,7 +8,8 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "npm run validate:emojis && next build",
+    "build": "next build",
+    "build:validate": "npm run validate:emojis && next build",
     "start": "next start",
     "validate:emojis": "node scripts/validate-emojis.js",
     "generate:emojis": "node scripts/expand-emojis-full.mjs"

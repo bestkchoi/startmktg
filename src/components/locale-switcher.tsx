@@ -72,7 +72,7 @@ export function LocaleSwitcher() {
           </SelectValue>
         </SelectTrigger>
         <SelectContent>
-          {(["ko", "en"] as Locale[]).map((loc) => (
+          {(["ko", "en", "jp"] as Locale[]).map((loc) => (
             <SelectItem key={loc} value={loc}>
               {LOCALE_LABELS[locale][loc]}
             </SelectItem>

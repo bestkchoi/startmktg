@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/header/site-header";
+import { SiteFooter } from "@/components/footer/site-footer";
 
 type Props = {
   children: React.ReactNode;
@@ -22,24 +23,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     jp: "無料UTMパラメータチェッカー、キャンペーン管理ツール、マーケティング分析プラットフォーム。",
   };
 
+  // en은 ko로 매핑
+  const actualLocale = locale === "en" ? "ko" : locale;
   return {
-    title: titles[locale] || titles.en,
-    description: descriptions[locale] || descriptions.en,
+    title: titles[actualLocale] || titles.ko,
+    description: descriptions[actualLocale] || descriptions.ko,
     alternates: {
-      canonical: `${base}/${locale}`,
+      canonical: `${base}/${actualLocale}`,
       languages: {
-        en: `${base}/en`,
         ko: `${base}/ko`,
         jp: `${base}/jp`,
-        "x-default": `${base}/en`,
+        "x-default": `${base}/ko`,
       } as Record<string, string>,
     },
     openGraph: {
-      title: titles[locale] || titles.en,
-      description: descriptions[locale] || descriptions.en,
-      url: `${base}/${locale}`,
+      title: titles[actualLocale] || titles.ko,
+      description: descriptions[actualLocale] || descriptions.ko,
+      url: `${base}/${actualLocale}`,
       siteName: "Start MKTG",
-      locale: locale,
+      locale: actualLocale,
     },
   };
 }
@@ -50,13 +52,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <>
       <SiteHeader />
       {children}
-      <footer className="bg-white border-t border-neutral-200 mt-auto">
-        <div className="mx-auto max-w-6xl px-4 py-8">
-          <div className="text-center text-sm text-neutral-500">
-            <p>© 2025 Start MKTG. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

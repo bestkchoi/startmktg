@@ -223,7 +223,7 @@ export default function CampaignsPage() {
           <div className="border border-neutral-200 bg-neutral-50 px-6 py-12 text-center">
             <p className="text-sm text-neutral-500 mb-4">생성된 캠페인이 없습니다.</p>
             <Link
-              href={localizedPath("/campaign/new") as any}
+              href={localizedPath("/utm/new") as any}
               className="text-sm text-neutral-900 underline hover:text-neutral-600"
             >
               Campaign 만들기

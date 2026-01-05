@@ -268,3 +268,8 @@ console.log(`✅ 총 ${finalData.length}개의 이모지 데이터가 생성되�
 console.log(`📁 저장 위치: ${dataPath}`);
 
 
+
+
+
+
+
